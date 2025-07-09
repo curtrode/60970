@@ -58,6 +58,34 @@ footer a:hover {
     text-decoration:underline;
 }
 
+.banner {
+
+    /* Full width across container */
+    width: 100%;
+    /* Height = 70% of viewport height (responsive) */
+    height: 70vh;
+    /* Fallback color if image fails to load */
+    background-color: green;
+
+    /* Background image path - relative to CSS file */
+    background-image: url('../../images/60970_WebBanner_SUM25.png');
+
+    /* Scale image to cover entire container, may crop */
+    background-size: cover;
+    /* Center the background image */
+    background-position: center;
+    /* Don't repeat the background image */
+    background-repeat: no-repeat; 
+    /* Enable flexbox for positioning control */
+    display: flex;
+    /* Center content vertically */
+    align-items: center;
+    /* Push content to the right side */
+    justify-content: flex-end;
+    /* Allow absolute positioning of child elements */
+    position: relative; 
+}
+
 
 
 
@@ -93,9 +121,5 @@ main {
     margin-bottom: 5%;
 
 }
-
-
-
-
 
 

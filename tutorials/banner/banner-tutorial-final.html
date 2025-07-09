@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Banner Development Tutorial</title>
+    <style>
+        /* Professional document styling */
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #fafafa;
+        }
+        
+        /* Header styling */
+        h1 {
+            color: #4d1979;
+            border-bottom: 3px solid #4d1979;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-align: center;
+        }
+        
+        h2 {
+            color: #4d1979;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.8em;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+        }
+        
+        h3 {
+            color: #6b2c91;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.3em;
+        }
+        
+        /* Code blocks */
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.4;
+            margin: 1rem 0;
+        }
+        
+        code {
+            background-color: #f1f3f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Emphasis and strong text */
+        strong {
+            color: #4d1979;
+            font-weight: 600;
+        }
+        
+        em {
+            color: #6b2c91;
+            font-style: italic;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid #4d1979;
+            margin: 1rem 0;
+            padding-left: 1rem;
+            color: #666;
+            font-style: italic;
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+        
+        /* Special callout boxes */
+        .checkpoint {
+            background-color: #e8f5e8;
+            border: 1px solid #4caf50;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .checkpoint h3 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+        
+        .github-reminder {
+            background-color: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .github-reminder h3 {
+            color: #1976d2;
+            margin-top: 0;
+        }
+        
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .warning h3 {
+            color: #f57c00;
+            margin-top: 0;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        
+        /* File tree styling */
+        .file-tree {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e0e0e0;
+            text-align: center;
+            color: #666;
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                color: black;
+                font-size: 12pt;
+                line-height: 1.4;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            pre, blockquote {
+                page-break-inside: avoid;
+            }
+            
+            .checkpoint, .github-reminder, .warning {
+                page-break-inside: avoid;
+            }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            pre {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Web Banner Development Tutorial</h1>
+
+    <h2>Overview</h2>
+    <p>This tutorial will walk you through creating a professional web banner with background images, text overlays, and fade effects using HTML and CSS.</p>
+
+    <h2>Learning Objectives</h2>
+    <p>By the end of this tutorial, students will be able to:</p>
+    <ul>
+        <li>Create a banner with background images using CSS</li>
+        <li>Apply gradient overlays for text readability</li>
+        <li>Position text elements over background images</li>
+        <li>Use flexbox for element alignment</li>
+        <li>Implement basic responsive design principles</li>
+    </ul>
+
+    <h2>Project Setup</h2>
+    <p>Start with a basic HTML structure and CSS file:</p>
+    <ul>
+        <li><code>bannerPractice.html</code> - Main HTML file</li>
+        <li><code>style_Banner.css</code> - CSS styles</li>
+        <li><code>images/</code> folder containing your banner image</li>
+    </ul>
+
+    <div class="github-reminder">
+        <h3>💾 GitHub Desktop Backup Reminder</h3>
+        <p>Before starting any coding session:</p>
+        <ol>
+            <li><strong>Open GitHub Desktop</strong></li>
+            <li><strong>Check current branch</strong> (usually <code>main</code>)</li>
+            <li><strong>Pull latest changes</strong> (if working collaboratively)</li>
+            <li><strong>Commit any existing changes</strong> before starting new work</li>
+        </ol>
+        <blockquote>
+            <p><strong>Best Practice</strong>: Make commits after completing each major step in this tutorial. This creates a backup history and allows you to revert if needed.</p>
+        </blockquote>
+    </div>
+
+    <h2>Step 1: Basic Banner Structure</h2>
+
+    <h3>HTML Setup</h3>
+    <pre><code>&lt;!-- Banner container - holds all banner content --&gt;
+&lt;div class="banner"&gt;
+    &lt;!-- Text content container - positions text over background --&gt;
+    &lt;div class="banner-text"&gt;
+        &lt;!-- Main heading - person's name, largest text --&gt;
+        &lt;h1 class="banner-name"&gt;Curt Rode&lt;/h1&gt;
+        &lt;!-- Subtitle - role/title, smaller italicized text --&gt;
+        &lt;h2 class="banner-title"&gt;Educator &lt;br&gt;Web Developer&lt;/h2&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+    <p><strong>Key Points:</strong></p>
+    <ul>
+        <li>Place banner between <code>&lt;nav&gt;</code> and <code>&lt;main&gt;</code> sections</li>
+        <li>Use semantic HTML structure</li>
+        <li>Separate content from presentation</li>
+    </ul>
+
+    <div class="checkpoint">
+        <h3>💾 Checkpoint: Save Your Work</h3>
+        <p>After creating your basic HTML structure:</p>
+        <ol>
+            <li><strong>Save your file</strong> (Cmd+S)</li>
+            <li><strong>Open GitHub Desktop</strong></li>
+            <li><strong>Review changes</strong> in the left panel</li>
+            <li><strong>Write commit message</strong>: "Add basic banner HTML structure"</li>
+            <li><strong>Commit to main</strong> and <strong>Push to origin</strong></li>
+        </ol>
+    </div>
+
+    <h2>Step 2: Initial CSS Styling</h2>
+
+    <h3>Basic Banner CSS</h3>
+    <pre><code>.banner {
+    /* Full width across container */
+    width: 100%;
+    /* Height = 70% of viewport height (responsive) */
+    height: 70vh;
+    /* Fallback color if image fails to load */
+    background-color: #4d1979;
+    /* Background image path - relative to CSS file */
+    background-image: url('../../images/60970_WebBanner_SUM25.png');
+    /* Scale image to cover entire container, may crop */
+    background-size: cover;
+    /* Center the background image */
+    background-position: center;
+    /* Don't repeat the background image */
+    background-repeat: no-repeat;
+    /* Enable flexbox for positioning control */
+    display: flex;
+    /* Center content vertically */
+    align-items: center;
+    /* Push content to the right side */
+    justify-content: flex-end;
+    /* Allow absolute positioning of child elements */
+    position: relative;
+}</code></pre>
+
+    <p><strong>Teaching Points:</strong></p>
+    <ul>
+        <li><code>background-size: cover</code> ensures image covers entire container</li>
+        <li><code>background-position: center</code> centers the image</li>
+        <li><code>vh</code> units for responsive height (70% of viewport height)</li>
+        <li>Flexbox for positioning control</li>
+    </ul>
+
+    <div class="checkpoint">
+        <h3>💾 Checkpoint: Save Your Progress</h3>
+        <p>After adding basic CSS styling:</p>
+        <ol>
+            <li><strong>Save your CSS file</strong> (Cmd+S)</li>
+            <li><strong>Test your banner</strong> in the browser</li>
+            <li><strong>Commit changes</strong> in GitHub Desktop: "Add basic banner CSS styling"</li>
+            <li><strong>Push to origin</strong> to backup your work</li>
+        </ol>
+    </div>
+
+    <h2>Step 3: Adding Text Overlay</h2>
+
+    <h3>Text Container Styling</h3>
+    <pre><code>.banner-text {
+    /* Right-align all text within this container */
+    text-align: right;
+    /* 8% margin from right edge (responsive spacing) */
+    margin-right: 8%;
+    /* Internal padding for breathing room */
+    padding: 30px;
+}</code></pre>
+
+    <h3>Individual Text Elements</h3>
+    <pre><code>.banner-name {
+    /* Pure white for maximum contrast */
+    color: white;
+    /* Font stack - tries first font, falls back to next if unavailable */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* Large size for prominence (3.5 times base size) */
+    font-size: 3.5em;
+    /* Bold weight for emphasis */
+    font-weight: bold;
+    /* Margin: top right bottom left (only bottom margin) */
+    margin: 0 0 10px 0;
+    /* Text shadow: horizontal vertical blur color */
+    /* Creates depth and improves readability over image */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.banner-title {
+    /* Slightly off-white for subtle hierarchy */
+    color: #f0f0f0;
+    /* Same font family for consistency */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* Smaller than banner-name for hierarchy */
+    font-size: 1.8em;
+    /* Normal weight (not bold) */
+    font-weight: normal;
+    /* Italic style to distinguish from main heading */
+    font-style: italic;
+    /* No margin on any side */
+    margin: 0;
+    /* Subtler shadow than banner-name */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}</code></pre>
+
+    <p><strong>Key Concepts:</strong></p>
+    <ul>
+        <li><code>text-shadow</code> improves readability over images</li>
+        <li>Font hierarchy (size, weight, style)</li>
+        <li>Color contrast for accessibility</li>
+    </ul>
+
+    <div class="checkpoint">
+        <h3>💾 Checkpoint: Backup Text Styling</h3>
+        <p>After completing text overlay styling:</p>
+        <ol>
+            <li><strong>Save all files</strong> (Cmd+S)</li>
+            <li><strong>Preview your banner</strong> to ensure text is readable</li>
+            <li><strong>Commit in GitHub Desktop</strong>: "Add banner text overlay and typography"</li>
+            <li><strong>Push changes</strong> to create backup point</li>
+        </ol>
+    </div>
+
+    <h2>Step 4: Creating the Fade Effect</h2>
+
+    <h3>Problem to Solve</h3>
+    <p>Text readability can be poor over complex background images.</p>
+
+    <h3>Solution: Gradient Overlay</h3>
+    <pre><code>.banner {
+    /* Previous properties... */
+    /* Multiple backgrounds: gradient first, then image */
+    background-image: 
+        /* Linear gradient overlay */
+        linear-gradient(
+            to right,                    /* Direction: left to right */
+            transparent 0%,              /* Start: fully transparent */
+            transparent 30%,             /* Stay transparent until 30% */
+            rgba(0, 0, 0, 0.5) 60%,     /* Begin darkening at 60% */
+            rgba(0, 0, 0, 0.9) 100%     /* End: 90% opacity black */
+        ),
+        /* Background image (rendered behind gradient) */
+        url('../../images/60970_WebBanner_SUM25.png');
+}</code></pre>
+
+    <p><strong>How It Works:</strong></p>
+    <ul>
+        <li>Multiple background layers stack on top of each other</li>
+        <li>Gradient creates a fade from transparent to dark</li>
+        <li><code>rgba(0, 0, 0, 0.9)</code> = 90% opacity black overlay</li>
+        <li>Gradient stops control the fade transition points</li>
+    </ul>
+
+    <div class="checkpoint">
+        <h3>💾 Checkpoint: Save Gradient Effect</h3>
+        <p>This is a major enhancement! After adding the gradient overlay:</p>
+        <ol>
+            <li><strong>Save your CSS file</strong> (Cmd+S)</li>
+            <li><strong>Test the fade effect</strong> in multiple browsers</li>
+            <li><strong>Commit changes</strong>: "Add gradient overlay fade effect for text readability"</li>
+            <li><strong>Push to origin</strong> - this is a significant milestone!</li>
+        </ol>
+    </div>
+
+    <h2>Step 5: Flexible Design Principles</h2>
+
+    <h3>Built-in Responsiveness</h3>
+    <p>The banner uses flexible units and layout methods that work well on all screen sizes:</p>
+
+    <pre><code>.banner {
+    /* Viewport height units scale with screen size */
+    /* 70% of whatever the current screen height is */
+    height: 70vh;
+    /* ...other properties... */
+}
+
+.banner-text {
+    /* Percentage margins adapt to screen width */
+    /* 8% of whatever the current screen width is */
+    margin-right: 8%;
+    /* ...other properties... */
+}</code></pre>
+
+    <p><strong>Flexible Design Strategy:</strong></p>
+    <ul>
+        <li><strong>Viewport units (<code>vh</code>)</strong> - Banner height scales with screen size</li>
+        <li><strong>Percentage margins</strong> - Spacing adapts to screen width</li>
+        <li><strong>Flexbox positioning</strong> - Text stays properly aligned</li>
+        <li><strong>Responsive images</strong> - <code>background-size: cover</code> adapts to container</li>
+    </ul>
+
+    <p><strong>Why This Works:</strong></p>
+    <ul>
+        <li>No media queries needed for basic responsiveness</li>
+        <li>Design principles create natural adaptability</li>
+        <li>Foundation ready for advanced responsive features later</li>
+    </ul>
+
+    <div class="checkpoint">
+        <h3>💾 Checkpoint: Document Responsive Approach</h3>
+        <p>After implementing flexible design principles:</p>
+        <ol>
+            <li><strong>Save your work</strong> (Cmd+S)</li>
+            <li><strong>Test responsiveness</strong> by resizing browser window</li>
+            <li><strong>Commit changes</strong>: "Implement flexible design principles for natural responsiveness"</li>
+            <li><strong>Push to origin</strong> to preserve this important concept</li>
+        </ol>
+    </div>
+
+    <h2>Step 6: Fixing Common Issues</h2>
+
+    <h3>Horizontal Scrolling Problem</h3>
+    <p><strong>Issue:</strong> Nav and footer creating horizontal scroll</p>
+    <p><strong>Solution:</strong> Add <code>box-sizing: border-box</code></p>
+
+    <pre><code>nav, footer {
+    /* Border-box includes padding and border in width calculation */
+    /* This prevents elements from exceeding 100% width */
+    box-sizing: border-box;
+    /* Other properties... */
+}</code></pre>
+
+    <p><strong>Explanation:</strong></p>
+    <ul>
+        <li>Default: width + padding = total width (can exceed 100%)</li>
+        <li><code>border-box</code>: padding included within width (stays at 100%)</li>
+    </ul>
+
+    <div class="checkpoint">
+        <h3>💾 Checkpoint: Save Bug Fixes</h3>
+        <p>After fixing common issues:</p>
+        <ol>
+            <li><strong>Save all files</strong> (Cmd+S)</li>
+            <li><strong>Test for horizontal scrolling</strong> on mobile sizes</li>
+            <li><strong>Commit changes</strong>: "Fix horizontal scrolling with box-sizing border-box"</li>
+            <li><strong>Push to origin</strong> to backup your bug fixes</li>
+        </ol>
+    </div>
+
+    <h2>CSS Concepts Covered</h2>
+
+    <h3>Background Properties</h3>
+    <ul>
+        <li><code>background-image</code> - Setting background images</li>
+        <li><code>background-size: cover</code> - Scaling images</li>
+        <li><code>background-position: center</code> - Image positioning</li>
+        <li><code>background-repeat: no-repeat</code> - Preventing repetition</li>
+    </ul>
+
+    <h3>Flexbox Layout</h3>
+    <ul>
+        <li><code>display: flex</code> - Creating flex container</li>
+        <li><code>align-items: center</code> - Vertical alignment</li>
+        <li><code>justify-content: flex-end</code> - Horizontal alignment</li>
+    </ul>
+
+    <h3>Advanced Techniques</h3>
+    <ul>
+        <li><code>linear-gradient()</code> - Creating overlays</li>
+        <li><code>rgba()</code> - Colors with transparency</li>
+        <li><code>text-shadow</code> - Text effects</li>
+        <li><code>vh</code> units - Viewport-relative sizing</li>
+    </ul>
+
+    <h3>Flexible Design</h3>
+    <ul>
+        <li>Viewport units for responsive scaling</li>
+        <li>Percentage-based spacing</li>
+        <li>Flexbox for adaptable layouts</li>
+        <li>Background properties for image scaling</li>
+    </ul>
+
+    <h3>Typography</h3>
+    <ul>
+        <li>Font hierarchy and sizing</li>
+        <li>Color contrast considerations</li>
+        <li>Text shadows for readability</li>
+    </ul>
+
+    <h2>Design Principles Applied</h2>
+
+    <h3>Visual Hierarchy</h3>
+    <ul>
+        <li>Large name, smaller subtitle</li>
+        <li>Bold vs. italic styling</li>
+        <li>Color contrast differences</li>
+    </ul>
+
+    <h3>Readability</h3>
+    <ul>
+        <li>Text shadows for visibility</li>
+        <li>Gradient overlay for contrast</li>
+        <li>Appropriate font sizes</li>
+    </ul>
+
+    <h3>Brand Consistency</h3>
+    <ul>
+        <li>Using consistent color palette</li>
+        <li>Matching existing site design</li>
+        <li>Professional typography choices</li>
+    </ul>
+
+    <h2>Testing and Debugging</h2>
+
+    <h3>Common Issues to Check</h3>
+    <ol>
+        <li><strong>Image not loading:</strong> Check file path and spelling</li>
+        <li><strong>Gradient not visible:</strong> Ensure proper syntax and color values</li>
+        <li><strong>Text not readable:</strong> Adjust gradient opacity or text shadow</li>
+        <li><strong>Horizontal scrolling:</strong> Check <code>box-sizing</code> on nav/footer</li>
+        <li><strong>Responsive issues:</strong> Test on different screen sizes</li>
+    </ol>
+
+    <h3>Browser Developer Tools</h3>
+    <ul>
+        <li>Inspect element to see applied styles</li>
+        <li>Test responsive design with device emulation</li>
+        <li>Debug CSS properties in real-time</li>
+    </ul>
+
+    <h2>Best Practices</h2>
+
+    <div class="github-reminder">
+        <h3>Version Control with GitHub Desktop</h3>
+        <p><strong>Essential Workflow for Every Coding Session:</strong></p>
+
+        <h4>1. Start of Session:</h4>
+        <ul>
+            <li>Open GitHub Desktop</li>
+            <li>Ensure you're on the correct branch (usually <code>main</code>)</li>
+            <li>Pull latest changes (Cmd+Shift+P or click "Pull origin")</li>
+            <li>Check for any uncommitted changes</li>
+        </ul>
+
+        <h4>2. During Development:</h4>
+        <ul>
+            <li>Save files frequently (Cmd+S)</li>
+            <li>Commit after completing each major step</li>
+            <li>Use descriptive commit messages</li>
+            <li>Push regularly to backup your work</li>
+        </ul>
+
+        <h4>3. Suggested Commit Points:</h4>
+        <ul>
+            <li>After completing each tutorial step</li>
+            <li>Before trying experimental changes</li>
+            <li>After fixing any bugs or issues</li>
+            <li>At the end of each coding session</li>
+        </ul>
+
+        <h4>4. Good Commit Message Examples:</h4>
+        <ul>
+            <li>"Add basic banner HTML structure"</li>
+            <li>"Implement CSS background image and flexbox layout"</li>
+            <li>"Add text overlay with typography styling"</li>
+            <li>"Create gradient overlay for text readability"</li>
+            <li>"Fix horizontal scrolling issue with box-sizing"</li>
+        </ul>
+
+        <h4>5. End of Session:</h4>
+        <ul>
+            <li>Commit any final changes</li>
+            <li>Push all commits to origin</li>
+            <li>Verify your work is backed up on GitHub.com</li>
+        </ul>
+    </div>
+
+    <h3>File Organization</h3>
+    <div class="file-tree">
+project/
+├── index.html
+├── bannerPractice.html
+├── style_Banner.css
+├── images/
+│   └── 60970_WebBanner_SUM25.png
+└── tutorials/
+    └── banner/
+        ├── banner-tutorial.md
+        ├── banner-tutorial-final.html
+        └── TUTORIAL_STATUS.md
+    </div>
+
+    <h3>CSS Organization</h3>
+    <ul>
+        <li>Group related properties</li>
+        <li>Use consistent naming conventions</li>
+        <li>Comment complex sections</li>
+        <li>Organize styles logically (layout → typography → effects)</li>
+    </ul>
+
+    <h3>Performance Considerations</h3>
+    <ul>
+        <li>Optimize image file sizes</li>
+        <li>Use appropriate image formats</li>
+        <li>Consider lazy loading for large images</li>
+        <li>Minimize CSS complexity</li>
+    </ul>
+
+    <h2>Future Enhancements</h2>
+
+    <h3>Animation Effects</h3>
+    <ul>
+        <li>Fade-in animations on page load</li>
+        <li>Parallax scrolling effects</li>
+        <li>Hover interactions</li>
+    </ul>
+
+    <h3>Advanced Responsive Design (Coming in Future Lessons)</h3>
+    <ul>
+        <li>Media queries for specific screen sizes</li>
+        <li>Enhanced typography scaling</li>
+        <li>Mobile-specific layouts</li>
+        <li>Desktop-optimized spacing</li>
+        <li>Container queries</li>
+    </ul>
+
+    <h3>Accessibility Improvements</h3>
+    <ul>
+        <li>ARIA labels for screen readers</li>
+        <li>Keyboard navigation support</li>
+        <li>Color contrast compliance</li>
+    </ul>
+
+    <h2>Assignment Ideas</h2>
+
+    <h3>Basic Level</h3>
+    <ol>
+        <li>Create a banner with your own image and text</li>
+        <li>Experiment with different gradient directions</li>
+        <li>Try different font combinations</li>
+    </ol>
+
+    <h3>Intermediate Level</h3>
+    <ol>
+        <li>Add multiple gradient overlays</li>
+        <li>Create a banner with left-aligned text</li>
+        <li>Experiment with different banner heights and positioning</li>
+    </ol>
+
+    <h3>Advanced Level</h3>
+    <ol>
+        <li>Add CSS animations for text effects</li>
+        <li>Create multiple banner variations for different pages</li>
+        <li>Implement custom gradient color schemes</li>
+    </ol>
+
+    <h2>Troubleshooting Guide</h2>
+
+    <h3>Image Won't Display</h3>
+    <ul>
+        <li>Check file path spelling</li>
+        <li>Verify image file exists</li>
+        <li>Ensure proper file permissions</li>
+    </ul>
+
+    <h3>Gradient Not Working</h3>
+    <ul>
+        <li>Check syntax of <code>linear-gradient()</code></li>
+        <li>Verify color values are correct</li>
+        <li>Ensure gradient is listed before image URL</li>
+    </ul>
+
+    <h3>Text Not Visible</h3>
+    <ul>
+        <li>Increase <code>text-shadow</code> values</li>
+        <li>Darken gradient overlay</li>
+        <li>Check color contrast ratios</li>
+    </ul>
+
+    <h3>Layout Issues</h3>
+    <ul>
+        <li>Verify flexbox properties</li>
+        <li>Check for conflicting CSS rules</li>
+        <li>Use browser dev tools to inspect</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+
+    <p>This banner tutorial covers essential web development concepts while creating a professional, visually appealing result. The techniques learned here form the foundation for more advanced layout and design work.</p>
+
+    <h3>Key Takeaways</h3>
+    <ul>
+        <li>Background images require careful consideration of text readability</li>
+        <li>Gradient overlays are powerful tools for improving contrast</li>
+        <li>Flexbox provides excellent control over element positioning</li>
+        <li>Flexible design principles create naturally responsive layouts</li>
+        <li>Viewport units and percentages provide built-in adaptability</li>
+        <li>Testing and debugging are essential parts of the development process</li>
+    </ul>
+
+    <div class="checkpoint">
+        <h3>🎯 Final Project Backup</h3>
+        <p><strong>Congratulations! You've completed the banner tutorial.</strong></p>
+
+        <p><strong>Final Steps:</strong></p>
+        <ol>
+            <li><strong>Save all files</strong> one last time</li>
+            <li><strong>Test your complete banner</strong> in multiple browsers</li>
+            <li><strong>Create final commit</strong>: "Complete banner tutorial - fully functional responsive banner"</li>
+            <li><strong>Push to origin</strong> to backup your finished project</li>
+            <li><strong>Verify on GitHub.com</strong> that all your work is safely stored</li>
+        </ol>
+
+        <p><strong>Your repository now contains:</strong></p>
+        <ul>
+            <li>Complete working banner implementation</li>
+            <li>Step-by-step commit history</li>
+            <li>Backup of all your progress</li>
+            <li>Foundation for future enhancements</li>
+        </ul>
+    </div>
+
+    <div class="github-reminder">
+        <h3>📱 Quick Reference: GitHub Desktop Commands</h3>
+        <ul>
+            <li><strong>Pull latest changes</strong>: Cmd+Shift+P</li>
+            <li><strong>Commit changes</strong>: Cmd+Enter (after writing commit message)</li>
+            <li><strong>Push to origin</strong>: Cmd+P</li>
+            <li><strong>View commit history</strong>: Click "History" tab</li>
+            <li><strong>Undo last commit</strong>: Repository menu → "Undo last commit"</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p><em>This tutorial was developed for MLA 60970 - Web Development</em></p>
+    </div>
+</body>
+</html>

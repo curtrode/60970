@@ -1,0 +1,250 @@
+/* ========================================
+   NAVIGATION STYLES
+   ======================================== */
+
+nav {
+    width:100%;
+    background-color: #4d1979;
+    color: white;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    box-sizing: border-box; /* Prevents horizontal scrolling */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px; /* Space between navigation items */
+} 
+
+nav li {
+    font-size: 1em;
+}
+
+/* Navigation link states */
+nav a:link {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: darkgray;
+    text-decoration:underline;
+}
+
+/* Active page indicator */
+nav a.active {
+    color: #f0f0f0;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* ========================================
+   FOOTER STYLES
+   ======================================== */
+
+footer {
+    width:100%;
+    background-color: #4d1979;
+    color: white;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    box-sizing: border-box; /* Prevents horizontal scrolling */
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px; 
+} 
+
+footer li {
+    font-size: 1em;
+}
+
+/* Footer link states */
+footer a:link {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: darkgray;
+    text-decoration:underline;
+}
+
+/* ========================================
+   BANNER STYLES
+   ======================================== */
+
+/* Main banner - used for homepage */
+.banner {
+    width: 100%;
+    height: 70vh; /* 70% of viewport height for full impact */
+    background-color: #4d1979; /* Fallback color if image fails to load */
+    background-image: 
+        linear-gradient(to right, transparent 0%, transparent 30%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0.9) 100%),
+        url('images/60970_WebBanner_SUM25.png');
+    background-size: cover; /* Ensures image covers entire container */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents image repetition */
+    display: flex; /* Flexbox for positioning control */
+    align-items: center; /* Vertical centering */
+    justify-content: flex-end; /* Positions text to the right */
+    position: relative;
+}
+
+/* About page banner - shorter height for subpages */
+.banner-about {
+    height: 45vh; /* Shorter than homepage banner */
+    background-image: 
+        linear-gradient(to right, transparent 0%, transparent 30%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0.9) 100%),
+        url('images/60970_WebBanner_SUM25.png');
+}
+
+/* General subpage banner class - can be applied to other subpages */
+.banner-subpage {
+    height: 45vh;
+}
+
+/* Banner text container */
+.banner-text {
+    text-align: right; /* Right-align text */
+    margin-right: 8%; /* Space from right edge */
+    padding: 30px; /* Internal spacing */
+}
+
+/* Banner name styling (main heading) */
+.banner-name {
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 3.5em; /* Large, prominent size */
+    font-weight: bold;
+    margin: 0 0 10px 0; /* Bottom margin only */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Improves readability over image */
+}
+
+/* Banner title styling (subtitle) */
+.banner-title {
+    color: #f0f0f0; /* Slightly lighter than banner-name */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.8em; /* Smaller than banner-name */
+    font-weight: normal;
+    font-style: italic; /* Distinguishes from main heading */
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow for readability */
+}
+
+/* Banner image styling (if using img tag instead of background) */
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintains aspect ratio while filling container */
+}
+
+/* ========================================
+   GENERAL TYPOGRAPHY AND CONTENT STYLES
+   ======================================== */
+
+/* Main headings (h1, h2) */
+h1, h2 {
+    color: #4d1979; /* Brand color */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Secondary headings styling */
+h2 {
+    font-style: italic; /* Distinguishes from h1 */
+}
+
+/* Paragraph and list item styling */
+p, li {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2em; /* Slightly larger for readability */
+    line-height: 1.5em; /* Improved line spacing */
+}
+
+/* Main content area */
+main {
+    margin-left: 10%; /* Left margin */
+    margin-right: 10%; /* Right margin */
+    margin-top: 5%; /* Top margin */
+    margin-bottom: 5%; /* Bottom margin */
+}
+
+/* ========================================
+   ABOUT PAGE SPECIFIC STYLES
+   ======================================== */
+
+/* Introduction section with highlighted background */
+.intro {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 30px;
+    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 30px;
+}
+
+.intro h1 {
+    color: #4d1979; /* Brand color */
+    margin-bottom: 20px;
+}
+
+/* General section spacing */
+section {
+    margin-bottom: 40px; /* Space between sections */
+}
+
+/* Section headings with underline */
+section h2 {
+    color: #4d1979; /* Brand color */
+    border-bottom: 2px solid #4d1979; /* Underline effect */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Subsection headings */
+section h3 {
+    color: #6b2c91; /* Darker shade of brand color */
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+/* Section list styling */
+section ul {
+    margin-left: 20px; /* Indent lists */
+}
+
+section li {
+    margin-bottom: 8px; /* Space between list items */
+}
+
+/* ========================================
+   FUTURE ENHANCEMENTS
+   ======================================== */
+
+/* 
+   RESPONSIVE DESIGN NOTES:
+   When we cover media queries later in the course, we can add:
+   - Larger banner text on desktop screens
+   - Increased padding and margins for larger screens
+   - Different layouts for mobile vs desktop
+   
+   For now, the design works well on all screen sizes using:
+   - Viewport units (vh) for flexible banner height
+   - Percentage margins for flexible spacing
+   - Flexbox for banner text positioning
+*/
+
+
+
+
+
+

@@ -69,7 +69,7 @@ footer a:hover {
     /* Height = 70% of viewport height (responsive) */
     height: 70vh;
     /* Fallback color if image fails to load */
-    background-color: green;
+    background-color: gray;
 
      /* Multiple backgrounds: gradient first, then image */
     background-image: 
@@ -82,7 +82,7 @@ footer a:hover {
             rgba(0, 0, 0, 0.9) 100%     /* End: 90% opacity black */
         ),
         /* Background image (rendered behind gradient) */
-        url('images/60970_WebBanner_SUM25.png');
+        url('/images/60970_WebBanner_SUM25.png');
 
     /* Scale image to cover entire container, may crop */
     background-size: cover;

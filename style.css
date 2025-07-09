@@ -86,6 +86,49 @@ footer a:hover {
     position: relative; 
 }
 
+.banner-text {
+    /* Right-align all text within this container */
+    text-align: right;
+    /* 8% margin from right edge (responsive spacing) */
+    margin-right: 8%;
+    /* Internal padding for breathing room */
+    padding: 30px;
+}
+
+
+.banner-name {
+    /* Pure white for maximum contrast */
+    color: white;
+    /* Font stack - tries first font, falls back to next if unavailable */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* Large size for prominence (3.5 times base size)*/
+    font-size: 5.0em;
+    /* Bold weight for emphasis */
+    font-weight: bold;
+    /* Margin: top right bottom left (only bottom margin) */
+    margin: 0 0 10px 0;
+    /* Text shadow: horizontal vertical blur color */
+    /* Creates depth and improves readability over image */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.banner-title {
+    /* Slightly off-white for subtle hierarchy */
+    color: #f0f0f0;
+    /* Same font family for consistency */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* Smaller than banner-name for hierarchy */
+    font-size: 3.5em;
+    /* Normal weight (not bold) */
+    font-weight: normal;
+    /* Italic style to distinguish from main heading */
+    font-style: italic;
+    /* No margin on any side */
+    margin: 0;
+    /* Subtler shadow than banner-name */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
 
 
 

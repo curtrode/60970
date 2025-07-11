@@ -18,6 +18,10 @@ tutorials/
 - ✅ `banner-tutorial-final.html` → `tutorials/banner/banner-tutorial-final.html`
 - ✅ `banner-tutorial-clean.md` → `tutorials/banner/banner-tutorial-clean.md`
 - ✅ `TUTORIAL_STATUS.md` → `tutorials/banner/TUTORIAL_STATUS.md`
+- ✅ `bannerPractice.html` → `tutorials/banner/bannerPractice.html`
+- ✅ `style_Banner.css` → `tutorials/banner/style_Banner.css`
+- ✅ `about.html` → `tutorials/banner/about.html`
+- ✅ `week2-multipage-tutorial.html` → `tutorials/subpage/week2-multipage-tutorial.html`
 
 ### 🔗 **Relative Paths Updated**
 All references to `images/60970_WebBanner_SUM25.png` have been updated to `../../images/60970_WebBanner_SUM25.png` in:
@@ -40,12 +44,21 @@ Updated file organization diagrams in both tutorial files to reflect the new str
 4. **🔄 Maintainability** - Related files are grouped logically
 5. **📱 Distribution** - Tutorial files are self-contained in their directory
 
-## Working Files (Unchanged)
-These remain in the root directory for student practice:
+## Tutorial Files (All Organized)
+All banner tutorial files are now properly organized in `tutorials/banner/`:
+- `banner-tutorial.md` - Main tutorial source
+- `banner-tutorial-final.html` - HTML export (CANONICAL)
+- `banner-tutorial-clean.md` - Clean backup version
+- `TUTORIAL_STATUS.md` - Status and usage instructions
 - `bannerPractice.html` - Student practice file
-- `about.html` - Subpage example  
+- `about.html` - Banner tutorial about page example
 - `style_Banner.css` - CSS stylesheet
-- `images/` - Image assets
+
+## Additional Project Files
+- `tutorials/subpage/` - Week 2 multi-page assignment (complete)
+- `tutorials/subpage/week2-multipage-tutorial.html` - Tutorial document for building multi-page websites
+- `tutorials/subpage/assignment-instructions.html` - Assignment requirements and guidelines
+- `images/` - Image assets (shared across projects)
 
 ---
 

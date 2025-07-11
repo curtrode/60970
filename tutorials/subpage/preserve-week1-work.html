@@ -1,0 +1,239 @@
+<!-- D2L LMS Compatible Version - Remove DOCTYPE and HTML tags when embedding -->
+<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 100%; margin: 0; padding: 1rem; background-color: #ffffff;"
+     class="d2l-preserve-week1-guide">
+    <!-- Main Content Container -->
+    <div style="background-color: #f8f9fa; padding: 1.5rem; border-radius: 8px; border: 1px solid #dee2e6; margin-bottom: 1rem;">
+        
+        <!-- Title -->
+        <h1 style="color: #2c3e50; font-size: 1.8em; margin-bottom: 1rem; border-bottom: 3px solid #3498db; padding-bottom: 0.5rem; margin-top: 0;">
+            How to Preserve Your Week 1 Work Before Starting Week 2
+        </h1>
+        
+        <!-- Warning Box -->
+        <div style="background-color: #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 1rem; margin: 1rem 0; border-left: 4px solid #ffc107;">
+            <h2 style="color: #856404; font-size: 1.3em; margin-top: 0; margin-bottom: 0.5rem;">⚠️ Important: Preserve Week 1 AND Use It as Your Starting Point!</h2>
+            <p style="margin-bottom: 0;">Your instructor needs to access your live Week 1 site for grading while you work on Week 2. This method preserves your Week 1 work safely AND uses it as the foundation for your Week 2 multi-page site.</p>
+        </div>
+        
+        <!-- Info Box -->
+        <div style="background-color: #e8f4f8; border: 1px solid #3498db; border-radius: 6px; padding: 1rem; margin: 1rem 0; border-left: 4px solid #3498db;">
+            <h2 style="color: #2980b9; font-size: 1.3em; margin-top: 0; margin-bottom: 0.5rem;">Why Backup AND Branch AND Clone?</h2>
+            <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                <li style="margin-bottom: 0.5rem;"><strong>Safety first:</strong> Backup folder protects your work from any Git mistakes</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Keeps Week 1 live:</strong> Your instructor can still access your Week 1 site for grading</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Practical starting point:</strong> Use your Week 1 content as templates for Week 2 pages</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Professional workflow:</strong> Learn Git branching like real developers</li>
+                <li style="margin-bottom: 0.5rem;"><strong>No wasted work:</strong> Your Week 1 content, structure, and images become your Week 2 foundation</li>
+            </ul>
+        </div>
+        
+        <h2 style="color: #34495e; font-size: 1.4em; margin-top: 1.5rem; margin-bottom: 1rem; border-bottom: 2px solid #ecf0f1; padding-bottom: 0.3rem;">
+            Complete 4-Step Process: Backup + Branch + Clone + Develop
+        </h2>
+        <p style="margin-bottom: 1rem;">This method combines three essential strategies: <strong>backup</strong> your work safely, <strong>branch</strong> to keep Week 1 live, and <strong>clone</strong> your content to build Week 2 efficiently:</p>
+        
+        <!-- Step 1 Container -->
+        <div style="background-color: #f1f3f4; border-radius: 8px; padding: 1rem; margin: 1rem 0;">
+            <h3 style="color: #2980b9; font-size: 1.2em; margin-top: 0; margin-bottom: 0.5rem;">Step 1: Create a Backup Folder</h3>
+            <p style="margin-bottom: 0.5rem;"><strong>First, create a permanent backup of your Week 1 work</strong></p>
+            
+            <div style="background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 6px; padding: 1rem; margin: 0.5rem 0; border-left: 4px solid #6c757d;">
+                <h4 style="color: #495057; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">🔧 What You'll Do:</h4>
+                <ol style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                    <li style="margin-bottom: 0.5rem;">In your repository folder, create a new folder called <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">week1-backup</code></li>
+                    <li style="margin-bottom: 0.5rem;">Copy ALL your Week 1 files into this backup folder:
+                        <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                            <li style="margin-bottom: 0.3rem;">Your HTML file (probably <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">index.html</code>)</li>
+                            <li style="margin-bottom: 0.3rem;">Your CSS file (if you have one)</li>
+                            <li style="margin-bottom: 0.3rem;">Your <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">images</code> folder with all 4 screenshots</li>
+                            <li style="margin-bottom: 0.3rem;">Any other files you created for Week 1</li>
+                        </ul>
+                    </li>
+                    <li style="margin-bottom: 0.5rem;">Commit this backup folder to your repository</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Step 2 Container -->
+        <div style="background-color: #f1f3f4; border-radius: 8px; padding: 1rem; margin: 1rem 0;">
+            <h3 style="color: #2980b9; font-size: 1.2em; margin-top: 0; margin-bottom: 0.5rem;">Step 2: Create a New Branch for Week 2</h3>
+            <p style="margin-bottom: 0.5rem;"><strong>This keeps Week 1 live while you work on Week 2</strong></p>
+            
+            <div style="background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 6px; padding: 1rem; margin: 0.5rem 0; border-left: 4px solid #6c757d;">
+                <h4 style="color: #495057; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">🔧 Using GitHub Desktop:</h4>
+                <ol style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                    <li style="margin-bottom: 0.5rem;">Open GitHub Desktop and make sure your repository is selected</li>
+                    <li style="margin-bottom: 0.5rem;">Click on <strong>Current Branch</strong> at the top (probably says "main")</li>
+                    <li style="margin-bottom: 0.5rem;">Click <span style="background-color: #007bff; color: white; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.9em;">New Branch</span></li>
+                    <li style="margin-bottom: 0.5rem;">Name your branch: <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">week2-development</code></li>
+                    <li style="margin-bottom: 0.5rem;">Click <span style="background-color: #007bff; color: white; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.9em;">Create Branch</span></li>
+                </ol>
+            </div>
+            
+            <div style="background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 6px; padding: 1rem; margin: 0.5rem 0; border-left: 4px solid #6c757d;">
+                <h4 style="color: #495057; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">🔧 Using GitHub.com:</h4>
+                <ol style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                    <li style="margin-bottom: 0.5rem;">Go to your repository on GitHub.com</li>
+                    <li style="margin-bottom: 0.5rem;">Click on the branch dropdown (probably says "main")</li>
+                    <li style="margin-bottom: 0.5rem;">Type <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">week2-development</code> in the text box</li>
+                    <li style="margin-bottom: 0.5rem;">Click <span style="background-color: #007bff; color: white; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.9em;">Create branch: week2-development</span></li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Step 3 Container -->
+        <div style="background-color: #f1f3f4; border-radius: 8px; padding: 1rem; margin: 1rem 0;">
+            <h3 style="color: #2980b9; font-size: 1.2em; margin-top: 0; margin-bottom: 0.5rem;">Step 3: Clone Your Week 1 Files for Week 2</h3>
+            <p style="margin-bottom: 0.5rem;"><strong>Now use your Week 1 content as the foundation for Week 2</strong></p>
+            
+            <div style="background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 6px; padding: 1rem; margin: 0.5rem 0; border-left: 4px solid #6c757d;">
+                <h4 style="color: #495057; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">🔧 What You'll Do:</h4>
+                <ol style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                    <li style="margin-bottom: 0.5rem;">Make sure you're in your <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">week2-development</code> branch</li>
+                    <li style="margin-bottom: 0.5rem;">Copy your existing Week 1 HTML file to create new pages:
+                        <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                            <li style="margin-bottom: 0.3rem;">Rename your current <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">index.html</code> to <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">crap-analysis.html</code></li>
+                            <li style="margin-bottom: 0.3rem;">Copy <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">crap-analysis.html</code> to create new <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">index.html</code></li>
+                            <li style="margin-bottom: 0.3rem;">Copy <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">crap-analysis.html</code> to create <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">about.html</code></li>
+                            <li style="margin-bottom: 0.3rem;">Copy <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">crap-analysis.html</code> to create <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">contact.html</code></li>
+                        </ul>
+                    </li>
+                    <li style="margin-bottom: 0.5rem;">Create a new <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">style.css</code> file for your Week 2 styling</li>
+                    <li style="margin-bottom: 0.5rem;">Keep your <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">images</code> folder - you'll use the same screenshots</li>
+                </ol>
+            </div>
+            
+            <div style="background-color: #d1ecf1; border: 1px solid #bee5eb; border-radius: 6px; padding: 1rem; margin: 0.5rem 0; border-left: 4px solid #17a2b8;">
+                <h4 style="color: #0c5460; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">💡 Smart Strategy:</h4>
+                <p style="margin-bottom: 0.5rem; color: #0c5460;">By copying your Week 1 file to create all four pages, you get:</p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                    <li style="margin-bottom: 0.3rem; color: #0c5460;">Same basic HTML structure on all pages</li>
+                    <li style="margin-bottom: 0.3rem; color: #0c5460;">Your CRAP analysis content already in place</li>
+                    <li style="margin-bottom: 0.3rem; color: #0c5460;">Consistent styling foundation to build on</li>
+                    <li style="margin-bottom: 0.3rem; color: #0c5460;">All your images linked and working</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Step 4 Container -->
+        <div style="background-color: #f1f3f4; border-radius: 8px; padding: 1rem; margin: 1rem 0;">
+            <h3 style="color: #2980b9; font-size: 1.2em; margin-top: 0; margin-bottom: 0.5rem;">Step 4: When Ready, Merge Week 2 to Main</h3>
+            <p style="margin-bottom: 0.5rem;"><strong>Only do this when Week 2 is complete and ready to go live</strong></p>
+            
+            <div style="background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 6px; padding: 1rem; margin: 0.5rem 0; border-left: 4px solid #6c757d;">
+                <h4 style="color: #495057; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">🔧 Using GitHub Desktop:</h4>
+                <ol style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                    <li style="margin-bottom: 0.5rem;">Make sure all your Week 2 changes are committed and pushed</li>
+                    <li style="margin-bottom: 0.5rem;">Switch to the <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">main</code> branch</li>
+                    <li style="margin-bottom: 0.5rem;">Click <strong>Branch</strong> menu > <strong>Merge into current branch</strong></li>
+                    <li style="margin-bottom: 0.5rem;">Select <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">week2-development</code> branch</li>
+                    <li style="margin-bottom: 0.5rem;">Click <span style="background-color: #007bff; color: white; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.9em;">Merge</span></li>
+                    <li style="margin-bottom: 0.5rem;">Push to GitHub to update your live site</li>
+                </ol>
+            </div>
+            
+            <div style="background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 6px; padding: 1rem; margin: 0.5rem 0; border-left: 4px solid #6c757d;">
+                <h4 style="color: #495057; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">🔧 Using GitHub.com:</h4>
+                <ol style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                    <li style="margin-bottom: 0.5rem;">Go to your repository on GitHub.com</li>
+                    <li style="margin-bottom: 0.5rem;">Click <span style="background-color: #007bff; color: white; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.9em;">Pull requests</span></li>
+                    <li style="margin-bottom: 0.5rem;">Click <span style="background-color: #28a745; color: white; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.9em;">New pull request</span></li>
+                    <li style="margin-bottom: 0.5rem;">Set base: <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">main</code> and compare: <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">week2-development</code></li>
+                    <li style="margin-bottom: 0.5rem;">Click <span style="background-color: #28a745; color: white; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.9em;">Create pull request</span></li>
+                    <li style="margin-bottom: 0.5rem;">Click <span style="background-color: #6f42c1; color: white; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.9em;">Merge pull request</span></li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Success Box -->
+        <div style="background-color: #d4edda; border: 1px solid #28a745; border-radius: 6px; padding: 1rem; margin: 1rem 0; border-left: 4px solid #28a745;">
+            <h2 style="color: #155724; font-size: 1.3em; margin-top: 0; margin-bottom: 0.5rem;">✅ Perfect Setup!</h2>
+            <p style="margin-bottom: 0.5rem;">Now you have the best of both worlds:</p>
+            <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                <li style="margin-bottom: 0.5rem;"><strong>Week 1 stays live:</strong> Your instructor can still access your Week 1 site for grading</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Week 2 development:</strong> You can work safely in your development branch</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Easy switching:</strong> You can switch between branches to see both versions</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Professional workflow:</strong> You're learning real developer practices</li>
+            </ul>
+            <p style="margin-bottom: 0;">Start developing your Week 2 multi-page site in the <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">week2-development</code> branch!</p>
+        </div>
+        
+        <!-- Warning Box - What to Do Next -->
+        <div style="background-color: #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 1rem; margin: 1rem 0; border-left: 4px solid #ffc107;">
+            <h2 style="color: #856404; font-size: 1.3em; margin-top: 0; margin-bottom: 0.5rem;">Important: How This Works</h2>
+            <div style="background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 6px; padding: 1rem; margin: 0.5rem 0;">
+                <h4 style="color: #495057; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">🌐 Week 1 Site (yourname.github.io/repo):</h4>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                    <li style="margin-bottom: 0.3rem;">Shows your Week 1 CRAP analysis</li>
+                    <li style="margin-bottom: 0.3rem;">Stays live for instructor to grade</li>
+                    <li style="margin-bottom: 0.3rem;">Powered by your <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">main</code> branch</li>
+                </ul>
+            </div>
+            <div style="background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 6px; padding: 1rem; margin: 0.5rem 0;">
+                <h4 style="color: #495057; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">🚧 Week 2 Development:</h4>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                    <li style="margin-bottom: 0.3rem;">Work happens in your <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">week2-development</code> branch</li>
+                    <li style="margin-bottom: 0.3rem;">You can preview changes locally</li>
+                    <li style="margin-bottom: 0.3rem;">When ready, merge to <code style="background-color: #f1f3f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;">main</code> to make it live</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Info Box - File Structure -->
+        <div style="background-color: #e8f4f8; border: 1px solid #3498db; border-radius: 6px; padding: 1rem; margin: 1rem 0; border-left: 4px solid #3498db;">
+            <h2 style="color: #2980b9; font-size: 1.3em; margin-top: 0; margin-bottom: 0.5rem;">Your Repository Structure:</h2>
+            <div style="background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 6px; padding: 1rem; font-family: monospace; font-size: 0.9em; margin: 0.5rem 0;">
+📁 Your Repository<br>
+├── 🌿 <strong>main</strong> branch (Week 1 - stays live)<br>
+│   ├── index.html (your Week 1 CRAP analysis)<br>
+│   ├── style.css (if you have one)<br>
+│   └── 📁 images/<br>
+│       ├── contrast-screenshot.png<br>
+│       ├── repetition-screenshot.png<br>
+│       ├── alignment-screenshot.png<br>
+│       └── proximity-screenshot.png<br>
+├── 🌿 <strong>week2-development</strong> branch (Week 2 - work here)<br>
+│   ├── index.html (Week 2 homepage)<br>
+│   ├── about.html (Week 2 about page)<br>
+│   ├── crap-analysis.html (Week 2 CRAP analysis)<br>
+│   ├── contact.html (Week 2 contact page)<br>
+│   ├── style.css (Week 2 stylesheet)<br>
+│   └── 📁 images/ (same screenshots)<br>
+            </div>
+        </div>
+        
+        <!-- Info Box - Need Help -->
+        <div style="background-color: #e8f4f8; border: 1px solid #3498db; border-radius: 6px; padding: 1rem; margin: 1rem 0; border-left: 4px solid #3498db;">
+            <h2 style="color: #2980b9; font-size: 1.3em; margin-top: 0; margin-bottom: 0.5rem;">Need Help?</h2>
+            <p style="margin-bottom: 0.5rem;">If you run into problems with any of the steps:</p>
+            <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                <li style="margin-bottom: 0.5rem;"><strong>File management issues:</strong> Ask for help with copying files or creating folders</li>
+                <li style="margin-bottom: 0.5rem;"><strong>GitHub Desktop problems:</strong> Ask for help with committing and pushing</li>
+                <li style="margin-bottom: 0.5rem;"><strong>GitHub.com upload issues:</strong> Ask for help with the web interface</li>
+            </ul>
+            <p style="margin-bottom: 0;"><strong>Don't proceed to Week 2 development until you've successfully completed all 3 steps!</strong></p>
+        </div>
+        
+        <!-- Success Box - Ready to Start -->
+        <div style="background-color: #d4edda; border: 1px solid #28a745; border-radius: 6px; padding: 1rem; margin: 1rem 0; border-left: 4px solid #28a745;">
+            <h2 style="color: #155724; font-size: 1.3em; margin-top: 0; margin-bottom: 0.5rem;">✅ Ready to Start Week 2!</h2>
+            <p style="margin-bottom: 0.5rem;">You now have the perfect triple-protection setup:</p>
+            <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                <li style="margin-bottom: 0.5rem;"><strong>Week 1 protected:</strong> Your instructor can still grade your Week 1 site</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Safe backup:</strong> week1-backup folder protects your original work</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Week 2 workspace:</strong> Clean development environment in your branch</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Content ready:</strong> CRAP analysis and images ready to integrate into new pages</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Professional workflow:</strong> You're using real developer practices</li>
+            </ul>
+            <p style="margin-bottom: 0;"><strong>Switch to your week2-development branch and start building your multi-page site!</strong></p>
+        </div>
+        
+        <!-- Footer -->
+        <div style="text-align: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #ecf0f1; color: #7f8c8d; font-size: 0.9em;">
+            <p style="margin: 0;">This method provides triple protection: backup, branching, and cloning - keeping your Week 1 site live for grading while you develop Week 2 safely!</p>
+        </div>
+        
+    </div>
+    
+</div>
+<!-- End D2L LMS Compatible Version -->

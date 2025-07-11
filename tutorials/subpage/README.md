@@ -6,18 +6,34 @@ This project demonstrates a complete multi-page website built following the Week
 
 ```
 tutorials/subpage/
-├── index.html              # Homepage with banner
-├── about.html              # About/Bio page
-├── crap-analysis.html      # CRAP design analysis
-├── contact.html            # Contact information
-├── style.css              # Shared CSS styles
-├── images/                # Image assets
+├── week2-multipage-tutorial.html  # Tutorial document (instructional)
+├── assignment-instructions.html   # Assignment requirements
+├── index.html                     # Homepage with banner
+├── about.html                     # About/Bio page
+├── crap-analysis.html            # CRAP design analysis
+├── contact.html                  # Contact information
+├── style.css                     # Shared CSS styles
+├── images/                       # Image assets
 │   ├── contrast-screenshot.png
 │   ├── repetition-screenshot.png
 │   ├── alignment-screenshot.png
 │   └── proximity-screenshot.png
-└── README.md              # This file
+└── README.md                     # This file
 ```
+
+## Educational Materials
+
+### Tutorial Document (`week2-multipage-tutorial.html`)
+- **Purpose**: Step-by-step instructions for building multi-page websites
+- **Content**: Complete walkthrough from setup to final deployment
+- **Usage**: Open in browser for best reading experience
+- **Features**: Embedded CSS styling, code examples, GitHub Desktop reminders
+
+### Assignment Instructions (`assignment-instructions.html`)
+- **Purpose**: Formal assignment requirements and evaluation criteria
+- **Content**: Technical requirements, content guidelines, submission instructions
+- **Usage**: Reference document for completing the assignment
+- **Features**: Professional formatting, clear rubric, structured guidelines
 
 ## Features
 

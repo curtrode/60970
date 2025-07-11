@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2: Multi-Page Website Development Tutorial</title>
+    <style>
+        /* Professional document styling */
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #fafafa;
+        }
+        
+        /* Header styling */
+        h1 {
+            color: #4d1979;
+            border-bottom: 3px solid #4d1979;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-align: center;
+        }
+        
+        h2 {
+            color: #4d1979;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.8em;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+        }
+        
+        h3 {
+            color: #6b2c91;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.3em;
+        }
+        
+        /* Code blocks */
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.4;
+            margin: 1rem 0;
+        }
+        
+        code {
+            background-color: #f1f3f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Emphasis and strong text */
+        strong {
+            color: #4d1979;
+            font-weight: 600;
+        }
+        
+        em {
+            color: #6b2c91;
+            font-style: italic;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid #4d1979;
+            margin: 1rem 0;
+            padding-left: 1rem;
+            color: #666;
+            font-style: italic;
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+        
+        /* Special callout boxes */
+        .checkpoint {
+            background-color: #e8f5e8;
+            border: 1px solid #4caf50;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .checkpoint h3 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+        
+        .github-reminder {
+            background-color: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .github-reminder h3 {
+            color: #1976d2;
+            margin-top: 0;
+        }
+        
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .warning h3 {
+            color: #f57c00;
+            margin-top: 0;
+        }
+        
+        /* File tree styling */
+        .file-tree {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e0e0e0;
+            text-align: center;
+            color: #666;
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                color: black;
+                font-size: 12pt;
+                line-height: 1.4;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            pre, blockquote {
+                page-break-inside: avoid;
+            }
+            
+            .checkpoint, .github-reminder, .warning {
+                page-break-inside: avoid;
+            }
+        }
+        
+
+    </style>
+</head>
+<body>
+    <h1>Week 2: Multi-Page Website Development Tutorial</h1>
+
+    <h2>Overview</h2>
+    <p>This tutorial will guide you through creating a professional multi-page website using your existing banner homepage as a foundation. You'll learn to organize content across multiple pages, create navigation systems, and maintain consistent styling.</p>
+
+    <h2>Learning Objectives</h2>
+    <p>By the end of this tutorial, students will be able to:</p>
+    <ul>
+        <li>Create multiple HTML pages with consistent navigation</li>
+        <li>Organize content logically across different page types</li>
+        <li>Link between pages using relative file paths</li>
+        <li>Apply consistent CSS styling across multiple pages</li>
+        <li>Enhance typography and visual hierarchy</li>
+        <li>Structure professional content for web presentation</li>
+    </ul>
+
+    <h2>Project Structure</h2>
+    <p>Your final project will include these files:</p>
+    <div class="file-tree">
+📁 Your Repository
+├── index.html          (Homepage with banner)
+├── about.html           (About/Bio page)
+├── crap-analysis.html   (Week 1 CRAP analysis)
+├── contact.html         (Contact information)
+├── style.css           (Shared styles for all pages)
+└── 📁 images/
+    ├── banner-image.png
+    ├── screenshot1.png
+    ├── screenshot2.png
+    └── (other images)
+    </div>
+
+    <div class="github-reminder">
+        <h3>💾 GitHub Desktop Setup</h3>
+        <p>Before starting any coding session:</p>
+        <ol>
+            <li><strong>Open GitHub Desktop</strong></li>
+            <li><strong>Check current branch</strong> (usually <code>main</code>)</li>
+            <li><strong>Pull latest changes</strong> (if working collaboratively)</li>
+            <li><strong>Commit any existing changes</strong> before starting new work</li>
+        </ol>
+        <blockquote>
+            <p><strong>Best Practice</strong>: Make commits after completing each step in this tutorial. This creates a backup history and allows you to revert if needed.</p>
+        </blockquote>
+    </div>
+
+    <h2>Step 1: Update Homepage Navigation</h2>
+
+    <h3>Replace Placeholder Links</h3>
+    <p>First, update your existing navigation from placeholder links to actual page links:</p>
+    
+    <pre><code>&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;   
+        &lt;li&gt;&lt;a href="about.html"&gt;About&lt;/a&gt;&lt;/li&gt;  
+        &lt;li&gt;&lt;a href="crap-analysis.html"&gt;CRAP Analysis&lt;/a&gt;&lt;/li&gt;  
+        &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;  
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+
+    <p><strong>Key Points:</strong></p>
+    <ul>
+        <li>Use <code>index.html</code> for the home link (even though you could use just <code>#</code>)</li>
+        <li>File names should be lowercase with hyphens for spaces</li>
+        <li>These are <em>relative links</em> - they point to files in the same directory</li>
+    </ul>
+
+    <div class="checkpoint">
+        <h3>💾 Checkpoint: Save Navigation Changes</h3>
+        <p>After updating your navigation:</p>
+        <ol>
+            <li><strong>Save your index.html file</strong> (Cmd+S)</li>
+            <li><strong>Test in browser</strong> - links won't work yet, but should show new text</li>
+            <li><strong>Commit changes</strong> in GitHub Desktop: "Update navigation with actual page links"</li>
+            <li><strong>Push to origin</strong> to backup your work</li>
+        </ol>
+    </div>
+
+    <h2>Step 2: Create the About Page</h2>
+
+    <h3>Basic About Page Structure</h3>
+    <p>Create a new file called <code>about.html</code> in your main directory:</p>
+
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;About - Your Name&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;   
+            &lt;li&gt;&lt;a href="about.html"&gt;About&lt;/a&gt;&lt;/li&gt;  
+            &lt;li&gt;&lt;a href="crap-analysis.html"&gt;CRAP Analysis&lt;/a&gt;&lt;/li&gt;  
+            &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;  
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+        &lt;h1&gt;About Me&lt;/h1&gt;
+        
+        &lt;h2&gt;Background&lt;/h2&gt;
+        &lt;p&gt;Write a professional paragraph about yourself here. Include your academic background, interests, and what you hope to achieve in web development.&lt;/p&gt;
+        
+        &lt;h2&gt;Education&lt;/h2&gt;
+        &lt;p&gt;Include information about your current studies, previous education, or relevant coursework.&lt;/p&gt;
+        
+        &lt;h2&gt;Interests &amp; Goals&lt;/h2&gt;
+        &lt;p&gt;Share what interests you about web development, design, or your field of study. What are your professional goals?&lt;/p&gt;
+        
+        &lt;h2&gt;Skills &amp; Learning&lt;/h2&gt;
+        &lt;ul&gt;
+            &lt;li&gt;HTML &amp; CSS (learning)&lt;/li&gt;
+            &lt;li&gt;Web Design Principles&lt;/li&gt;
+            &lt;li&gt;Add other relevant skills&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;Contact me: &lt;a href="mailto:your.email@example.com"&gt;your.email@example.com&lt;/a&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+    <p><strong>Important Notes:</strong></p>
+    <ul>
+        <li><strong>Navigation is identical</strong> across all pages for consistency</li>
+        <li><strong>Same CSS file</strong> is linked to maintain consistent styling</li>
+        <li><strong>Professional content</strong> - write as if this is a portfolio piece</li>
+        <li><strong>No banner</strong> on subpages - only the homepage gets the banner</li>
+    </ul>
+
+    <div class="checkpoint">
+        <h3>💾 Checkpoint: Test Your About Page</h3>
+        <p>After creating your about page:</p>
+        <ol>
+            <li><strong>Save the about.html file</strong></li>
+            <li><strong>Test navigation</strong> - click between Home and About pages</li>
+            <li><strong>Check styling</strong> - should look consistent with your homepage</li>
+            <li><strong>Commit changes</strong>: "Add about page with professional content"</li>
+        </ol>
+    </div>
+
+    <h2>Step 3: Create the CRAP Analysis Page</h2>
+
+    <h3>Transform Your Week 1 Analysis</h3>
+    <p>Create <code>crap-analysis.html</code> and structure your Week 1 analysis professionally:</p>
+
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;CRAP Analysis - Your Name&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;   
+            &lt;li&gt;&lt;a href="about.html"&gt;About&lt;/a&gt;&lt;/li&gt;  
+            &lt;li&gt;&lt;a href="crap-analysis.html"&gt;CRAP Analysis&lt;/a&gt;&lt;/li&gt;  
+            &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;  
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+        &lt;h1&gt;CRAP Design Analysis&lt;/h1&gt;
+        
+        &lt;p&gt;&lt;strong&gt;Website Analyzed:&lt;/strong&gt; [Name of website you analyzed]&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;URL:&lt;/strong&gt; &lt;a href="[website URL]" target="_blank"&gt;[website URL]&lt;/a&gt;&lt;/p&gt;
+        
+        &lt;h2&gt;Contrast&lt;/h2&gt;
+        &lt;img src="images/contrast-screenshot.png" alt="Screenshot showing contrast examples" width="100%"&gt;
+        &lt;p&gt;[Your analysis of contrast on the website - 75-100 words]&lt;/p&gt;
+        
+        &lt;h2&gt;Repetition&lt;/h2&gt;
+        &lt;img src="images/repetition-screenshot.png" alt="Screenshot showing repetition examples" width="100%"&gt;
+        &lt;p&gt;[Your analysis of repetition on the website - 75-100 words]&lt;/p&gt;
+        
+        &lt;h2&gt;Alignment&lt;/h2&gt;
+        &lt;img src="images/alignment-screenshot.png" alt="Screenshot showing alignment examples" width="100%"&gt;
+        &lt;p&gt;[Your analysis of alignment on the website - 75-100 words]&lt;/p&gt;
+        
+        &lt;h2&gt;Proximity&lt;/h2&gt;
+        &lt;img src="images/proximity-screenshot.png" alt="Screenshot showing proximity examples" width="100%"&gt;
+        &lt;p&gt;[Your analysis of proximity on the website - 75-100 words]&lt;/p&gt;
+        
+        &lt;h2&gt;Conclusion&lt;/h2&gt;
+        &lt;p&gt;[Add a brief conclusion about the overall design effectiveness - 50-75 words]&lt;/p&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;Contact me: &lt;a href="mailto:your.email@example.com"&gt;your.email@example.com&lt;/a&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+    <div class="warning">
+        <h3>⚠️ Don't Forget Alt Text!</h3>
+        <p>Every image needs descriptive alt text:</p>
+        <ul>
+            <li><code>alt="Screenshot showing contrast examples"</code></li>
+            <li><code>alt="Homepage banner with navigation menu"</code></li>
+            <li><code>alt="Color scheme comparison on website"</code></li>
+        </ul>
+        <p>This improves accessibility and SEO.</p>
+    </div>
+
+    <div class="checkpoint">
+        <h3>💾 Checkpoint: Upload Images and Test</h3>
+        <p>After creating your CRAP analysis page:</p>
+        <ol>
+            <li><strong>Upload your screenshots</strong> to the images folder</li>
+            <li><strong>Update image paths</strong> in your HTML</li>
+            <li><strong>Test all images display</strong> properly</li>
+            <li><strong>Commit changes</strong>: "Add CRAP analysis page with images"</li>
+        </ol>
+    </div>
+
+    <h2>Step 4: Create the Contact Page</h2>
+
+    <h3>Professional Contact Information</h3>
+    <p>Create <code>contact.html</code> with professional contact details:</p>
+
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Contact - Your Name&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;   
+            &lt;li&gt;&lt;a href="about.html"&gt;About&lt;/a&gt;&lt;/li&gt;  
+            &lt;li&gt;&lt;a href="crap-analysis.html"&gt;CRAP Analysis&lt;/a&gt;&lt;/li&gt;  
+            &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;  
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+        &lt;h1&gt;Contact Information&lt;/h1&gt;
+        
+        &lt;h2&gt;Get in Touch&lt;/h2&gt;
+        &lt;p&gt;I'd love to hear from you! Feel free to reach out with questions, opportunities, or just to connect.&lt;/p&gt;
+        
+        &lt;h2&gt;Contact Details&lt;/h2&gt;
+        &lt;p&gt;&lt;strong&gt;Email:&lt;/strong&gt; &lt;a href="mailto:your.email@example.com"&gt;your.email@example.com&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Phone:&lt;/strong&gt; (555) 123-4567&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Location:&lt;/strong&gt; Fort Worth, TX&lt;/p&gt;
+        
+        &lt;h2&gt;Office Hours&lt;/h2&gt;
+        &lt;p&gt;Available for meetings or questions:&lt;/p&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Tuesdays: 2:00 PM - 4:00 PM&lt;/li&gt;
+            &lt;li&gt;Thursdays: 10:00 AM - 12:00 PM&lt;/li&gt;
+            &lt;li&gt;Or by appointment&lt;/li&gt;
+        &lt;/ul&gt;
+        
+        &lt;h2&gt;Professional Links&lt;/h2&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="https://github.com/yourusername" target="_blank"&gt;GitHub Profile&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="https://linkedin.com/in/yourprofile" target="_blank"&gt;LinkedIn&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;Contact me: &lt;a href="mailto:your.email@example.com"&gt;your.email@example.com&lt;/a&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+    <div class="checkpoint">
+        <h3>💾 Checkpoint: Complete Site Navigation</h3>
+        <p>After creating all four pages:</p>
+        <ol>
+            <li><strong>Test all navigation links</strong> - each page should link to every other page</li>
+            <li><strong>Check consistency</strong> - navigation should be identical on all pages</li>
+            <li><strong>Verify styling</strong> - all pages should use the same CSS</li>
+            <li><strong>Commit changes</strong>: "Add contact page - complete basic site structure"</li>
+        </ol>
+    </div>
+
+    <h2>Step 5: Enhance Your CSS</h2>
+
+    <h3>Add Image Styling</h3>
+    <p>Add these styles to your <code>style.css</code> file to improve image presentation:</p>
+
+    <pre><code>/* Image styling for analysis screenshots */
+.analysis-image {
+    width: 100%;
+    max-width: 800px;
+    margin: 1rem 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Image captions */
+.image-caption {
+    font-style: italic;
+    color: #666;
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.9em;
+}</code></pre>
+
+    <h3>Enhance Typography</h3>
+    <p>Add more sophisticated typography controls:</p>
+
+    <pre><code>/* Enhanced typography */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 1rem;
+    color: #4d1979;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #4d1979;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+}
+
+/* Improve link styling */
+a {
+    color: #4d1979;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #6b2c91;
+    text-decoration: underline;
+}
+
+/* Focus states for accessibility */
+a:focus {
+    outline: 2px solid #4d1979;
+    outline-offset: 2px;
+}</code></pre>
+
+    <div class="checkpoint">
+        <h3>💾 Checkpoint: Enhanced Styling</h3>
+        <p>After adding enhanced CSS:</p>
+        <ol>
+            <li><strong>Update your CRAP analysis images</strong> to use the new <code>analysis-image</code> class</li>
+            <li><strong>Test all pages</strong> - styling should be consistent and improved</li>
+            <li><strong>Check focus states</strong> - tab through navigation to test accessibility</li>
+            <li><strong>Commit changes</strong>: "Enhance CSS with image styling and typography"</li>
+        </ol>
+    </div>
+
+    <h2>Step 6: Content Review and Polish</h2>
+
+    <h3>Content Checklist</h3>
+    <p>Review each page for professional presentation:</p>
+    <ul>
+        <li><strong>Grammar and spelling</strong> - proofread all text</li>
+        <li><strong>Professional tone</strong> - write as if this is a portfolio piece</li>
+        <li><strong>Consistent formatting</strong> - headings, paragraphs, lists</li>
+        <li><strong>Working links</strong> - all internal and external links function</li>
+        <li><strong>Image alt text</strong> - descriptive text for all images</li>
+    </ul>
+
+    <h3>Technical Checklist</h3>
+    <ul>
+        <li><strong>HTML validation</strong> - proper DOCTYPE, head section, semantic structure</li>
+        <li><strong>CSS organization</strong> - logical order, consistent formatting</li>
+        <li><strong>File organization</strong> - proper naming, images in images folder</li>
+    </ul>
+
+    <div class="github-reminder">
+        <h3>💾 Final GitHub Submission</h3>
+        <p>Before submitting your assignment:</p>
+        <ol>
+            <li><strong>Final commit</strong> with all changes: "Complete multi-page website with professional content"</li>
+            <li><strong>Push to origin</strong> to update your GitHub repository</li>
+            <li><strong>Test GitHub Pages</strong> - make sure your site is live and working</li>
+            <li><strong>Submit the GitHub Pages URL</strong> in your assignment submission</li>
+        </ol>
+    </div>
+
+    <h2>Step 7: Testing and Validation</h2>
+
+    <h3>Browser Testing</h3>
+    <p>Test your website in multiple ways:</p>
+    <ul>
+        <li><strong>VS Code Live Preview</strong> - test during development</li>
+        <li><strong>GitHub Pages</strong> - test your live site</li>
+        <li><strong>Different browsers</strong> - Chrome, Firefox, Safari</li>
+    </ul>
+
+    <h3>Accessibility Testing</h3>
+    <ul>
+        <li><strong>Tab navigation</strong> - can you navigate using only the Tab key?</li>
+        <li><strong>Alt text</strong> - are all images described?</li>
+        <li><strong>Color contrast</strong> - is text readable against backgrounds?</li>
+        <li><strong>Focus indicators</strong> - can you see what's focused?</li>
+    </ul>
+
+    <div class="warning">
+        <h3>⚠️ Common Issues to Check</h3>
+        <ul>
+            <li><strong>Broken links</strong> - especially to images or between pages</li>
+            <li><strong>Missing images</strong> - check file paths and names</li>
+            <li><strong>Inconsistent navigation</strong> - should be identical on all pages</li>
+            <li><strong>CSS not loading</strong> - check the stylesheet link</li>
+        </ul>
+    </div>
+
+    <h2>Submission Requirements</h2>
+    <p>Your completed assignment should include:</p>
+    <ol>
+        <li><strong>Four HTML pages</strong> - index.html, about.html, crap-analysis.html, contact.html</li>
+        <li><strong>Enhanced CSS</strong> - building on your existing style.css</li>
+        <li><strong>Professional content</strong> - well-written, proofread text</li>
+        <li><strong>Working navigation</strong> - consistent across all pages</li>
+        <li><strong>Images with alt text</strong> - including your CRAP analysis screenshots</li>
+        <li><strong>GitHub repository</strong> - properly organized and pushed</li>
+        <li><strong>Live GitHub Pages site</strong> - working and accessible</li>
+    </ol>
+
+    <div class="footer">
+        <p>This tutorial builds on fundamental HTML and CSS skills while introducing multi-page website development and content organization.</p>
+    </div>
+</body>
+</html>

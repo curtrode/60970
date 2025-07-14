@@ -1,0 +1,77 @@
+/* This CSS will demonstrate the problems we need to solve */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    margin: 0 0 20px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+img {
+    width: 600px;
+    height: auto;
+    margin: 20px 0;
+}
+
+
+/* Add this at the end of your existing CSS */
+
+/* Mobile styles for screens 768px and smaller */
+@media (max-width: 768px) {
+    /* Make the main heading smaller and more readable on mobile */
+    h1 {
+        font-size: 24px;
+    }
+    
+    /* Stack navigation items vertically */
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    /* Make images responsive */
+    img {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    /* Reduce padding on small screens */
+    main {
+        padding: 20px;
+    }
+    
+    /* Make paragraphs easier to read */
+    p {
+        font-size: 20px;
+    }
+}
+

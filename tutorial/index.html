@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout Tutorial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        h1 {
+            color: #4d1979;
+            border-bottom: 2px solid #4d1979;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #4d1979;
+            margin-top: 30px;
+        }
+        
+        pre {
+            background: #f5f5f5;
+            color: #333;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+        
+        code {
+            background: #f0f0f0;
+            color: #333;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .demo-box {
+            border: 2px solid #4d1979;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+            background: #f8f9fa;
+        }
+        
+        .demo-label {
+            background: #4d1979;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Responsive Layout Tutorial</h1>
+
+<h2>Overview</h2>
+<p>This tutorial will introduce you to responsive web design principles and guide you through creating your first mobile-first layout. You'll learn why websites need to adapt to different devices and how to make that happen with CSS.</p>
+
+<h2>Learning Objectives</h2>
+<p>By the end of this tutorial, students will be able to:</p>
+<ul>
+    <li>Explain what responsive design is and why it matters</li>
+    <li>Identify common device categories and screen sizes</li>
+    <li>Write basic media queries using proper syntax</li>
+    <li>Apply mobile-first design principles</li>
+    <li>Create flexible layouts using Flexbox</li>
+    <li>Test responsive behavior using browser developer tools</li>
+</ul>
+
+<h2>Project Setup</h2>
+<p>You'll need:</p>
+<ul>
+    <li><code>index.html</code> - Main HTML file with sample content</li>
+    <li><code>style.css</code> - CSS styles file</li>
+    <li>A web browser with developer tools</li>
+</ul>
+
+<h2>Part 1: Understanding Mobile-First Design</h2>
+
+<p><strong>Mobile-first</strong> means we start by designing for the smallest screen size first (mobile), then progressively enhance for larger screens. This approach ensures your website works well on all devices.</p>
+
+<p><strong>Why mobile-first?</strong></p>
+<ul>
+    <li>Most web traffic comes from mobile devices</li>
+    <li>Easier to scale up than scale down</li>
+    <li>Better performance on mobile devices</li>
+</ul>
+
+<h2>Step 1: Set Up Your HTML Structure</h2>
+<p>First, let's create the basic HTML structure. Notice how we use semantic HTML elements:</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Responsive Layout&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header class="header"&gt;Header&lt;/header&gt;
+    &lt;main class="hero"&gt;Hero Section&lt;/main&gt;
+    &lt;section class="cards-container"&gt;
+        &lt;div class="card"&gt;Card 1&lt;/div&gt;
+        &lt;div class="card"&gt;Card 2&lt;/div&gt;
+        &lt;div class="card"&gt;Card 3&lt;/div&gt;
+    &lt;/section&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<p><strong>Key point:</strong> The viewport meta tag is crucial for responsive design!</p>
+
+<h2>Step 2: Mobile Styles First (Base Styles)</h2>
+<p>Now let's add our mobile styles. These will be our default styles that work on small screens:</p>
+
+<pre><code>/* Mobile First Styles (Base Styles) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.header {
+    background-color: #7B4397;
+    height: 60px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.hero {
+    background-color: #2E86AB;
+    height: 120px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background-color: #F18F01;
+    height: 80px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}</code></pre>
+
+<p><strong>Notice:</strong> We use <code>flex-direction: column</code> for mobile to stack items vertically.</p>
+
+<h2>Step 3: Add Desktop Styles with Media Query</h2>
+<p>Now we'll add styles for larger screens using a media query. We only need to override what changes:</p>
+
+<pre><code>/* Desktop Styles - Only override what changes */
+@media (min-width: 768px) {
+    .cards-container {
+        flex-direction: row;
+        gap: 20px;
+    }
+    
+    .card {
+        flex: 1;
+    }
+}</code></pre>
+
+<p><strong>Key concept:</strong> We only change what's different on desktop - the cards now go horizontal!</p>
+
+<h2>Step 4: Understanding the CSS</h2>
+<p>Let's break down the key CSS properties:</p>
+<ul>
+    <li><strong>Flexbox:</strong> <code>display: flex</code> makes container flexible</li>
+    <li><strong>flex-direction:</strong> <code>column</code> (mobile) vs <code>row</code> (desktop)</li>
+    <li><strong>gap:</strong> Adds space between flex items</li>
+    <li><strong>flex: 1:</strong> Makes cards equal width on desktop</li>
+    <li><strong>Media query:</strong> <code>@media (min-width: 768px)</code> targets tablets and desktop</li>
+</ul>
+
+<div class="demo-box">
+    <div class="demo-label">Live Demo</div>
+    <p>Try resizing your browser window to see how the layout changes!</p>
+    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+        <div style="background: #7B4397; color: white; padding: 10px; text-align: center; border-radius: 3px;">Header</div>
+        <div style="background: #2E86AB; color: white; padding: 20px; text-align: center; border-radius: 3px;">Hero Section</div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="background: #F18F01; color: white; padding: 15px; text-align: center; border-radius: 3px;">Card 1</div>
+            <div style="background: #F18F01; color: white; padding: 15px; text-align: center; border-radius: 3px;">Card 2</div>
+            <div style="background: #F18F01; color: white; padding: 15px; text-align: center; border-radius: 3px;">Card 3</div>
+        </div>
+    </div>
+</div>
+
+<h2>Step 5: Testing Your Layout</h2>
+<p>To test your responsive layout:</p>
+<ol>
+    <li>Open your HTML file in a web browser</li>
+    <li>Resize the browser window to see the layout change</li>
+    <li>Use browser developer tools (F12) to simulate different devices</li>
+    <li>Test on actual mobile devices when possible</li>
+</ol>
+
+<h2>Complete Code</h2>
+<p>Here's the complete CSS code you can copy and use:</p>
+
+<pre><code>/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+/* Mobile First Styles */
+.header {
+    background-color: #7B4397;
+    height: 60px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.hero {
+    background-color: #2E86AB;
+    height: 120px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background-color: #F18F01;
+    height: 80px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+    .cards-container {
+        flex-direction: row;
+        gap: 20px;
+    }
+    
+    .card {
+        flex: 1;
+    }
+}</code></pre>
+
+<h2>Congratulations!</h2>
+<p>You've successfully created a responsive layout using the mobile-first approach! You now understand:</p>
+<ul>
+    <li>How to structure HTML for responsive design</li>
+    <li>The mobile-first CSS approach</li>
+    <li>How to use media queries</li>
+    <li>Flexbox for layout control</li>
+    <li>How to test responsive designs</li>
+</ul>
+
+<p><strong>Next steps:</strong> Try adding more breakpoints, experiment with different layouts, or add animations!</p>
+
+</body>
+</html>

@@ -94,7 +94,7 @@ p {
 }
 
 /* ADDED BASIC NAVIGATION STYLING FOR RESPONSIVE NAV */
-nav ul {
+.nav-menu {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -113,6 +113,12 @@ nav a {
 
 nav a:hover {
   text-decoration: underline;
+}
+
+/* Hide hamburger menu elements completely */
+.menu-toggle,
+.menu-button {
+  display: none;
 }
 
 /* ADDED SUBPAGE STYLING FOR SIMPLER LAYOUT */
@@ -151,7 +157,7 @@ main img {
   }
   
   /* ADDED RESPONSIVE NAVIGATION - HORIZONTAL ON DESKTOP */
-  nav ul {
+  .nav-menu {
     flex-direction: row;
   }
   

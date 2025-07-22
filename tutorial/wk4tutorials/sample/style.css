@@ -1,0 +1,168 @@
+/* Base mobile-first layout */
+.grid-container {
+  display: grid;
+  gap: 20px;
+}
+
+/* ADDED GLOBAL PARAGRAPH FONT SIZE */
+p {
+  font-size: 1.3em;
+  line-height: 1.6;
+}
+
+/* ADDED ESSAY-TEXT TO THE SELECTOR LIST FOR NEW SECTION */
+.header, .hero, .essay-text, .features div, .gallery div {
+  background-color: #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.header { background-color: #4d1979; color: white; }
+/* ADDED 70VH HERO BACKGROUND IMAGE WITH SQUIRE BASS */
+.hero { 
+  background-color: #2E86AB; 
+  color: white; 
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)),
+    url('images/squire.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 70vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding-right: 40px;
+}
+
+.hero h1, .hero p {
+  position: relative;
+  z-index: 1;
+  text-align: right;
+}
+
+/* ADDED LARGER FONT SIZES FOR HERO TEXT */
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+.hero p {
+  font-size: 1.5em;
+  margin-bottom: 0;
+}
+
+/* ADDED NEW STYLING FOR ESSAY TEXT SECTION */
+.essay-text { background-color: #f8f8f8; color: #333; text-align: left; }
+.features div { background-color: #F18F01; color: white; }
+.gallery div { background-color: #ddd; }
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+/* ADDED STYLING FOR CLICKABLE FEATURE CARDS */
+.feature-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.feature-link:hover div {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+/* ADDED STYLING FOR THUMBNAIL IMAGES IN FEATURE CARDS */
+.features img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* ADDED BASIC NAVIGATION STYLING FOR RESPONSIVE NAV */
+.nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+nav li {
+  margin-bottom: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Hide hamburger menu elements completely */
+.menu-toggle,
+.menu-button {
+  display: none;
+}
+
+/* ADDED SUBPAGE STYLING FOR SIMPLER LAYOUT */
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+main h1 {
+  color: #4d1979;
+  border-bottom: 2px solid #2E86AB;
+  padding-bottom: 10px;
+}
+
+main p {
+  margin-bottom: 20px;
+}
+
+main img {
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+/* Set the breakpoint to establish desktop settings */
+
+@media (min-width: 768px) {
+  /* UPDATED FEATURES GRID FOR 6 CARDS - 2 ROWS OF 3 */
+  .features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  /* ADDED RESPONSIVE NAVIGATION - HORIZONTAL ON DESKTOP */
+  .nav-menu {
+    flex-direction: row;
+  }
+  
+  nav li {
+    margin-bottom: 0;
+    margin-right: 15px;
+  }
+}

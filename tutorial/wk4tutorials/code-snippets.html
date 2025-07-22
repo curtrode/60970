@@ -182,24 +182,10 @@
         <p>Copy and paste these tested code snippets into your projects:</p>
 
         <h3>Responsive Navigation Enhancement</h3>
-        <p><strong>Step 1:</strong> Hide the hamburger menu button on desktop</p>
+        <p><strong>Step 1:</strong> Add responsive navigation CSS to your existing styles</p>
         <div class="code-snippet">
             <button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
-<pre>/* Hide hamburger menu on larger screens */
-.menu-button {
-    display: none;
-}
-
-/* Hide checkbox input completely */
-.menu-toggle {
-    display: none;
-}</pre>
-        </div>
-
-        <p><strong>Step 2:</strong> Add this to your existing navigation CSS</p>
-        <div class="code-snippet">
-            <button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
-<pre>/* Mobile: Hide menu by default */
+<pre>/* Mobile-first navigation styles */
 .nav-menu {
     display: none;
     position: absolute;
@@ -210,12 +196,24 @@
     flex-direction: column;
 }
 
-/* Mobile: Show menu when checkbox is checked */
+/* Show menu when hamburger is checked */
 .menu-toggle:checked ~ .nav-menu {
     display: flex;
 }
 
-/* Desktop: Always show menu horizontally */
+/* Hide hamburger checkbox */
+.menu-toggle {
+    display: none;
+}
+
+/* Style the hamburger button */
+.menu-button {
+    display: block;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* Desktop: Show horizontal menu, hide hamburger */
 @media (min-width: 768px) {
     .nav-menu {
         display: flex !important;

@@ -74,41 +74,44 @@ pre {
 </ul>
 </div>
 
-<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 1: Create the HTML Structure</h3>
-<p>First, let's build the basic HTML for our navigation:</p>
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 1: Navigation HTML Structure</h3>
+<p>Build your navigation using semantic HTML with the checkbox technique for mobile hamburger menus:</p>
 
 <div class="code-container">
 <button class="copy-button" onclick="copyCode(this)">Copy</button>
-<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Responsive Navigation&lt;/title&gt;
-    &lt;link rel="stylesheet" href="style.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;nav class="main-nav"&gt;
-        &lt;div class="logo"&gt;
-            &lt;h1&gt;My Website&lt;/h1&gt;
-        &lt;/div&gt;
-        
-        &lt;input type="checkbox" id="menu-toggle" class="menu-toggle"&gt;
-        &lt;label for="menu-toggle" class="menu-button"&gt;
-            &lt;span&gt;&lt;/span&gt;
-            &lt;span&gt;&lt;/span&gt;
-            &lt;span&gt;&lt;/span&gt;
-        &lt;/label&gt;
-        
-        &lt;ul class="nav-menu"&gt;
-            &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href="#services"&gt;Services&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/nav&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>&lt;nav class="main-nav" aria-label="Main navigation"&gt;
+    &lt;div class="logo"&gt;
+        &lt;h1&gt;My Website&lt;/h1&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Hidden checkbox for hamburger menu toggle --&gt;
+    &lt;input type="checkbox" id="menu-toggle" class="menu-toggle"&gt;
+    
+    &lt;!-- Hamburger menu button (visible on mobile) --&gt;
+    &lt;label for="menu-toggle" class="menu-button" aria-label="Toggle navigation menu"&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    
+    &lt;!-- Navigation menu items --&gt;
+    &lt;ul class="nav-menu"&gt;
+        &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#services"&gt;Services&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+</div>
+
+<div style="background-color: #e8f5e8; border-left: 4px solid #4caf50; padding: 1rem; margin: 1rem 0;">
+<h4 style="color: #2e7d32; margin-top: 0;">Key HTML Elements Explained:</h4>
+<ul style="color: #2e7d32;">
+<li><strong>&lt;nav&gt;</strong> - Semantic element for navigation sections</li>
+<li><strong>aria-label</strong> - Accessibility label for screen readers</li>
+<li><strong>checkbox + label</strong> - CSS-only technique for hamburger menu</li>
+<li><strong>class names</strong> - Follow clear naming conventions for styling</li>
+</ul>
 </div>
 
 <h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 2: Basic Mobile Styles</h3>

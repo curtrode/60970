@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Development Tutorials</title>
+    <link rel="stylesheet" href="https://templates.lcs.brightspace.com/lib/assets/css/styles.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            background-color: #ffffff;
+        }
+        
+        .tutorial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .tutorial-card {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .tutorial-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .tutorial-card h3 {
+            color: #4d1979;
+            margin-top: 0;
+        }
+        
+        .tutorial-card a {
+            color: #2196f3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .tutorial-card a:hover {
+            text-decoration: underline;
+        }
+        
+        .quick-reference {
+            background: #e3f2fd;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .code-snippet {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            position: relative;
+        }
+        
+        .copy-button {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .copy-button:hover {
+            background: #0056b3;
+            transform: translateY(-1px);
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #2196f3;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin: 4px 4px 4px 0;
+        }
+        
+        .difficulty-beginner { background: #4caf50; }
+        .difficulty-intermediate { background: #ff9800; }
+        .difficulty-advanced { background: #f44336; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color: #4d1979; text-align: center;">Responsive Web Development Tutorials</h1>
+        <p style="text-align: center; font-size: 1.1em; color: #666;">Learn to build responsive, accessible websites step by step</p>
+        
+        <div style="background: #e3f2fd; padding: 1rem; border-radius: 8px; text-align: center; margin: 1rem 0;">
+            <p style="margin: 0; color: #1976d2;">
+                <strong>📺 Watch First, Code Second:</strong> View the tutorial videos in D2L, then return here to copy the exact code snippets you need.
+            </p>
+        </div>
+    </header>
+
+    <section class="tutorial-grid">
+        <article class="tutorial-card">
+            <h3>Tutorial 1: Responsive Navigation</h3>
+            <div>
+                <span class="badge difficulty-beginner">Beginner</span>
+                <span class="badge">CSS Only</span>
+                <span class="badge">Mobile First</span>
+            </div>
+            <p>Create mobile-friendly navigation menus that work perfectly across all devices using CSS-only techniques. Learn hamburger menus, flexible layouts, and progressive enhancement.</p>
+            <p><strong>What you'll learn:</strong></p>
+            <ul>
+                <li>Mobile-first navigation design</li>
+                <li>CSS-only hamburger menus</li>
+                <li>Responsive navigation patterns</li>
+                <li>Accessibility considerations</li>
+            </ul>
+            <p><a href="responsive-navigation.html">Start Tutorial →</a></p>
+        </article>
+
+        <article class="tutorial-card">
+            <h3>Tutorial 2: Responsive Images & Typography</h3>
+            <div>
+                <span class="badge difficulty-beginner">Beginner</span>
+                <span class="badge">Images</span>
+                <span class="badge">Typography</span>
+            </div>
+            <p>Master responsive images and fluid typography that scales beautifully across devices. Learn modern CSS techniques for flexible media and readable text.</p>
+            <p><strong>What you'll learn:</strong></p>
+            <ul>
+                <li>Responsive image techniques</li>
+                <li>Fluid typography with CSS clamp()</li>
+                <li>Art direction with picture element</li>
+                <li>Performance optimization</li>
+            </ul>
+            <p><a href="responsive-images-typography.html">Start Tutorial →</a></p>
+        </article>
+
+        <article class="tutorial-card">
+            <h3>Tutorial 3: Validation & Accessibility</h3>
+            <div>
+                <span class="badge difficulty-intermediate">Intermediate</span>
+                <span class="badge">A11y</span>
+                <span class="badge">Standards</span>
+            </div>
+            <p>Ensure your websites are accessible to all users and meet web standards. Learn validation techniques, ARIA labels, and accessibility best practices.</p>
+            <p><strong>What you'll learn:</strong></p>
+            <ul>
+                <li>HTML validation techniques</li>
+                <li>ARIA labels and roles</li>
+                <li>Keyboard navigation</li>
+                <li>Screen reader compatibility</li>
+            </ul>
+            <p><a href="validation-accessibility.html">Start Tutorial →</a></p>
+        </article>
+    </section>
+
+    <section style="background: #fff3cd; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; border-left: 4px solid #ffc107;">
+        <h3 style="color: #856404; margin-top: 0;">💡 Perfect for Students Starting with Existing Sites</h3>
+        <p style="color: #856404; margin-bottom: 0;">These tutorials are designed for students who already have a basic website structure (like the demo site). You'll enhance what you already have rather than starting from scratch!</p>
+    </section>
+
+    <section class="quick-reference">
+        <h2 style="color: #4d1979;">Quick Reference: Essential Code Snippets</h2>
+        <p>Copy and paste these tested code snippets into your projects:</p>
+
+        <h3>Responsive Navigation Enhancement</h3>
+        <p><strong>Step 1:</strong> Hide the hamburger menu button on desktop</p>
+        <div class="code-snippet">
+            <button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+<pre>/* Hide hamburger menu on larger screens */
+.menu-button {
+    display: none;
+}
+
+/* Hide checkbox input completely */
+.menu-toggle {
+    display: none;
+}</pre>
+        </div>
+
+        <p><strong>Step 2:</strong> Add this to your existing navigation CSS</p>
+        <div class="code-snippet">
+            <button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+<pre>/* Mobile: Hide menu by default */
+.nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #4d1979;
+    flex-direction: column;
+}
+
+/* Mobile: Show menu when checkbox is checked */
+.menu-toggle:checked ~ .nav-menu {
+    display: flex;
+}
+
+/* Desktop: Always show menu horizontally */
+@media (min-width: 768px) {
+    .nav-menu {
+        display: flex !important;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background: transparent;
+    }
+    
+    .menu-button {
+        display: none;
+    }
+}</pre>
+        </div>
+
+        <h3>Responsive Images Enhancement</h3>
+        <p><strong>Step 1:</strong> Make all images responsive (add to your base CSS)</p>
+        <div class="code-snippet">
+            <button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+<pre>/* Make all images responsive by default */
+img {
+    max-width: 100%;
+    height: auto;
+}</pre>
+        </div>
+
+        <p><strong>Step 2:</strong> For feature cards and gallery images, add:</p>
+        <div class="code-snippet">
+            <button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+<pre>/* Enhanced image styling for cards */
+.features img, .gallery img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* For larger gallery images on desktop */
+@media (min-width: 768px) {
+    .gallery img {
+        height: 200px;
+    }
+}</pre>
+        </div>
+
+        <h3>Fluid Typography Enhancement</h3>
+        <p><strong>Replace your existing font-size declarations with these fluid versions:</strong></p>
+        <div class="code-snippet">
+            <button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+<pre>/* Fluid typography - scales automatically */
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 0.5em;
+}
+
+.hero p {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    margin-bottom: 0;
+}
+
+/* Body text enhancement */
+p {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    line-height: 1.6;
+}
+
+/* Feature card headings */
+.features h3 {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+}</pre>
+        </div>
+
+        <h3>Accessibility Enhancements</h3>
+        <p><strong>Step 1:</strong> Add skip navigation link (place right after &lt;body&gt; tag)</p>
+        <div class="code-snippet">
+            <button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+<pre>&lt;a href="#main-content" class="skip-link"&gt;Skip to main content&lt;/a&gt;</pre>
+        </div>
+
+        <p><strong>Step 2:</strong> Add the skip link CSS</p>
+        <div class="code-snippet">
+            <button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+<pre>/* Skip navigation link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    transition: top 0.3s;
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    top: 6px;
+}</pre>
+        </div>
+
+        <p><strong>Step 3:</strong> Enhance focus styles for keyboard users</p>
+        <div class="code-snippet">
+            <button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+<pre>/* Better focus indicators */
+:focus-visible {
+    outline: 2px solid #2196f3;
+    outline-offset: 2px;
+}
+
+/* Ensure interactive elements are keyboard accessible */
+a:focus-visible, button:focus-visible {
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.3);
+}</pre>
+        </div>
+
+        <p><strong>Step 4:</strong> Add ARIA labels to your navigation</p>
+        <div class="code-snippet">
+            <button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+<pre>&lt;!-- Replace your nav tag with: --&gt;
+&lt;nav class="main-nav" aria-label="Main navigation"&gt;
+
+&lt;!-- Add aria attributes to menu button: --&gt;
+&lt;label for="menu-toggle" 
+       class="menu-button"
+       aria-label="Toggle navigation menu"&gt;</pre>
+        </div>
+    </section>
+
+    <footer style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #ddd;">
+        <p>Ready to start building? Choose a tutorial above or reference the code snippets for your own projects.</p>
+        <p><a href="start.html">← Start Here</a> | <a href="../../setup/index.html">View Demo Site</a></p>
+    </footer>
+
+    <script>
+        function copyToClipboard(button) {
+            const codeBlock = button.nextElementSibling;
+            const text = codeBlock.textContent || codeBlock.innerText;
+            
+            navigator.clipboard.writeText(text).then(function() {
+                button.textContent = 'Copied!';
+                button.style.background = '#28a745';
+                
+                setTimeout(function() {
+                    button.textContent = 'Copy';
+                    button.style.background = '#007bff';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -264,172 +264,6 @@ body {
 }</code></pre>
 </div>
 
-<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 6: Testing Your Navigation</h3>
-<p>Here's how to test your responsive navigation:</p>
-
-<ol style="margin: 1rem 0; padding-left: 1.5rem;">
-<li><strong>Open Browser Developer Tools:</strong>
-    <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
-    <li>Right-click on your page → "Inspect"</li>
-    <li>Click the device icon (📱) to see mobile view</li>
-    </ul>
-</li>
-<li><strong>Test Different Sizes:</strong>
-    <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
-    <li>Mobile: 375px wide</li>
-    <li>Tablet: 768px wide</li>
-    <li>Desktop: 1200px wide</li>
-    </ul>
-</li>
-<li><strong>Check Functionality:</strong>
-    <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
-    <li>Does the hamburger menu appear on mobile?</li>
-    <li>Does clicking it open/close the menu?</li>
-    <li>Does it disappear on larger screens?</li>
-    </ul>
-</li>
-</ol>
-
-<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #ff9800; margin: 1rem 0;">
-<h3 style="color: #f57c00; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Common Problems and Solutions</h3>
-<p><strong>Problem:</strong> Menu doesn't open when clicked</p>
-<p><strong>Solution:</strong> Check that your HTML structure matches exactly - the checkbox, label, and menu must be in the right order.</p>
-
-<p><strong>Problem:</strong> Menu stays open on larger screens</p>
-<p><strong>Solution:</strong> Make sure your media query includes <code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">max-height: none</code> for the nav-menu.</p>
-</div>
-
-<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Complete CSS Example</h3>
-<p>Here's the complete CSS file for reference:</p>
-
-<div class="code-container">
-<button class="copy-button" onclick="copyCode(this)">Copy</button>
-<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Reset and base styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-}
-
-/* Navigation container */
-.main-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #333;
-    position: relative;
-}
-
-/* Logo */
-.logo h1 {
-    color: white;
-    font-size: 1.5rem;
-}
-
-/* Mobile menu toggle */
-.menu-toggle {
-    display: none;
-}
-
-.menu-button {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    padding: 0.5rem;
-}
-
-.menu-button span {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 3px 0;
-    transition: 0.3s;
-}
-
-/* Mobile navigation menu */
-.nav-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    list-style: none;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-}
-
-.nav-menu li {
-    width: 100%;
-}
-
-.nav-menu a {
-    display: block;
-    padding: 1rem;
-    color: white;
-    text-decoration: none;
-    border-bottom: 1px solid #555;
-}
-
-.nav-menu a:hover {
-    background-color: #555;
-}
-
-/* Show menu when toggle is checked */
-.menu-toggle:checked + .menu-button + .nav-menu {
-    max-height: 300px;
-}
-
-/* Tablet and desktop styles */
-@media (min-width: 768px) {
-    .main-nav {
-        padding: 1rem 2rem;
-    }
-    
-    .menu-button {
-        display: none;
-    }
-    
-    .nav-menu {
-        position: static;
-        display: flex;
-        width: auto;
-        max-height: none;
-        overflow: visible;
-        background-color: transparent;
-    }
-    
-    .nav-menu li {
-        width: auto;
-        margin-left: 2rem;
-    }
-    
-    .nav-menu a {
-        padding: 0.5rem 0;
-        border-bottom: none;
-    }
-    
-    .nav-menu a:hover {
-        background-color: transparent;
-        color: #ccc;
-    }
-}</code></pre>
-</div>
-
-<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Practice Exercise</h3>
-<p>Try customizing your navigation:</p>
-<ol style="margin: 1rem 0; padding-left: 1.5rem;">
-<li>Change the background color to your favorite color</li>
-<li>Add more menu items</li>
-<li>Try different hover effects</li>
-<li>Experiment with different breakpoints (change 768px to something else)</li>
-</ol>
-
 <h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Key Takeaways</h3>
 <ul style="margin: 1rem 0; padding-left: 1.5rem;">
 <li><strong>Mobile-first design:</strong> Start with mobile styles, then enhance for larger screens</li>
@@ -438,15 +272,9 @@ body {
 <li><strong>Testing is crucial:</strong> Always test your navigation on different screen sizes</li>
 </ul>
 
-<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #4caf50; margin: 1rem 0;">
-<h3 style="color: #2e7d32; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Next Steps</h3>
-<p>You've successfully created a responsive navigation! In the next tutorial, you'll learn how to create flexible layouts using CSS Grid that work perfectly with your new navigation.</p>
-</div>
-
-<div style="text-align: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #ddd; color: #666; font-size: 0.9em;">
-<p><a href="index-tutorials.html">← Back to Tutorial Hub</a> | <a href="tutorial-3-images-typography.html">Next: Images & Typography →</a></p>
-<p><em>Tutorial 1 of 3: Responsive Navigation • Part of MLA 60970 Web Development Series</em></p>
-</div>
+<footer style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #ddd;">
+  <p><a href="code-snippets.html">← Back to Tutorial Hub</a> | <a href="responsive-images-typography.html">Next: Images & Typography →</a></p>
+</footer>
 
 </div>
 
@@ -483,5 +311,12 @@ function copyCode(button) {
   document.body.removeChild(textarea);
 }
 </script>
+
+<footer style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #ddd;">
+  <p><a href="code-snippets.html">← Back to Tutorial Hub</a> | <a href="responsive-images-typography.html">Next: Images & Typography →</a></p>
+  <p style="margin-top: 1rem; font-size: 0.9em; color: #666;">
+    💡 <strong>Tip:</strong> Return to D2L to continue with the next video, then come back here for more code snippets.
+  </p>
+</footer>
 
 </body></html>

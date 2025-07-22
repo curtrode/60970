@@ -1,5 +1,55 @@
 <!DOCTYPE html>
-<html><head> <link rel="stylesheet" href="https://templates.lcs.brightspace.com/lib/assets/css/styles.min.css"> </head><body style="color: rgb(32, 33, 34); font-family: arial, helvetica, sans-serif; font-size: 12px;"><div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 100%; margin: 0; padding: 1rem; background-color: #ffffff;">
+<html><head> 
+<link rel="stylesheet" href="https://templates.lcs.brightspace.com/lib/assets/css/styles.min.css"> 
+<style>
+/* Copy button styles */
+.code-container {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.copy-button:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+.copy-button.copied {
+  background: #28a745;
+}
+
+.copy-button.copied::after {
+  content: ' ✓';
+}
+
+/* Make sure code blocks have proper positioning */
+pre {
+  position: relative;
+  background-color: #f5f5f5 !important;
+  padding: 1rem !important;
+  border-radius: 3px !important;
+  font-family: monospace !important;
+  font-size: 0.9em !important;
+  overflow-x: auto !important;
+  margin: 1rem 0 !important;
+}
+</style>
+</head><body style="color: rgb(32, 33, 34); font-family: arial, helvetica, sans-serif; font-size: 12px;"><div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 100%; margin: 0; padding: 1rem; background-color: #ffffff;">
 <h2 style="color: #4d1979; font-size: 1.3em; margin-top: 1.5rem; margin-bottom: 1rem;">Overview</h2>
 <p>This tutorial builds on CSS Grid fundamentals to create fully responsive content elements within your grid layout using a mobile-first approach. You'll learn to implement flexible navigation, optimized images, and typography that adapts seamlessly across all screen sizes, starting from mobile devices and progressively enhancing for larger screens.</p>
 <h2 style="color: #4d1979; font-size: 1.3em; margin-top: 1.5rem; margin-bottom: 1rem;">Learning Objectives</h2>
@@ -42,6 +92,8 @@
 <h2 style="color: #4d1979; font-size: 1.3em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 1: Create Responsive Navigation</h2>
 <p>Let's start by transforming the header into a flexible navigation system using mobile-first CSS techniques:</p>
 <h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">HTML Structure</h3>
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
 <pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>&lt;div class="header"&gt;
   &lt;nav class="main-nav"&gt;
     &lt;div class="logo"&gt;
@@ -63,8 +115,11 @@
     &lt;/ul&gt;
   &lt;/nav&gt;
 &lt;/div&gt;</code></pre>
+</div>
 <h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">CSS for Flexible Navigation (Mobile-First)</h3>
-<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code><pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Mobile-first base styles */
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Mobile-first base styles */
 .main-nav {
   display: flex;
   justify-content: space-between;
@@ -114,7 +169,7 @@
 .nav-menu a:hover {
   color: #f0f0f0;
   background: rgba(255,255,255,0.1);
-}</code></pre>
+}
 
 /* Mobile menu toggle */
 .menu-toggle {
@@ -173,6 +228,7 @@
     display: none;
   }
 }</code></pre>
+</div>
 <p><strong>Key Points:</strong></p>
 <ul style="margin: 1rem 0; padding-left: 1.5rem;">
 <li>Uses <strong>mobile-first approach</strong> - base styles are for mobile, enhanced for larger screens</li>
@@ -192,6 +248,8 @@
 <h2 style="color: #4d1979; font-size: 1.3em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 2: Responsive Typography System</h2>
 <p>Create a scalable typography system using modern CSS techniques:</p>
 <h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">CSS Custom Properties for Typography</h3>
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
 <pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Add to the top of your CSS file */
 :root {
   --font-size-sm: clamp(0.8rem, 1.5vw, 0.9rem);
@@ -246,6 +304,7 @@ p, .body-text {
   font-size: var(--font-size-sm);
   line-height: var(--line-height-normal);
 }</code></pre>
+</div>
 <p><strong>Understanding clamp():</strong></p>
 <ul style="margin: 1rem 0; padding-left: 1.5rem;">
 <li><code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">clamp(min, preferred, max)</code> = minimum size, ideal size, maximum size</li>
@@ -255,6 +314,8 @@ p, .body-text {
 <h2 style="color: #4d1979; font-size: 1.3em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 3: Responsive Image Optimization</h2>
 <p>Implement adaptive images that perform well across all devices:</p>
 <h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">HTML Picture Element (Mobile-First)</h3>
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
 <pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>&lt;div class="hero"&gt;
   &lt;picture class="hero-image"&gt;
     &lt;source media="(min-width: 1024px)" 
@@ -274,7 +335,10 @@ p, .body-text {
     &lt;button class="cta-button"&gt;Get Started&lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+</div>
 <h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">CSS for Responsive Images</h3>
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
 <pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>.hero {
   position: relative;
   min-height: 60vh;
@@ -339,9 +403,12 @@ p, .body-text {
 .image-grid img:hover {
   transform: scale(1.05);
 }</code></pre>
+</div>
 <h2 style="color: #4d1979; font-size: 1.3em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 4: Flexible Content Containers</h2>
 <p>Create containers that adapt to different content lengths and screen sizes:</p>
 <h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">HTML Structure</h3>
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
 <pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>&lt;div class="content"&gt;
   &lt;div class="container"&gt;
     &lt;section class="text-section"&gt;
@@ -369,7 +436,10 @@ p, .body-text {
     &lt;/section&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+</div>
 <h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">CSS for Flexible Containers</h3>
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
 <pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>.container {
   max-width: 1200px;
   margin: 0 auto;
@@ -419,8 +489,11 @@ p, .body-text {
   color: #666;
   margin-bottom: 0;
 }</code></pre>
+</div>
 <h2 style="color: #4d1979; font-size: 1.3em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 5: Interactive Elements and Buttons</h2>
 <p>Create responsive buttons and interactive elements:</p>
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
 <pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>.cta-button {
   display: inline-block;
   padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
@@ -459,8 +532,11 @@ p, .body-text {
   background: #007bff;
   color: white;
 }</code></pre>
+</div>
 <h2 style="color: #4d1979; font-size: 1.3em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 6: Complete Responsive Grid Layout</h2>
 <p>Here's how everything comes together in the complete grid:</p>
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
 <pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>.grid-container {
   display: grid;
   grid-template-areas: 
@@ -501,6 +577,7 @@ p, .body-text {
 .content { grid-area: content; }
 .sidebar { grid-area: sidebar; }
 .footer { grid-area: footer; }</code></pre>
+</div>
 <div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #4caf50; margin: 1rem 0;">
 <h3 style="color: #2e7d32; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Checkpoint: Save Complete Layout</h3>
 <p>After implementing all responsive features:</p>
@@ -564,13 +641,18 @@ p, .body-text {
 <h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Problem: Images Too Large on Mobile</h3>
 <p><strong>Symptoms:</strong> Images extend beyond screen, cause horizontal scrolling</p>
 <p><strong>Solutions:</strong></p>
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
 <pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>img {
   max-width: 100%;
   height: auto;
 }</code></pre>
+</div>
 <h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Problem: Navigation Breaks on Mobile</h3>
 <p><strong>Symptoms:</strong> Menu items overlap or extend off screen</p>
 <p><strong>Mobile-First Solutions:</strong></p>
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
 <pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Mobile-first: Start with mobile layout */
 .nav-menu {
   flex-direction: column;
@@ -586,15 +668,21 @@ p, .body-text {
     width: auto;
   }
 }</code></pre>
+</div>
 <h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Problem: Text Too Small on Mobile</h3>
 <p><strong>Symptoms:</strong> Users must zoom to read text</p>
 <p><strong>Solutions:</strong></p>
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
 <pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Use clamp() for responsive text sizing */
 p {
   font-size: clamp(1rem, 2vw, 1.2rem);
 }</code></pre>
+</div>
 <h2 style="color: #4d1979; font-size: 1.3em; margin-top: 1.5rem; margin-bottom: 1rem;">Quick Reference</h2>
 <h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Essential CSS Functions</h3>
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
 <pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Responsive sizing with clamp() */
 font-size: clamp(1rem, 2vw, 1.5rem);
 
@@ -607,6 +695,7 @@ img {
   height: auto;
   object-fit: cover;
 }</code></pre>
+</div>
 <h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Common Breakpoints (Mobile-First)</h3>
 <ul style="margin: 1rem 0; padding-left: 1.5rem;">
 <li><strong>Mobile (Base):</strong> 320px and up (no media query needed)</li>
@@ -615,6 +704,8 @@ img {
 <li><strong>Large Desktop:</strong> 1200px and up (<code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">@media (min-width: 1200px)</code>)</li>
 </ul>
 <h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">CSS Grid Areas Template (Mobile-First)</h3>
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
 <pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Mobile-first: Single column base layout */
 .grid-container {
   display: grid;
@@ -651,6 +742,7 @@ img {
     grid-template-columns: 1fr 1fr 300px;
   }
 }</code></pre>
+</div>
 <div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #2196f3; margin: 1rem 0;">
 <h3 style="color: #1976d2; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Version Control Best Practices</h3>
 <p><strong>Recommended Commit Points for This Tutorial:</strong></p>
@@ -700,4 +792,82 @@ img {
 <div style="text-align: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #ddd; color: #666; font-size: 0.9em;">
 <p><em>This tutorial was developed for MLA 60970 - Web Development</em></p>
 </div>
-</div></body></html>
+</div>
+
+<script>
+function copyCode(button) {
+  // Find the code element within the same container
+  const codeContainer = button.parentElement;
+  const codeElement = codeContainer.querySelector('code');
+  const textToCopy = codeElement.textContent;
+  
+  // Create a temporary textarea to copy from
+  const textarea = document.createElement('textarea');
+  textarea.value = textToCopy;
+  document.body.appendChild(textarea);
+  
+  // Select and copy the text
+  textarea.select();
+  textarea.setSelectionRange(0, 99999); // For mobile devices
+  
+  try {
+    document.execCommand('copy');
+    
+    // Visual feedback
+    const originalText = button.textContent;
+    button.textContent = 'Copied!';
+    button.classList.add('copied');
+    
+    // Reset button after 2 seconds
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.classList.remove('copied');
+    }, 2000);
+    
+  } catch (err) {
+    console.error('Failed to copy text: ', err);
+    alert('Copy failed. Please select and copy manually.');
+  }
+  
+  // Remove the temporary textarea
+  document.body.removeChild(textarea);
+}
+
+// Modern async clipboard API (fallback for newer browsers)
+async function copyCodeModern(button) {
+  const codeContainer = button.parentElement;
+  const codeElement = codeContainer.querySelector('code');
+  const textToCopy = codeElement.textContent;
+  
+  try {
+    await navigator.clipboard.writeText(textToCopy);
+    
+    // Visual feedback
+    const originalText = button.textContent;
+    button.textContent = 'Copied!';
+    button.classList.add('copied');
+    
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.classList.remove('copied');
+    }, 2000);
+    
+  } catch (err) {
+    // Fallback to the older method
+    copyCode(button);
+  }
+}
+
+// Check if modern clipboard API is available and use it
+if (navigator.clipboard && navigator.clipboard.writeText) {
+  // Replace the onclick function for modern browsers
+  document.addEventListener('DOMContentLoaded', function() {
+    const copyButtons = document.querySelectorAll('.copy-button');
+    copyButtons.forEach(button => {
+      button.onclick = () => copyCodeModern(button);
+    });
+  });
+}
+</script>
+
+</body></html>

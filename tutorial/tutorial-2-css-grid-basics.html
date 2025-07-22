@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html><head> 
+<link rel="stylesheet" href="https://templates.lcs.brightspace.com/lib/assets/css/styles.min.css"> 
+<style>
+/* Copy button styles */
+.code-container {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.copy-button:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+.copy-button.copied {
+  background: #28a745;
+}
+
+.copy-button.copied::after {
+  content: ' ✓';
+}
+
+/* Make sure code blocks have proper positioning */
+pre {
+  position: relative;
+  background-color: #f5f5f5 !important;
+  padding: 1rem !important;
+  border-radius: 3px !important;
+  font-family: monospace !important;
+  font-size: 0.9em !important;
+  overflow-x: auto !important;
+  margin: 1rem 0 !important;
+}
+</style>
+</head><body style="color: rgb(32, 33, 34); font-family: arial, helvetica, sans-serif; font-size: 12px;"><div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 100%; margin: 0; padding: 1rem; background-color: #ffffff;">
+
+<h2 style="color: #4d1979; font-size: 1.3em; margin-top: 1.5rem; margin-bottom: 1rem;">Tutorial 2: CSS Grid Layouts for Beginners</h2>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Overview</h3>
+<p>Learn to create flexible webpage layouts using CSS Grid. This tutorial focuses on the basics of grid layout, helping you understand how to organize content into rows and columns that work on any device.</p>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Learning Objectives</h3>
+<p>By the end of this tutorial, you will be able to:</p>
+<ul style="margin: 1rem 0; padding-left: 1.5rem;">
+<li>Create basic CSS Grid layouts</li>
+<li>Understand grid areas and how to use them</li>
+<li>Make layouts that adapt to different screen sizes</li>
+<li>Combine grid with your responsive navigation</li>
+</ul>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #2196f3; margin: 1rem 0;">
+<h3 style="color: #1976d2; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">What You Need</h3>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li>Completed Tutorial 1 (Responsive Navigation) or basic HTML/CSS knowledge</li>
+<li>A text editor</li>
+<li>A web browser</li>
+</ul>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">What is CSS Grid?</h3>
+<p>CSS Grid is like creating a table for your webpage layout, but much more flexible. Think of it as drawing invisible lines on your page to create boxes where you can place your content.</p>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #4caf50; margin: 1rem 0;">
+<h3 style="color: #2e7d32; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Simple Grid Analogy</h3>
+<p>Imagine your webpage is like a newspaper:</p>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li><strong>Header:</strong> The newspaper title at the top</li>
+<li><strong>Main Article:</strong> The big story in the center</li>
+<li><strong>Sidebar:</strong> Smaller articles on the side</li>
+<li><strong>Footer:</strong> Information at the bottom</li>
+</ul>
+<p>CSS Grid helps you organize these sections neatly!</p>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 1: Basic HTML Structure</h3>
+<p>Let's start with a simple HTML layout:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;CSS Grid Layout&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="grid-container"&gt;
+        &lt;header class="header"&gt;
+            &lt;h1&gt;My Website&lt;/h1&gt;
+            &lt;nav&gt;
+                &lt;a href="#"&gt;Home&lt;/a&gt;
+                &lt;a href="#"&gt;About&lt;/a&gt;
+                &lt;a href="#"&gt;Contact&lt;/a&gt;
+            &lt;/nav&gt;
+        &lt;/header&gt;
+        
+        &lt;main class="main-content"&gt;
+            &lt;h2&gt;Welcome to My Site&lt;/h2&gt;
+            &lt;p&gt;This is the main content area where your important information goes.&lt;/p&gt;
+            &lt;p&gt;CSS Grid makes it easy to create layouts like this!&lt;/p&gt;
+        &lt;/main&gt;
+        
+        &lt;aside class="sidebar"&gt;
+            &lt;h3&gt;Sidebar&lt;/h3&gt;
+            &lt;p&gt;This is extra information that supports your main content.&lt;/p&gt;
+        &lt;/aside&gt;
+        
+        &lt;footer class="footer"&gt;
+            &lt;p&gt;&copy; 2024 My Website. All rights reserved.&lt;/p&gt;
+        &lt;/footer&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 2: Basic CSS Reset</h3>
+<p>Start with some basic styles to make everything look neat:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Make all sections have some basic styling so we can see them */
+.header, .main-content, .sidebar, .footer {
+    padding: 1rem;
+    border: 2px solid #ddd;
+    margin: 0.5rem 0;
+}</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 3: Create Your First Grid</h3>
+<p>Now let's turn our container into a grid. This is where the magic happens!</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Create the grid container */
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "main"
+        "sidebar"
+        "footer";
+    gap: 1rem;
+    padding: 1rem;
+    min-height: 100vh;
+}
+
+/* Assign each section to a grid area */
+.header {
+    grid-area: header;
+    background-color: #333;
+    color: white;
+}
+
+.main-content {
+    grid-area: main;
+    background-color: #f9f9f9;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #e9e9e9;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}</code></pre>
+</div>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #4caf50; margin: 1rem 0;">
+<h3 style="color: #2e7d32; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Test Your Grid</h3>
+<p>Save your files and open them in a browser. You should see:</p>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li>Header at the top</li>
+<li>Main content in the middle</li>
+<li>Sidebar below main content</li>
+<li>Footer at the bottom</li>
+</ul>
+<p>Everything should be stacked vertically on mobile!</p>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 4: Make It Responsive for Tablets</h3>
+<p>Now let's make it look better on tablet-sized screens:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Tablet styles */
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-areas: 
+            "header header"
+            "main sidebar"
+            "footer footer";
+        grid-template-columns: 2fr 1fr;
+    }
+}</code></pre>
+</div>
+
+<p><strong>What this does:</strong></p>
+<ul style="margin: 1rem 0; padding-left: 1.5rem;">
+<li><code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">"header header"</code> - Header spans across both columns</li>
+<li><code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">"main sidebar"</code> - Main content and sidebar sit side by side</li>
+<li><code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">"footer footer"</code> - Footer spans across both columns</li>
+<li><code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">2fr 1fr</code> - Main content gets 2 parts, sidebar gets 1 part</li>
+</ul>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 5: Desktop Layout</h3>
+<p>For larger screens, let's create an even more sophisticated layout:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Desktop styles */
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-areas: 
+            "header header header"
+            "main main sidebar"
+            "footer footer footer";
+        grid-template-columns: 1fr 1fr 300px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 6: Style Your Navigation</h3>
+<p>Let's make the header navigation look nice:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Header and navigation styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 1.5rem;
+}
+
+.header nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.header nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.header nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Hide navigation on mobile, show on tablet+ */
+@media (max-width: 767px) {
+    .header nav {
+        display: none;
+    }
+}</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 7: Content Styling</h3>
+<p>Make your content look professional:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Content styling */
+.main-content h2 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.main-content p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.sidebar h3 {
+    color: #555;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.sidebar p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Remove the borders we added for testing */
+.header, .main-content, .sidebar, .footer {
+    border: none;
+    margin: 0;
+}</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Testing Your Grid Layout</h3>
+<p>Here's how to test your responsive grid:</p>
+
+<ol style="margin: 1rem 0; padding-left: 1.5rem;">
+<li><strong>Open Developer Tools:</strong>
+    <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+    <li>Right-click → "Inspect"</li>
+    <li>Click the device icon (📱)</li>
+    </ul>
+</li>
+<li><strong>Test Different Sizes:</strong>
+    <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+    <li>Mobile (375px): Should be stacked vertically</li>
+    <li>Tablet (768px): Main and sidebar side by side</li>
+    <li>Desktop (1024px+): Three-column layout</li>
+    </ul>
+</li>
+</ol>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #ff9800; margin: 1rem 0;">
+<h3 style="color: #f57c00; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Common Issues</h3>
+<p><strong>Problem:</strong> Grid areas don't match up</p>
+<p><strong>Solution:</strong> Make sure your grid-area names exactly match what you wrote in grid-template-areas.</p>
+
+<p><strong>Problem:</strong> Layout doesn't change on different screen sizes</p>
+<p><strong>Solution:</strong> Check that your media queries have the right syntax and breakpoints.</p>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Complete CSS Example</h3>
+<p>Here's the complete stylesheet:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Grid container - mobile first */
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "main"
+        "sidebar"
+        "footer";
+    gap: 1rem;
+    padding: 1rem;
+    min-height: 100vh;
+}
+
+/* Grid areas */
+.header {
+    grid-area: header;
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-content {
+    grid-area: main;
+    background-color: #f9f9f9;
+    padding: 2rem;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #e9e9e9;
+    padding: 1.5rem;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Header navigation */
+.header h1 {
+    font-size: 1.5rem;
+}
+
+.header nav {
+    display: none; /* Hidden on mobile */
+}
+
+.header nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.header nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Content styling */
+.main-content h2 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.main-content p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.sidebar h3 {
+    color: #555;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.sidebar p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-areas: 
+            "header header"
+            "main sidebar"
+            "footer footer";
+        grid-template-columns: 2fr 1fr;
+    }
+    
+    .header nav {
+        display: flex;
+        gap: 2rem;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-areas: 
+            "header header header"
+            "main main sidebar"
+            "footer footer footer";
+        grid-template-columns: 1fr 1fr 300px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Understanding Grid Properties</h3>
+
+<p><strong>Key Grid Properties Explained:</strong></p>
+<ul style="margin: 1rem 0; padding-left: 1.5rem;">
+<li><code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">display: grid</code> - Makes the element a grid container</li>
+<li><code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">grid-template-areas</code> - Defines the layout using names</li>
+<li><code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">grid-template-columns</code> - Sets the width of columns</li>
+<li><code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">grid-area</code> - Assigns an element to a named area</li>
+<li><code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">gap</code> - Creates space between grid items</li>
+</ul>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Practice Exercises</h3>
+<ol style="margin: 1rem 0; padding-left: 1.5rem;">
+<li><strong>Add a new section:</strong> Try adding a "hero" section above the main content</li>
+<li><strong>Change the layout:</strong> Put the sidebar on the left instead of the right</li>
+<li><strong>Experiment with colors:</strong> Change the background colors of different sections</li>
+<li><strong>Add more content:</strong> Add images and more text to see how it behaves</li>
+</ol>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Key Takeaways</h3>
+<ul style="margin: 1rem 0; padding-left: 1.5rem;">
+<li><strong>Mobile-first approach:</strong> Design for mobile, then enhance for larger screens</li>
+<li><strong>Grid areas:</strong> Use named areas to make your CSS easier to understand</li>
+<li><strong>Responsive design:</strong> Use media queries to change layouts at different screen sizes</li>
+<li><strong>Flexible units:</strong> Use <code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">fr</code> (fractional units) for flexible columns</li>
+</ul>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #4caf50; margin: 1rem 0;">
+<h3 style="color: #2e7d32; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Next Steps</h3>
+<p>Great job! You've created a responsive grid layout. In the next tutorial, you'll learn how to make images and text that look perfect on any device size.</p>
+</div>
+
+<div style="text-align: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #ddd; color: #666; font-size: 0.9em;">
+<p><em>Tutorial 2 of 4: CSS Grid Layouts • Part of MLA 60970 Web Development Series</em></p>
+</div>
+
+</div>
+
+<script>
+function copyCode(button) {
+  const codeContainer = button.parentElement;
+  const codeElement = codeContainer.querySelector('code');
+  const textToCopy = codeElement.textContent;
+  
+  const textarea = document.createElement('textarea');
+  textarea.value = textToCopy;
+  document.body.appendChild(textarea);
+  
+  textarea.select();
+  textarea.setSelectionRange(0, 99999);
+  
+  try {
+    document.execCommand('copy');
+    
+    const originalText = button.textContent;
+    button.textContent = 'Copied!';
+    button.classList.add('copied');
+    
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.classList.remove('copied');
+    }, 2000);
+    
+  } catch (err) {
+    console.error('Failed to copy text: ', err);
+    alert('Copy failed. Please select and copy manually.');
+  }
+  
+  document.body.removeChild(textarea);
+}
+</script>
+
+</body></html>

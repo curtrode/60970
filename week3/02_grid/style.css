@@ -11,7 +11,7 @@
   text-align: center;
 }
 
-.header { background-color: #7B4397; color: white; }
+.header { background-color: #4d1979; color: white; }
 .hero { background-color: #2E86AB; color: white; }
 .features div { background-color: #F18F01; color: white; }
 .gallery div { background-color: #ddd; }
@@ -28,7 +28,8 @@
   gap: 10px;
 }
 
-/* The media queries begin here for desktop layout */
+
+/* Set the breakpoint to establish desktop settings */
 
 @media (min-width: 768px) {
   .features {

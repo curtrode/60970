@@ -1,4 +1,26 @@
-/* Reset some default styles */
+/***************************************
+ * Table of Contents:
+ * 1. Reset & Base Styles
+ * 2. Typography
+ * 3. Layout Fundamentals
+ * 4. Components
+ * 5. Navigation
+ * 6. Media Queries
+ ***************************************/
+
+/* =================================
+   1. Reset & Base Styles
+   ================================= */
+:root {
+    --primary-color: #4D1979;
+    --secondary-color: #2E86AB;
+    --text-color: #333;
+    --light-text: #666;
+    --white: #fff;
+    --spacing-sm: clamp(1rem, 3vw, 2rem);
+    --spacing-md: clamp(2rem, 5vw, 4rem);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +29,8 @@
 
 body {
     font-family: Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--white);
 }
 
 /* Make all images responsive by default */
@@ -15,60 +39,161 @@ img {
     height: auto;
 }
 
+/* =================================
+   2. Typography
+   ================================= */
+/* Body text enhancement */
+p {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    line-height: 1.6;
+    margin-bottom: 1.2em;
+}
+
+/* Heading styles */
+
+h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.2;
+    margin-top: 0.5em;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+
+h3 {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    line-height: 1.3;
+    margin-bottom: 0.5em;
+}
+
+/* =================================
+   3. Layout Fundamentals
+   ================================= */
+.grid-container {
+    display: grid;
+    gap: 0;
+}
+
 /* Content image sizing system */
+[class^="content-image-"] {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin: 30px auto;
+    display: block;
+}
+
 .content-image-small {
-  max-width: 300px;
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  margin: 30px auto;
-  display: block;
+    max-width: 300px;
 }
 
 .content-image-medium {
-  max-width: 500px;
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  margin: 30px auto;
-  display: block;
+    max-width: 500px;
 }
 
 .content-image-large {
-  max-width: 700px;
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  margin: 30px auto;
-  display: block;
+    max-width: 700px;
 }
 
-/* Semantic figure styling */
+/* =================================
+   4. Components
+   ================================= */
+
+/* Figures */
 figure {
-  margin: 30px 0;
-  text-align: center;
+    margin: 30px 0;
+    text-align: center;
 }
 
 figcaption {
-  font-size: 0.9em;
-  color: #666;
-  font-style: italic;
-  margin-top: 10px;
-  line-height: 1.4;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    color: var(--light-text);
+    font-style: italic;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+/* Hero Section */
+.hero { 
+    background-color: var(--secondary-color);
+    color: var(--white);
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)),
+        url('images/rode_swags_early_studio.jpg');
+    background: var(--secondary-color) 
+        linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)) center/cover,
+        url('images/rode_swags_early_studio.jpg') center/cover;
+    height: 70vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: var(--spacing-md) var(--spacing-sm);
+}
+
+.hero h1, .hero p {
+    position: relative;
+    z-index: 1;
+    text-align: right;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 0.5em;
+}
+
+.hero p {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+}
+
+/* Feature Cards */
+.features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-md) var(--spacing-sm);
+}
+
+.feature-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.feature-link:hover div {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease;
+}
+
+.features h2 {
+    margin-top: 15px;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+}
+
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(0.5rem, 2vw, 1rem);
+    margin: var(--spacing-md) var(--spacing-sm);
 }
 
 
 
-/* Main navigation container */
+/* =================================
+   5. Navigation
+   ================================= */
 .main-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: #4D1979;
+    background-color: var(--primary-color);
     position: relative;
 }
 
@@ -125,6 +250,8 @@ figcaption {
     color: white;
     text-decoration: none;
     border-bottom: 1px solid #555;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+
     
 }
 
@@ -148,10 +275,28 @@ figcaption {
 }
 
 /* ADDED GLOBAL PARAGRAPH FONT SIZE */
+/* Body text enhancement */
 p {
-  font-size: 1.3em;
-  line-height: 1.6;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    line-height: 1.6;
+    margin-bottom: 1.2em;
 }
+
+
+/* Section headings */
+/* Section headings */
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+
+h3 {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    line-height: 1.3;
+    margin-bottom: 0.5em;
+}
+
 
 /* ADDED ESSAY-TEXT TO THE SELECTOR LIST FOR NEW SECTION */
 .header, .hero, .essay-text, .features div, .gallery div {
@@ -178,7 +323,8 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  padding-right: 40px;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
+
 }
 
 .hero h1, .hero p {
@@ -187,15 +333,15 @@ p {
   text-align: right;
 }
 
-/* ADDED LARGER FONT SIZES FOR HERO TEXT */
+/* Fluid typography - scales automatically */
 .hero h1 {
-  font-size: 3em;
-  margin-bottom: 0.5em;
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 0.5em;
 }
 
 .hero p {
-  font-size: 1.5em;
-  margin-bottom: 0;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    /* Removed unnecessary margin-bottom since this is the last element */
 }
 
 /* ADDED NEW STYLING FOR ESSAY TEXT SECTION */
@@ -206,7 +352,8 @@ p {
 .features {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px;
+  gap: clamp(1rem, 3vw, 2rem);
+  margin: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem); 
 }
 
 /* ADDED STYLING FOR CLICKABLE FEATURE CARDS */
@@ -234,23 +381,23 @@ p {
 .gallery {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  margin: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
 }
 
-/* Consistent square thumbnails - recommended approach */
+/* Thumbnail styling with fallback for older browsers */
 .feature-thumbnail, .gallery-thumbnail {
     width: 100%;
-    aspect-ratio: 1 / 1; /* Creates perfect squares */
+    height: 200px; /* Fallback for browsers that don't support aspect-ratio */
     object-fit: cover;
     border-radius: 5px;
 }
 
-/* Alternative for older browsers */
-.feature-thumbnail, .gallery-thumbnail {
-    width: 100%;
-    height: 200px; /* Fixed height for consistency */
-    object-fit: cover;
-    border-radius: 5px;
+@supports (aspect-ratio: 1 / 1) {
+    .feature-thumbnail, .gallery-thumbnail {
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
 }
 
 /* Responsive sizing */
@@ -283,27 +430,32 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* ADDED SUBPAGE STYLING FOR SIMPLER LAYOUT */
-main {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  line-height: 1.6;
+/* Better reading experience */
+.essay-text, main {
+    max-width: 65ch; /* Optimal line length */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1rem, 5vw, 2rem);
+    padding-right: clamp(1rem, 5vw, 2rem);
+    width: 100%;
 }
 
 main h1 {
-  color: #4d1979;
-  border-bottom: 2px solid #2E86AB;
-  padding-bottom: 10px;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+    margin-bottom: 1.5rem;
 }
 
 main p {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 main img {
-  margin: 20px 0;
-  border-radius: 5px;
+    margin: 20px -clamp(1rem, 5vw, 2rem);  /* negative margin to allow full-width images */
+    width: calc(100% + 2 * clamp(1rem, 5vw, 2rem)); /* compensate for negative margin */
+    border-radius: 5px;
+    max-width: none;
 }
 
 
@@ -313,42 +465,36 @@ main img {
 
 
 
-
-/* Set the breakpoint to establish desktop settings */
-
-@media (min-width: 768px) {
-  /* UPDATED FEATURES GRID FOR 6 CARDS - 2 ROWS OF 3 */
-  .features {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .gallery {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  
-  /* ADDED RESPONSIVE NAVIGATION - HORIZONTAL ON DESKTOP */
-  nav ul {
-    flex-direction: row;
-  }
-  
-  nav li {
-    margin-bottom: 0;
-    margin-right: 15px;
-  }
-}
 
 /* Tablet and larger screens */
 @media (min-width: 768px) {
+    /* Layout adjustments */
+    .features {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Navigation adjustments */
     .main-nav {
         padding: 1rem 2rem;
     }
     
-    /* Hide the mobile menu button */
     .menu-button {
         display: none;
     }
     
-    /* Show menu items horizontally */
+    nav ul {
+        flex-direction: row;
+    }
+    
+    nav li {
+        margin-bottom: 0;
+        margin-right: 15px;
+    }
+    
     .nav-menu {
         position: static;
         display: flex;
@@ -374,7 +520,11 @@ main img {
     }
 }
 
-/* Mobile-specific adjustments */
+/* =================================
+   6. Media Queries
+   ================================= */
+
+/* Mobile (up to 480px) */
 @media (max-width: 480px) {
     .content-image-small {
         max-width: 250px;
@@ -392,12 +542,65 @@ main img {
     }
     
     figcaption {
-        font-size: 0.8em;
         padding: 0 10px;
     }
 }
 
-/* Desktop scaling */
+/* Tablet and larger (768px and up) */
+@media (min-width: 768px) {
+    /* Layout adjustments */
+    .features {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Navigation adjustments */
+    .main-nav {
+        padding: 1rem 2rem;
+    }
+    
+    .menu-button {
+        display: none;
+    }
+    
+    nav ul {
+        flex-direction: row;
+    }
+    
+    nav li {
+        margin-bottom: 0;
+        margin-right: 15px;
+    }
+    
+    .nav-menu {
+        position: static;
+        display: flex;
+        width: auto;
+        max-height: none;
+        overflow: visible;
+        background-color: transparent;
+    }
+    
+    .nav-menu li {
+        width: auto;
+        margin-left: 2rem;
+    }
+    
+    .nav-menu a {
+        padding: 0.5rem 0;
+        border-bottom: none;
+    }
+    
+    .nav-menu a:hover {
+        background-color: transparent;
+        color: #ccc;
+    }
+}
+
+/* Desktop (1200px and up) */
 @media (min-width: 1200px) {
     .content-image-small {
         max-width: 400px;

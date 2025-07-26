@@ -1,0 +1,419 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Better contrast */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #fff;
+}
+
+/* Improved line spacing and readability */
+p {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  line-height: 1.6;
+  margin-bottom: 1.2em;
+}
+
+/* Comfortable paragraph spacing */
+p + p {
+  margin-top: 1em;
+}
+
+/* Make all images responsive by default */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Content image sizing system */
+.content-image-small {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 30px auto;
+  display: block;
+}
+
+.content-image-medium {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 30px auto;
+  display: block;
+}
+
+.content-image-large {
+  max-width: 700px;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 30px auto;
+  display: block;
+}
+
+/* Combine thumbnail styles */
+.feature-thumbnail, .gallery-thumbnail {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 5px;
+    height: 200px; /* Fallback for older browsers */
+}
+
+/* Semantic figure styling */
+figure {
+  margin: 30px 0;
+  text-align: center;
+}
+
+figcaption {
+  font-size: 0.9em;
+  color: #666;
+  font-style: italic;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+
+
+/* Main navigation container */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #4D1979;
+    position: relative;
+}
+
+/* Logo styles */
+.logo h1 {
+    color: white;
+    font-size: 1.5rem;
+}
+
+
+
+/* Hide the checkbox (we'll use it for clicking) */
+.menu-toggle {
+    display: none;
+}
+
+/* Style the menu button (hamburger icon) */
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.menu-button span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Mobile menu - starts hidden */
+.nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    list-style: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 100;
+}
+
+.nav-menu li {
+    width: 100%;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #555;
+    
+}
+
+.nav-menu a:hover {
+    background-color: #555;
+}
+
+/* Show menu when checkbox is checked */
+.menu-toggle:checked + .menu-button + .nav-menu {
+    max-height: 300px;
+}
+
+/* ADDED BASIC NAVIGATION STYLING FOR RESPONSIVE NAV */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+nav li {
+  margin-bottom: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* =================================
+   LAYOUT COMPONENTS
+   ================================= */
+
+/* Base mobile-first layout */
+.grid-container {
+  display: grid;
+  gap: 0;
+}
+
+/* ADDED ESSAY-TEXT TO THE SELECTOR LIST FOR NEW SECTION */
+.header, .hero, .essay-text, .features div, .gallery div {
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.header { 
+    background-color: #4d1979; 
+    color: white; 
+    padding: 0; 
+}
+
+.essay-text { 
+    background-color: #f8f8f8; 
+    color: #333; 
+    text-align: left; 
+}
+
+.features div { background-color: hsl(288, 20%, 56%); color: white; }
+.gallery div { background-color: #ddd; }
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* =================================
+   UI COMPONENTS
+   ================================= */
+
+/* ADDED 70VH HERO BACKGROUND IMAGE WITH SQUIRE BASS */
+.hero { 
+  background-color: #2E86AB; 
+  color: white; 
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)),
+    url('images/rode_swags_early_studio.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 70vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding-right: 40px;
+}
+
+.hero h1, .hero p {
+  position: relative;
+  z-index: 1;
+  text-align: right;
+}
+
+/* Fluid typography - scales automatically */
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 5rem);
+  margin-bottom: 0.5em;
+}
+
+.hero p {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  margin-bottom: 0;
+}
+
+/* ADDED STYLING FOR CLICKABLE FEATURE CARDS */
+.feature-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.feature-link:hover div {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+/* Combine feature typography */
+.features h2, .features h3 {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+}
+
+.features h2 {
+    margin-top: 15px;
+}
+
+/* Better reading experience */
+.essay-text, main {
+  max-width: 65ch; /* Optimal line length */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ADDED SUBPAGE STYLING FOR SIMPLER LAYOUT */
+main {
+  padding: 20px;
+  line-height: 1.6;
+}
+
+main h1 {
+  color: #4d1979;
+  border-bottom: 2px solid #2E86AB;
+  padding-bottom: 10px;
+}
+
+main p {
+  margin-bottom: 20px;
+}
+
+main img {
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+/* =================================
+   MEDIA QUERIES - MOBILE FIRST
+   ================================= */
+
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+    .content-image-small {
+        max-width: 250px;
+        margin: 20px auto;
+    }
+    
+    .content-image-medium,
+    .content-image-large {
+        max-width: 100%;
+        margin: 20px auto;
+    }
+    
+    figure {
+        margin: 20px 0;
+    }
+    
+    figcaption {
+        font-size: 0.8em;
+        padding: 0 10px;
+    }
+    
+    .feature-thumbnail, .gallery-thumbnail {
+        height: 150px;
+    }
+}
+
+/* Tablet and larger screens */
+@media (min-width: 768px) {
+    /* UPDATED FEATURES GRID FOR 6 CARDS - 2 ROWS OF 3 */
+    .features {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    /* ADDED RESPONSIVE NAVIGATION - HORIZONTAL ON DESKTOP */
+    nav ul {
+        flex-direction: row;
+    }
+    
+    nav li {
+        margin-bottom: 0;
+        margin-right: 15px;
+    }
+    
+    .main-nav {
+        padding: 1rem 2rem;
+    }
+    
+    /* Hide the mobile menu button */
+    .menu-button {
+        display: none;
+    }
+    
+    /* Show menu items horizontally */
+    .nav-menu {
+        position: static;
+        display: flex;
+        width: auto;
+        max-height: none;
+        overflow: visible;
+        background-color: transparent;
+    }
+    
+    .nav-menu li {
+        width: auto;
+        margin-left: 2rem;
+    }
+    
+    .nav-menu a {
+        padding: 0.5rem 0;
+        border-bottom: none;
+    }
+    
+    .nav-menu a:hover {
+        background-color: transparent;
+        color: #ccc;
+    }
+}
+
+/* Desktop scaling */
+@media (min-width: 1200px) {
+    .content-image-small {
+        max-width: 400px;
+    }
+    
+    .content-image-medium {
+        max-width: 600px;
+    }
+    
+    .content-image-large {
+        max-width: 800px;
+    }
+}

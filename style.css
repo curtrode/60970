@@ -1,71 +1,413 @@
-/* Mobile first: These styles apply to all screen sizes */
-/* Start with mobile styles as the default */
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
 }
 
-header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 15px; /* Less padding on mobile */
-}
-
-h1 {
-    font-size: 24px; /* Mobile size as default */
-    margin: 0 0 15px 0;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column; /* Stack vertically on mobile */
-    gap: 15px;
-}
-
-main {
-    padding: 20px; /* Less padding on mobile */
-}
-
+/* Make all images responsive by default */
 img {
-    width: 100%; /* Responsive by default */
+    max-width: 100%;
     height: auto;
-    margin: 15px 0;
 }
 
-/* Tablet styles (768px and up) */
+/* Content image sizing system */
+.content-image-small {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 30px auto;
+  display: block;
+}
+
+.content-image-medium {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 30px auto;
+  display: block;
+}
+
+.content-image-large {
+  max-width: 700px;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 30px auto;
+  display: block;
+}
+
+/* Semantic figure styling */
+figure {
+  margin: 30px 0;
+  text-align: center;
+}
+
+figcaption {
+  font-size: 0.9em;
+  color: #666;
+  font-style: italic;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+
+
+/* Main navigation container */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #4D1979;
+    position: relative;
+}
+
+/* Logo styles */
+.logo h1 {
+    color: white;
+    font-size: 1.5rem;
+}
+
+
+
+/* Hide the checkbox (we'll use it for clicking) */
+.menu-toggle {
+    display: none;
+}
+
+/* Style the menu button (hamburger icon) */
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.menu-button span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Mobile menu - starts hidden */
+.nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    list-style: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 100;
+}
+
+.nav-menu li {
+    width: 100%;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #555;
+    
+}
+
+.nav-menu a:hover {
+    background-color: #555;
+}
+
+/* Show menu when checkbox is checked */
+.menu-toggle:checked + .menu-button + .nav-menu {
+    max-height: 500px;
+}
+
+
+
+
+
+/* Base mobile-first layout */
+.grid-container {
+  display: grid;
+  gap: 0;
+}
+
+/* ADDED GLOBAL PARAGRAPH FONT SIZE */
+p {
+  font-size: 1.3em;
+  line-height: 1.6;
+}
+
+/* ADDED ESSAY-TEXT TO THE SELECTOR LIST FOR NEW SECTION */
+.header, .hero, .essay-text, .features div, .gallery div {
+  background-color: #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.header { background-color: #4d1979; color: white; padding: 0; }
+/* ADDED 70VH HERO BACKGROUND IMAGE WITH SQUIRE BASS */
+.hero { 
+  background-color: #2E86AB; 
+  color: white; 
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)),
+    url('images/rode_swags_early_studio.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 70vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding-right: 40px;
+}
+
+.hero h1, .hero p {
+  position: relative;
+  z-index: 1;
+  text-align: right;
+}
+
+/* ADDED LARGER FONT SIZES FOR HERO TEXT */
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+.hero p {
+  font-size: 1.5em;
+  margin-bottom: 0;
+}
+
+/* ADDED NEW STYLING FOR ESSAY TEXT SECTION */
+.essay-text { background-color: #f8f8f8; color: #333; text-align: left; }
+.features div { background-color: hsl(288, 20%, 56%); color: white; }
+.gallery div { background-color: #ddd; }
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+/* ADDED STYLING FOR CLICKABLE FEATURE CARDS */
+.feature-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.feature-link:hover div {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+/* Feature card typography */
+.features h2 {
+    margin-top: 15px;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+}
+
+
+/* ADDED STYLING FOR THUMBNAIL IMAGES IN FEATURE CARDS */
+
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* Consistent square thumbnails - recommended approach */
+.feature-thumbnail, .gallery-thumbnail {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Creates perfect squares */
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Alternative for older browsers */
+.feature-thumbnail, .gallery-thumbnail {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Responsive sizing */
+@media (max-width: 480px) {
+    .feature-thumbnail, .gallery-thumbnail {
+        height: 150px;
+    }
+}
+
+
+/* ADDED BASIC NAVIGATION STYLING FOR RESPONSIVE NAV */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+nav li {
+  margin-bottom: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ADDED SUBPAGE STYLING FOR SIMPLER LAYOUT */
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+main h1 {
+  color: #4d1979;
+  border-bottom: 2px solid #2E86AB;
+  padding-bottom: 10px;
+}
+
+main p {
+  margin-bottom: 20px;
+}
+
+main img {
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+/* Set the breakpoint to establish desktop settings */
+
 @media (min-width: 768px) {
-    header {
-        padding: 20px;
+  /* UPDATED FEATURES GRID FOR 6 CARDS - 2 ROWS OF 3 */
+  .features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  /* ADDED RESPONSIVE NAVIGATION - HORIZONTAL ON DESKTOP */
+  nav ul {
+    flex-direction: row;
+  }
+  
+  nav li {
+    margin-bottom: 0;
+    margin-right: 15px;
+  }
+}
+
+/* Tablet and larger screens */
+@media (min-width: 768px) {
+    .main-nav {
+        padding: 1rem 2rem;
     }
     
-    h1 {
-        font-size: 30px;
+    /* Hide the mobile menu button */
+    .menu-button {
+        display: none;
     }
     
-    nav ul {
-        flex-direction: row; /* Horizontal navigation */
-        gap: 25px;
+    /* Show menu items horizontally */
+    .nav-menu {
+        position: static;
+        display: flex;
+        width: auto;
+        max-height: none;
+        overflow: visible;
+        background-color: transparent;
     }
     
-    main {
-        padding: 30px;
+    .nav-menu li {
+        width: auto;
+        margin-left: 2rem;
+    }
+    
+    .nav-menu a {
+        padding: 0.5rem 0;
+        border-bottom: none;
+    }
+    
+    .nav-menu a:hover {
+        background-color: transparent;
+        color: #ccc;
     }
 }
 
-/* Desktop styles (1024px and up) */
-@media (min-width: 1024px) {
-    h1 {
-        font-size: 36px;
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+    .content-image-small {
+        max-width: 250px;
+        margin: 20px auto;
     }
     
-    main {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 40px;
+    .content-image-medium,
+    .content-image-large {
+        max-width: 100%;
+        margin: 20px auto;
+    }
+    
+    figure {
+        margin: 20px 0;
+    }
+    
+    figcaption {
+        font-size: 0.8em;
+        padding: 0 10px;
+    }
+}
+
+/* Desktop scaling */
+@media (min-width: 1200px) {
+    .content-image-small {
+        max-width: 400px;
+    }
+    
+    .content-image-medium {
+        max-width: 600px;
+    }
+    
+    .content-image-large {
+        max-width: 800px;
     }
 }

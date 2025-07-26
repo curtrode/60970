@@ -1,0 +1,197 @@
+/* LMS-friendly base styles */
+.lms-content {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    background: transparent;
+}
+
+/* Tutorial Styles */
+.tutorial-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    box-sizing: border-box;
+}
+
+.tutorial-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tutorial-header h1 {
+    margin: 0 0 10px 0;
+    font-size: 1.8em;
+}
+
+.tutorial-header p {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.step {
+    background: #f8f9fa;
+    border-left: 4px solid #4d1979;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+
+.step h2 {
+    color: #4d1979;
+    margin: 0 0 15px 0;
+    font-size: 1.4em;
+}
+
+pre {
+    background: #2d3748;
+    color: #e2e8f0;
+    padding: 15px;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    overflow-x: auto;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    font-size: inherit;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.highlight {
+    background: #ffeaa7;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.demo-container {
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    margin: 15px 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.demo-label {
+    background: #4d1979;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/* Demo Layout Styles */
+.layout-demo {
+    padding: 15px;
+    background: #f8f9fa;
+    min-height: 200px;
+}
+
+/* Responsive adjustments for LMS */
+@media (max-width: 768px) {
+    .tutorial-container {
+        padding: 10px;
+    }
+    
+    .step {
+        padding: 10px;
+        margin: 10px 0;
+    }
+    
+    .tutorial-header {
+        padding: 15px;
+    }
+    
+    .tutorial-header h1 {
+        font-size: 1.5em;
+    }
+    
+    pre {
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+/* Mobile First Styles */
+.header {
+    background-color: #7B4397;
+    height: 60px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.hero {
+    background-color: #2E86AB;
+    height: 120px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.card {
+    background-color: #F18F01;
+    height: 80px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.card:last-child {
+    margin-bottom: 0;
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Desktop Styles - Media Query */
+@media (min-width: 768px) {
+    .cards-container {
+        flex-direction: row;
+        gap: 20px;
+    }
+    
+    .card {
+        flex: 1;
+        margin-bottom: 0;
+    }
+}
+
+.final-code {
+    background: #1a202c;
+    color: #e2e8f0;
+    padding: 25px;
+    border-radius: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    margin: 20px 0;
+    white-space: pre-wrap;
+}

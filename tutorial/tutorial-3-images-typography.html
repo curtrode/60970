@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html><head> 
+<link rel="stylesheet" href="https://templates.lcs.brightspace.com/lib/assets/css/styles.min.css"> 
+<style>
+/* Copy button styles */
+.code-container {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.copy-button:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+.copy-button.copied {
+  background: #28a745;
+}
+
+.copy-button.copied::after {
+  content: ' ✓';
+}
+
+/* Make sure code blocks have proper positioning */
+pre {
+  position: relative;
+  background-color: #f5f5f5 !important;
+  padding: 1rem !important;
+  border-radius: 3px !important;
+  font-family: monospace !important;
+  font-size: 0.9em !important;
+  overflow-x: auto !important;
+  margin: 1rem 0 !important;
+}
+</style>
+</head><body style="color: rgb(32, 33, 34); font-family: arial, helvetica, sans-serif; font-size: 12px;"><div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 100%; margin: 0; padding: 1rem; background-color: #ffffff;">
+
+<h2 style="color: #4d1979; font-size: 1.3em; margin-top: 1.5rem; margin-bottom: 1rem;">Tutorial 3: Responsive Images and Simple Typography</h2>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Overview</h3>
+<p>Learn how to make images and text that look great on any device. This tutorial focuses on practical techniques that beginning students can easily understand and implement.</p>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Learning Objectives</h3>
+<p>By the end of this tutorial, you will be able to:</p>
+<ul style="margin: 1rem 0; padding-left: 1.5rem;">
+<li>Make images that automatically resize for different screens</li>
+<li>Create text that's easy to read on any device</li>
+<li>Use simple CSS techniques to improve readability</li>
+<li>Apply these techniques to your existing layouts</li>
+</ul>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #2196f3; margin: 1rem 0;">
+<h3 style="color: #1976d2; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">What You Need</h3>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li>Completed Tutorial 2 (CSS Grid) or basic HTML/CSS knowledge</li>
+<li>Some sample images to work with</li>
+<li>A text editor and web browser</li>
+</ul>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Part 1: Making Images Responsive</h3>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">The Golden Rule for Images</h4>
+<p>The most important CSS rule for responsive images is simple:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+</div>
+
+<p><strong>What this does:</strong></p>
+<ul style="margin: 1rem 0; padding-left: 1.5rem;">
+<li><code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">max-width: 100%</code> - Image never gets wider than its container</li>
+<li><code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">height: auto</code> - Height adjusts automatically to keep proportions</li>
+</ul>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">HTML Example</h4>
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>&lt;div class="image-container"&gt;
+    &lt;img src="landscape.jpg" alt="Beautiful landscape" class="responsive-image"&gt;
+    &lt;p class="image-caption"&gt;A beautiful landscape that looks great on any device.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">CSS for Responsive Images</h4>
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Basic responsive image */
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Image container */
+.image-container {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+/* Image caption */
+.image-caption {
+    margin-top: 0.5rem;
+    font-style: italic;
+    color: #666;
+    font-size: 0.9rem;
+}</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 1: Creating an Image Gallery</h3>
+<p>Let's create a simple image gallery that works on all devices:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>&lt;div class="gallery"&gt;
+    &lt;h2&gt;Photo Gallery&lt;/h2&gt;
+    
+    &lt;div class="gallery-grid"&gt;
+        &lt;div class="gallery-item"&gt;
+            &lt;img src="photo1.jpg" alt="Photo 1"&gt;
+        &lt;/div&gt;
+        &lt;div class="gallery-item"&gt;
+            &lt;img src="photo2.jpg" alt="Photo 2"&gt;
+        &lt;/div&gt;
+        &lt;div class="gallery-item"&gt;
+            &lt;img src="photo3.jpg" alt="Photo 3"&gt;
+        &lt;/div&gt;
+        &lt;div class="gallery-item"&gt;
+            &lt;img src="photo4.jpg" alt="Photo 4"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Gallery styles */
+.gallery {
+    padding: 2rem;
+}
+
+.gallery h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Gallery grid - responsive columns */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* One column on mobile */
+    gap: 1rem;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Crops image to fit without stretching */
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Tablet: Two columns */
+@media (min-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Desktop: Three columns */
+@media (min-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}</code></pre>
+</div>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #4caf50; margin: 1rem 0;">
+<h3 style="color: #2e7d32; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Understanding object-fit</h3>
+<p><code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">object-fit: cover</code> is very useful for galleries:</p>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li>Makes all images the same size</li>
+<li>Crops images to fit without stretching</li>
+<li>Keeps the important parts of the image visible</li>
+</ul>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Part 2: Simple Responsive Typography</h3>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">Basic Readable Text</h4>
+<p>Good typography starts with making text easy to read. Here are the basics:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Base typography */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px; /* Good base size for reading */
+    line-height: 1.6; /* Comfortable line spacing */
+    color: #333; /* Dark enough to read easily */
+}
+
+/* Headings */
+h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-bottom: 0.6rem;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 1.5rem;
+    max-width: 65ch; /* About 65 characters wide for easy reading */
+}</code></pre>
+</div>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">Making Text Size Responsive</h4>
+<p>For beginners, the simplest way to make text responsive is with media queries:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Mobile text sizes */
+h1 { font-size: 1.8rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.3rem; }
+p { font-size: 1rem; }
+
+/* Tablet text sizes */
+@media (min-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.4rem; }
+    p { font-size: 1.1rem; }
+}
+
+/* Desktop text sizes */
+@media (min-width: 1024px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+    p { font-size: 1.1rem; }
+}</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 2: Creating a Complete Article Layout</h3>
+<p>Let's combine images and typography in a complete article layout:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>&lt;article class="article"&gt;
+    &lt;header class="article-header"&gt;
+        &lt;h1&gt;How to Make Great Websites&lt;/h1&gt;
+        &lt;p class="article-meta"&gt;Published on March 15, 2024&lt;/p&gt;
+    &lt;/header&gt;
+    
+    &lt;img src="hero-image.jpg" alt="Website design" class="article-hero-image"&gt;
+    
+    &lt;div class="article-content"&gt;
+        &lt;p class="lead"&gt;Creating websites that work well on all devices is easier than you might think. Here are some simple techniques that make a big difference.&lt;/p&gt;
+        
+        &lt;h2&gt;Start with Good Structure&lt;/h2&gt;
+        &lt;p&gt;Before you add any styling, make sure your HTML structure makes sense. Use proper headings, paragraphs, and semantic elements.&lt;/p&gt;
+        
+        &lt;img src="structure-example.jpg" alt="HTML structure example" class="article-image"&gt;
+        
+        &lt;h2&gt;Make Everything Responsive&lt;/h2&gt;
+        &lt;p&gt;Responsive design isn't just about making things smaller. It's about creating the best experience for each device size.&lt;/p&gt;
+        
+        &lt;h3&gt;Key Principles&lt;/h3&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Start with mobile design first&lt;/li&gt;
+            &lt;li&gt;Use flexible layouts&lt;/li&gt;
+            &lt;li&gt;Test on real devices&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+</div>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Article layout */
+.article {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Article header */
+.article-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.article-header h1 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.article-meta {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+/* Hero image */
+.article-hero-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+/* Article content */
+.article-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* Lead paragraph */
+.lead {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+/* Images within content */
+.article-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    margin: 2rem auto;
+    display: block;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Lists */
+.article-content ul {
+    margin: 1rem 0 2rem 2rem;
+}
+
+.article-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .article {
+        padding: 1rem;
+    }
+    
+    .article-hero-image {
+        height: 200px;
+    }
+    
+    .lead {
+        font-size: 1.2rem;
+    }
+}</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 3: Simple Button Styles</h3>
+<p>Add some responsive buttons to your content:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>&lt;div class="button-group"&gt;
+    &lt;a href="#" class="button button-primary"&gt;Get Started&lt;/a&gt;
+    &lt;a href="#" class="button button-secondary"&gt;Learn More&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Button styles */
+.button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin: 0.5rem;
+}
+
+.button-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.button-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.button-secondary {
+    background-color: transparent;
+    color: #007bff;
+    border: 2px solid #007bff;
+}
+
+.button-secondary:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.button-group {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+/* Mobile button adjustments */
+@media (max-width: 767px) {
+    .button {
+        display: block;
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+}</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Testing Your Responsive Content</h3>
+
+<ol style="margin: 1rem 0; padding-left: 1.5rem;">
+<li><strong>Test Image Behavior:</strong>
+    <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+    <li>Resize your browser window</li>
+    <li>Do images scale down properly?</li>
+    <li>Do they maintain their proportions?</li>
+    </ul>
+</li>
+<li><strong>Check Text Readability:</strong>
+    <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+    <li>Is text large enough to read on mobile?</li>
+    <li>Are lines of text a comfortable length?</li>
+    <li>Is there enough contrast between text and background?</li>
+    </ul>
+</li>
+<li><strong>Test on Different Devices:</strong>
+    <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+    <li>Use browser developer tools</li>
+    <li>Try different device presets</li>
+    <li>Test with your actual phone or tablet</li>
+    </ul>
+</li>
+</ol>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #ff9800; margin: 1rem 0;">
+<h3 style="color: #f57c00; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Common Problems</h3>
+<p><strong>Images look stretched:</strong> Make sure you're using <code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">height: auto</code> and not setting a fixed height.</p>
+
+<p><strong>Text is too small on mobile:</strong> Check that you're using appropriate font sizes for mobile devices.</p>
+
+<p><strong>Images too large on mobile:</strong> Remember to use <code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">max-width: 100%</code> on all images.</p>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Complete Example: Responsive Content Page</h3>
+<p>Here's everything put together in a complete example:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Complete responsive content CSS */
+
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Images - always responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Typography - mobile first */
+h1 { 
+    font-size: 1.8rem; 
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h2 { 
+    font-size: 1.5rem; 
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+}
+
+h3 { 
+    font-size: 1.3rem; 
+    line-height: 1.4;
+    margin-bottom: 0.6rem;
+}
+
+p { 
+    font-size: 1rem; 
+    margin-bottom: 1.5rem;
+    max-width: 65ch;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Article layout */
+.article {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin: 0.5rem;
+}
+
+.button-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.button-secondary {
+    background-color: transparent;
+    color: #007bff;
+    border: 2px solid #007bff;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+    .container {
+        padding: 2rem;
+    }
+    
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.4rem; }
+    p { font-size: 1.1rem; }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Practice Exercises</h3>
+<ol style="margin: 1rem 0; padding-left: 1.5rem;">
+<li><strong>Create a photo blog post:</strong> Combine text and images in an article format</li>
+<li><strong>Build a simple portfolio:</strong> Show your work with responsive image galleries</li>
+<li><strong>Make a landing page:</strong> Use hero images, headlines, and call-to-action buttons</li>
+<li><strong>Experiment with fonts:</strong> Try different font families and see how they look</li>
+</ol>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Key Takeaways</h3>
+<ul style="margin: 1rem 0; padding-left: 1.5rem;">
+<li><strong>Always make images responsive:</strong> Use <code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">max-width: 100%; height: auto;</code></li>
+<li><strong>Keep text readable:</strong> Use appropriate font sizes and line spacing</li>
+<li><strong>Test on real devices:</strong> Your phone and tablet are the best testing tools</li>
+<li><strong>Start simple:</strong> Master the basics before trying advanced techniques</li>
+</ul>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #4caf50; margin: 1rem 0;">
+<h3 style="color: #2e7d32; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Next Steps</h3>
+<p>Excellent work! You now know how to create responsive images and readable typography. In the final tutorial, you'll learn how to put everything together into complete, polished websites.</p>
+</div>
+
+<div style="text-align: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #ddd; color: #666; font-size: 0.9em;">
+<p><em>Tutorial 3 of 4: Responsive Images and Typography • Part of MLA 60970 Web Development Series</em></p>
+</div>
+
+</div>
+
+<script>
+function copyCode(button) {
+  const codeContainer = button.parentElement;
+  const codeElement = codeContainer.querySelector('code');
+  const textToCopy = codeElement.textContent;
+  
+  const textarea = document.createElement('textarea');
+  textarea.value = textToCopy;
+  document.body.appendChild(textarea);
+  
+  textarea.select();
+  textarea.setSelectionRange(0, 99999);
+  
+  try {
+    document.execCommand('copy');
+    
+    const originalText = button.textContent;
+    button.textContent = 'Copied!';
+    button.classList.add('copied');
+    
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.classList.remove('copied');
+    }, 2000);
+    
+  } catch (err) {
+    console.error('Failed to copy text: ', err);
+    alert('Copy failed. Please select and copy manually.');
+  }
+  
+  document.body.removeChild(textarea);
+}
+</script>
+
+<footer style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #ddd;">
+  <p><a href="index-tutorials.html">← Back to Tutorial Hub</a> | <a href="tutorial-1-responsive-navigation.html">← Previous: Navigation</a> | <a href="tutorial-accessibility-validation.html">Next: Accessibility →</a></p>
+</footer>
+
+</body></html>

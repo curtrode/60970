@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: Validation & Accessibility</title>
+    <link rel="stylesheet" href="https://templates.lcs.brightspace.com/lib/assets/css/styles.min.css">
+    <style>
+        /* Copy button styles */
+        .code-container {
+            position: relative;
+            margin: 1rem 0;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            z-index: 10;
+            transition: all 0.2s ease;
+        }
+
+        .copy-button:hover {
+            background: #0056b3;
+            transform: translateY(-1px);
+        }
+
+        .copy-button.copied {
+            background: #28a745;
+        }
+
+        .highlight-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #2196f3;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .success-box {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 100%; margin: 0; padding: 1rem; background-color: #ffffff;">
+
+<div style="max-width: 900px; margin: 0 auto;">
+
+<h1 style="color: #4d1979; font-size: 1.5em; margin-bottom: 1rem;">Tutorial 3: Validation & Accessibility</h1>
+
+<section id="overview">
+<h2 style="color: #4d1979; font-size: 1.3em; margin-top: 2rem; margin-bottom: 1rem;">Overview</h2>
+<p>Web accessibility ensures that websites are usable by people with disabilities, while validation ensures your code meets web standards. This final tutorial teaches you how to polish and validate your responsive website.</p>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Learning Objectives</h3>
+<p>By the end of this tutorial, you will be able to:</p>
+<ul style="margin: 1rem 0; padding-left: 1.5rem;">
+    <li>Validate HTML and CSS for standards compliance</li>
+    <li>Add accessibility enhancements to your existing site</li>
+    <li>Test your site with accessibility tools</li>
+    <li>Ensure keyboard navigation works properly</li>
+    <li>Create an inclusive user experience</li>
+</ul>
+
+<div class="highlight-box">
+    <h3 style="color: #1976d2; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Why This Matters</h3>
+    <p>Over 1 billion people worldwide have disabilities. Making your site accessible isn't just about compliance - it's about creating better experiences for everyone. Plus, many accessibility practices also improve SEO and usability for all users.</p>
+</div>
+</section>
+
+<section id="html-validation">
+<h2 style="color: #4d1979; font-size: 1.3em; margin-top: 2rem; margin-bottom: 1rem;">Step 1: Validate Your Code</h2>
+
+<div class="warning-box">
+    <h4>Essential Validation Tools:</h4>
+    <ul>
+        <li>✓ <a href="https://validator.w3.org/">W3C HTML Validator</a> - Check your HTML markup</li>
+        <li>✓ <a href="https://jigsaw.w3.org/css-validator/">W3C CSS Validator</a> - Validate your CSS</li>
+        <li>✓ <a href="https://wave.webaim.org/">WAVE Web Accessibility Evaluator</a> - Test accessibility</li>
+        <li>✓ Browser Developer Tools - Check for console errors</li>
+    </ul>
+    <p><strong>Pro tip:</strong> Fix HTML validation errors first, then CSS, then accessibility issues.</p>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Quick HTML Fixes</h3>
+<p>Add these to your existing HTML for better validation:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+<pre style="background: #f5f5f5; padding: 1rem; border-radius: 4px; overflow-x: auto;"><code>&lt;!-- Add language to your html tag --&gt;
+&lt;html lang="en"&gt;
+
+&lt;!-- Improve your page title --&gt;
+&lt;title&gt;Your Page Topic - Your Site Name&lt;/title&gt;
+
+&lt;!-- Add meta description --&gt;
+&lt;meta name="description" content="Brief description of your page content"&gt;</code></pre>
+</div>
+</section>
+
+<section id="accessibility-basics">
+<h2 style="color: #4d1979; font-size: 1.3em; margin-top: 2rem; margin-bottom: 1rem;">Step 2: Add Accessibility Enhancements</h2>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Skip Navigation Link</h3>
+<p>Add this right after your opening &lt;body&gt; tag:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+<pre style="background: #f5f5f5; padding: 1rem; border-radius: 4px; overflow-x: auto;"><code>&lt;body&gt;
+    &lt;a href="#main-content" class="skip-link"&gt;Skip to main content&lt;/a&gt;
+    
+    &lt;!-- Your existing content --&gt;</code></pre>
+</div>
+
+<p>And add this CSS:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+<pre style="background: #f5f5f5; padding: 1rem; border-radius: 4px; overflow-x: auto;"><code>/* Skip navigation link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    transition: top 0.3s;
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    top: 6px;
+}</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Better Focus Styles</h3>
+<p>Replace default focus outlines with these improved versions:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+<pre style="background: #f5f5f5; padding: 1rem; border-radius: 4px; overflow-x: auto;"><code>/* Better focus indicators for keyboard users */
+:focus-visible {
+    outline: 2px solid #2196f3;
+    outline-offset: 2px;
+}
+
+/* Remove outline for mouse users */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Enhanced focus for interactive elements */
+a:focus-visible, button:focus-visible {
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.3);
+}</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">ARIA Labels for Navigation</h3>
+<p>Update your navigation with these accessibility attributes:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+<pre style="background: #f5f5f5; padding: 1rem; border-radius: 4px; overflow-x: auto;"><code>&lt;!-- Add aria-label to your nav --&gt;
+&lt;nav class="main-nav" aria-label="Main navigation"&gt;
+
+&lt;!-- Add aria-label to menu button --&gt;
+&lt;label for="menu-toggle" 
+       class="menu-button"
+       aria-label="Toggle navigation menu"&gt;
+
+&lt;!-- Add id to main content area --&gt;
+&lt;main id="main-content"&gt;
+    &lt;!-- Your main content --&gt;
+&lt;/main&gt;</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Image Alt Text</h3>
+<p>Make sure all your images have proper alt attributes:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+<pre style="background: #f5f5f5; padding: 1rem; border-radius: 4px; overflow-x: auto;"><code>&lt;!-- Descriptive alt text for meaningful images --&gt;
+&lt;img src="musician.jpg" alt="Jazz musician playing piano on stage"&gt;
+
+&lt;!-- Empty alt for decorative images --&gt;
+&lt;img src="decorative-border.jpg" alt=""&gt;
+
+&lt;!-- For feature card images --&gt;
+&lt;img src="article-image.jpg" alt="Preview image for Jazz & Understanding article"&gt;</code></pre>
+</div>
+</section>
+
+<section id="keyboard-navigation">
+<h2 style="color: #4d1979; font-size: 1.3em; margin-top: 2rem; margin-bottom: 1rem;">Step 3: Test Keyboard Navigation</h2>
+
+<div class="success-box">
+    <h4>Keyboard Navigation Test:</h4>
+    <ol>
+        <li><strong>Tab through your site:</strong> Can you reach all interactive elements?</li>
+        <li><strong>Use Enter/Space:</strong> Do buttons and links work with keyboard?</li>
+        <li><strong>Check focus indicators:</strong> Can you see where you are?</li>
+        <li><strong>Test your menu:</strong> Can you open/close it with keyboard?</li>
+        <li><strong>Navigate logically:</strong> Does tab order make sense?</li>
+    </ol>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Fix Common Issues</h3>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+<pre style="background: #f5f5f5; padding: 1rem; border-radius: 4px; overflow-x: auto;"><code>/* Ensure interactive elements are keyboard accessible */
+.feature-link:focus-visible {
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.3);
+    border-radius: 5px;
+}
+
+/* Make sure hidden elements don't receive focus */
+.nav-menu[aria-hidden="true"] a {
+    visibility: hidden;
+}
+
+/* Better visual focus for feature cards */
+.features a:focus-visible div {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}</code></pre>
+</div>
+</section>
+
+<section id="testing-tools">
+<h2 style="color: #4d1979; font-size: 1.3em; margin-top: 2rem; margin-bottom: 1rem;">Step 4: Final Testing</h2>
+
+<div class="highlight-box">
+    <h3 style="color: #1976d2; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Testing Checklist</h3>
+    <ul>
+        <li>✅ <strong>HTML Validation:</strong> No errors in W3C validator</li>
+        <li>✅ <strong>CSS Validation:</strong> No errors in CSS validator</li>
+        <li>✅ <strong>Accessibility:</strong> Test with WAVE or axe browser extension</li>
+        <li>✅ <strong>Keyboard Navigation:</strong> Can navigate entire site with Tab key</li>
+        <li>✅ <strong>Mobile Testing:</strong> Works on different screen sizes</li>
+        <li>✅ <strong>Screen Reader:</strong> Test with built-in screen reader (optional)</li>
+    </ul>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Quick Performance Check</h3>
+<p>Run these quick tests to ensure your site performs well:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+<pre style="background: #f5f5f5; padding: 1rem; border-radius: 4px; overflow-x: auto;"><code>/* Add to your CSS for better performance */
+
+/* Optimize images */
+img {
+    loading: lazy; /* Add to HTML img tags */
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}</code></pre>
+</div>
+</section>
+
+<section id="resources">
+<h2 style="color: #4d1979; font-size: 1.3em; margin-top: 2rem; margin-bottom: 1rem;">Key Takeaways</h2>
+<ul style="margin: 1rem 0; padding-left: 1.5rem;">
+<li><strong>Validate early and often:</strong> Use W3C validators to catch issues</li>
+<li><strong>Test with real users:</strong> Try keyboard navigation yourself</li>
+<li><strong>Start with basics:</strong> Semantic HTML, alt text, focus styles</li>
+<li><strong>Accessibility benefits everyone:</strong> Clear navigation helps all users</li>
+<li><strong>Keep learning:</strong> Accessibility is an ongoing process</li>
+</ul>
+
+<div class="success-box">
+    <h3 style="color: #2e7d32; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Congratulations!</h3>
+    <p>You've successfully created a responsive, accessible website! Your site now works beautifully on all devices and is usable by people with different abilities. You've learned modern web development practices that will serve you well in future projects.</p>
+</div>
+</section>
+
+<footer style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #ddd;">
+  <p><a href="code-snippets.html">← Back to Tutorial Hub</a> | <a href="responsive-images-typography.html">← Previous: Images & Typography</a></p>
+  <p style="margin-top: 1rem; font-size: 0.9em; color: #666;">
+    🎉 <strong>Tutorial Complete!</strong> Return to D2L to submit your enhanced website assignment.
+  </p>
+</footer>
+
+<script>
+function copyToClipboard(button) {
+    const codeBlock = button.nextElementSibling.querySelector('code') || button.nextElementSibling;
+    const text = codeBlock.textContent || codeBlock.innerText;
+    
+    navigator.clipboard.writeText(text).then(function() {
+        button.textContent = 'Copied!';
+        button.classList.add('copied');
+        
+        setTimeout(function() {
+            button.textContent = 'Copy';
+            button.classList.remove('copied');
+        }, 2000);
+    }).catch(function() {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        button.textContent = 'Copied!';
+        button.classList.add('copied');
+        
+        setTimeout(function() {
+            button.textContent = 'Copy';
+            button.classList.remove('copied');
+        }, 2000);
+    });
+}
+</script>
+
+</div>
+</body>
+</html>

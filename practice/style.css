@@ -1,0 +1,700 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f6fb;
+}
+
+/* Make all images responsive by default */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+/* Main navigation container */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #4D1979;
+    position: relative;
+}
+
+/* Logo styles */
+.logo h1 {
+    color: white;
+    font-size: 1.5rem;
+}
+
+
+
+/* Hide the checkbox (we'll use it for clicking) */
+.menu-toggle {
+    display: none;
+}
+
+/* Style the menu button (hamburger icon) */
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.menu-button span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Mobile menu - starts hidden */
+.nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    list-style: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 100;
+}
+
+.nav-menu li {
+    width: 100%;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #555;
+    
+}
+
+.nav-menu a:hover {
+    background-color: #555;
+}
+
+/* Show menu when checkbox is checked */
+.menu-toggle:checked + .menu-button + .nav-menu {
+    max-height: 300px;
+}
+
+
+
+
+
+/* Base mobile-first layout */
+.grid-container {
+  display: grid;
+  gap: 20px;
+}
+
+/* ADDED GLOBAL PARAGRAPH FONT SIZE */
+p {
+  font-size: 1.3em;
+  line-height: 1.6;
+}
+
+/* ADDED ESSAY-TEXT TO THE SELECTOR LIST FOR NEW SECTION */
+.header, .hero, .essay-text, .features div, .gallery div {
+  background-color: #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.header { background-color: #4d1979; color: white; }
+/* ADDED 70VH HERO BACKGROUND IMAGE WITH SQUIRE BASS */
+.hero { 
+  background-color: #2E86AB; 
+  color: white; 
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('images/rode_swags_early_studio.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 70vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.hero h1, .hero p {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* ADDED LARGER FONT SIZES FOR HERO TEXT */
+.hero h1 {
+  font-size: 5em;
+  margin-bottom: 0.5em;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-weight: bold;
+}
+
+.hero p {
+  font-size: 1.5em;
+  margin-bottom: 0;
+  display: none; /* Hide hero subtitle */
+}
+
+/* ADDED NEW STYLING FOR ESSAY TEXT SECTION */
+.essay-text { 
+  background-color: #ffffff; 
+  color: #2c3e50; 
+  text-align: left; 
+  border: 1px solid #f1eef6;
+  margin-top: -60px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/* Make essay text responsive on all devices */
+.essay-text img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 20px 0;
+}
+
+/* Essay header styling */
+.essay-header {
+  border-bottom: 2px solid #4d1979;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+}
+
+.essay-header .subtitle {
+  color: #16a085;
+  font-size: 1.4em;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.4;
+  text-align: center;
+}
+.features div { 
+  background: linear-gradient(135deg, #4d1979 0%, #6a2c91 50%, #8b3fab 100%);
+  color: white; 
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+.gallery div { 
+  background: linear-gradient(135deg, #f1eef6 0%, #e8e1f0 50%, #ddd4ea 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
+}
+
+
+
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding: 30px 20px;
+}
+
+/* ADDED STYLING FOR CLICKABLE FEATURE CARDS */
+.feature-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.feature-link:hover div {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+  background: linear-gradient(135deg, #3d1461 0%, #5a2379 50%, #7a3093 100%);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+}
+
+/* Gallery hover effect */
+.gallery div:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+}
+
+/* Add spacing to feature card headings */
+.features h2 {
+  margin-top: 15px;
+}
+
+/* Footer styling */
+.footer {
+  background-color: #4d1979;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+
+
+
+
+/* Consistent square thumbnails - recommended approach */
+.feature-thumbnail, .gallery-thumbnail {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Creates perfect squares */
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+
+/* Extra small devices (phones, 320px and up) */
+@media (max-width: 480px) {
+    .feature-thumbnail, .gallery-thumbnail {
+        height: 150px;
+    }
+    
+    .content-image-small {
+        max-width: 250px;
+        margin: 20px auto;
+    }
+    
+    .content-image-medium {
+        max-width: 100%;
+        margin: 20px auto;
+    }
+    
+    .content-image-large {
+        max-width: 100%;
+        margin: 20px auto;
+    }
+    
+    /* Adjust main content padding */
+    main {
+        padding: 15px;
+        margin: 10px auto;
+    }
+    
+    /* Smaller font sizes for mobile */
+    main h1 {
+        font-size: 1.8em;
+    }
+    
+    main h2 {
+        font-size: 1.4em;
+    }
+    
+    p {
+        font-size: 1.1em;
+    }
+    
+    /* Thumbnail gallery adjustments */
+    .content-thumbnail-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin: 20px 0;
+    }
+    
+    /* Essay text responsive adjustments */
+    .essay-text {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: -30px;
+        padding: 15px;
+    }
+    
+    .essay-header .subtitle {
+        font-size: 1.2em;
+    }
+    
+    /* Hero section adjustments for mobile */
+    .hero {
+        height: 50vh;
+        padding: 20px;
+    }
+    
+    .hero h1 {
+        font-size: 3em;
+    }
+    
+    /* Figure margins for mobile */
+    figure {
+        margin: 20px 0;
+    }
+    
+    figcaption {
+        font-size: 0.8em;
+        padding: 0 10px;
+    }
+}
+
+/* Small devices (landscape phones, 481px to 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+    .content-image-small {
+        max-width: 280px;
+    }
+    
+    .content-image-medium {
+        max-width: 400px;
+    }
+    
+    .content-image-large {
+        max-width: 500px;
+    }
+    
+    main {
+        padding: 20px;
+        max-width: 600px;
+    }
+    
+    .content-thumbnail-gallery {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+    
+    /* Essay text for small devices */
+    .essay-text {
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-top: -40px;
+        padding: 18px;
+    }
+    
+    /* Hero adjustments for landscape phones */
+    .hero {
+        height: 60vh;
+    }
+    
+    .hero h1 {
+        font-size: 4em;
+    }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* ADDED BASIC NAVIGATION STYLING FOR RESPONSIVE NAV */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+nav li {
+  margin-bottom: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ADDED SUBPAGE STYLING FOR SIMPLER LAYOUT */
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+main h1 {
+  color: #4d1979;
+  border-bottom: 2px solid #2E86AB;
+  padding-bottom: 10px;
+}
+
+main p {
+  margin-bottom: 20px;
+}
+
+main img {
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+/* MODERN CONTENT IMAGE CLASSES - SIMPLE & RESPONSIVE */
+.content-image-small {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 30px auto;
+  display: block;
+}
+
+.content-image-medium {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 30px auto;
+  display: block;
+}
+
+.content-image-large {
+  max-width: 700px;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 30px auto;
+  display: block;
+}
+
+/* Figure styling for better semantic markup */
+figure {
+  margin: 30px 0;
+  text-align: center;
+}
+
+figcaption {
+  font-size: 0.9em;
+  color: #666;
+  font-style: italic;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+/* Thumbnail gallery for content sections */
+.content-thumbnail-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.content-thumbnail-gallery img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.content-thumbnail-gallery img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Set the breakpoint to establish desktop settings */
+
+/* Medium devices (tablets, 768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .content-image-small {
+        max-width: 320px;
+    }
+    
+    .content-image-medium {
+        max-width: 450px;
+    }
+    
+    .content-image-large {
+        max-width: 600px;
+    }
+    
+    main {
+        max-width: 700px;
+        padding: 25px;
+    }
+    
+    .content-thumbnail-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 15px;
+    }
+    
+    /* Essay text for tablets */
+    .essay-text {
+        margin-left: 8%;
+        margin-right: 8%;
+        margin-top: -50px;
+    }
+}
+
+/* Large devices (desktops, 768px and up) - Updated existing media query */
+@media (min-width: 768px) {
+  /* UPDATED FEATURES GRID FOR 6 CARDS - 2 ROWS OF 3 */
+  .features {
+    grid-template-columns: repeat(3, 1fr);
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  /* Essay text wider margins on desktop */
+  .essay-text {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  /* Larger hero title on desktop */
+  .hero h1 {
+    font-size: 7em;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  /* ADDED RESPONSIVE NAVIGATION - HORIZONTAL ON DESKTOP */
+  nav ul {
+    flex-direction: row;
+  }
+  
+  nav li {
+    margin-bottom: 0;
+    margin-right: 15px;
+  }
+  
+  /* Enhanced content image sizing for desktop */
+  .content-image-small {
+    max-width: 350px;
+  }
+  
+  .content-image-medium {
+    max-width: 500px;
+  }
+  
+  .content-image-large {
+    max-width: 700px;
+  }
+}
+
+/* Tablet and larger screens */
+@media (min-width: 768px) {
+    .main-nav {
+        padding: 1rem 2rem;
+    }
+    
+    /* Hide the mobile menu button */
+    .menu-button {
+        display: none;
+    }
+    
+    /* Show menu items horizontally */
+    .nav-menu {
+        position: static;
+        display: flex;
+        width: auto;
+        max-height: none;
+        overflow: visible;
+        background-color: transparent;
+    }
+    
+    .nav-menu li {
+        width: auto;
+        margin-left: 2rem;
+    }
+    
+    .nav-menu a {
+        padding: 0.5rem 0;
+        border-bottom: none;
+    }
+    
+    .nav-menu a:hover {
+        background-color: transparent;
+        color: #f1eef6;
+    }
+}
+
+/* Extra large devices (large desktops, 1024px to 1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .content-image-small {
+        max-width: 380px;
+    }
+    
+    .content-image-medium {
+        max-width: 550px;
+    }
+    
+    .content-image-large {
+        max-width: 750px;
+    }
+    
+    main {
+        max-width: 900px;
+    }
+    
+    /* Essay text for large desktops */
+    .essay-text {
+        margin-left: 12%;
+        margin-right: 12%;
+    }
+}
+
+/* Large desktop screens - even wider margins */
+@media (min-width: 1200px) {
+    .essay-text {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    
+    .features {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+    
+    /* Enhanced content sections for large screens */
+    .content-image-small {
+        max-width: 400px;
+    }
+    
+    .content-image-medium {
+        max-width: 600px;
+    }
+    
+    .content-image-large {
+        max-width: 800px;
+    }
+    
+    main {
+        max-width: 1000px;
+        padding: 30px;
+    }
+    
+    /* Larger thumbnail gallery */
+    .content-thumbnail-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 20px;
+    }
+    
+    .content-thumbnail-gallery img {
+        height: 120px;
+    }
+}

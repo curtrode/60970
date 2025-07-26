@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html><head> 
+<link rel="stylesheet" href="https://templates.lcs.brightspace.com/lib/assets/css/styles.min.css"> 
+<style>
+/* Copy button styles */
+.code-container {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.copy-button:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+.copy-button.copied {
+  background: #28a745;
+}
+
+.copy-button.copied::after {
+  content: ' ✓';
+}
+
+/* Make sure code blocks have proper positioning */
+pre {
+  position: relative;
+  background-color: #f5f5f5 !important;
+  padding: 1rem !important;
+  border-radius: 3px !important;
+  font-family: monospace !important;
+  font-size: 0.9em !important;
+  overflow-x: auto !important;
+  margin: 1rem 0 !important;
+}
+</style>
+</head><body style="color: rgb(32, 33, 34); font-family: arial, helvetica, sans-serif; font-size: 12px;"><div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 100%; margin: 0; padding: 1rem; background-color: #ffffff;">
+
+<h2 style="color: #4d1979; font-size: 1.3em; margin-top: 1.5rem; margin-bottom: 1rem;">Tutorial 4: Building Complete Responsive Websites</h2>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Overview</h3>
+<p>Put everything together to create complete, professional-looking websites that work perfectly on all devices. This tutorial shows you how to combine navigation, layouts, images, and typography into polished web projects.</p>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Learning Objectives</h3>
+<p>By the end of this tutorial, you will be able to:</p>
+<ul style="margin: 1rem 0; padding-left: 1.5rem;">
+<li>Combine all responsive techniques into complete websites</li>
+<li>Create professional-looking page layouts</li>
+<li>Build reusable components for future projects</li>
+<li>Test and optimize your websites for real-world use</li>
+</ul>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #2196f3; margin: 1rem 0;">
+<h3 style="color: #1976d2; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">What You Need</h3>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li>Completed Tutorials 1-3 or equivalent knowledge</li>
+<li>Sample images and content</li>
+<li>A plan for what type of website you want to create</li>
+</ul>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Project: Building a Complete Portfolio Website</h3>
+<p>We'll build a complete portfolio website that showcases your work and looks professional on any device.</p>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 1: HTML Structure</h3>
+<p>Start with a well-organized HTML structure that includes all the sections you need:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Jane Smith - Web Developer&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="site-container"&gt;
+        &lt;!-- Navigation --&gt;
+        &lt;nav class="main-nav"&gt;
+            &lt;div class="logo"&gt;
+                &lt;h1&gt;Jane Smith&lt;/h1&gt;
+            &lt;/div&gt;
+            
+            &lt;input type="checkbox" id="menu-toggle" class="menu-toggle"&gt;
+            &lt;label for="menu-toggle" class="menu-button"&gt;
+                &lt;span&gt;&lt;/span&gt;
+                &lt;span&gt;&lt;/span&gt;
+                &lt;span&gt;&lt;/span&gt;
+            &lt;/label&gt;
+            
+            &lt;ul class="nav-menu"&gt;
+                &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#portfolio"&gt;Portfolio&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+
+        &lt;!-- Hero Section --&gt;
+        &lt;section id="home" class="hero"&gt;
+            &lt;div class="hero-content"&gt;
+                &lt;h1&gt;Hi, I'm Jane&lt;/h1&gt;
+                &lt;p class="hero-subtitle"&gt;I create beautiful, responsive websites&lt;/p&gt;
+                &lt;a href="#portfolio" class="button button-primary"&gt;View My Work&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;!-- About Section --&gt;
+        &lt;section id="about" class="about"&gt;
+            &lt;div class="container"&gt;
+                &lt;h2&gt;About Me&lt;/h2&gt;
+                &lt;div class="about-content"&gt;
+                    &lt;img src="profile.jpg" alt="Jane Smith" class="profile-image"&gt;
+                    &lt;div class="about-text"&gt;
+                        &lt;p&gt;I'm a passionate web developer with 3 years of experience creating modern, responsive websites. I love turning ideas into beautiful digital experiences.&lt;/p&gt;
+                        &lt;p&gt;My expertise includes HTML, CSS, and responsive design. I'm always learning new technologies to stay current with web development trends.&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;!-- Portfolio Section --&gt;
+        &lt;section id="portfolio" class="portfolio"&gt;
+            &lt;div class="container"&gt;
+                &lt;h2&gt;My Portfolio&lt;/h2&gt;
+                &lt;div class="portfolio-grid"&gt;
+                    &lt;div class="portfolio-item"&gt;
+                        &lt;img src="project1.jpg" alt="E-commerce Website"&gt;
+                        &lt;div class="portfolio-content"&gt;
+                            &lt;h3&gt;E-commerce Website&lt;/h3&gt;
+                            &lt;p&gt;A fully responsive online store built with modern CSS Grid and Flexbox.&lt;/p&gt;
+                            &lt;a href="#" class="button button-secondary"&gt;View Project&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div class="portfolio-item"&gt;
+                        &lt;img src="project2.jpg" alt="Restaurant Website"&gt;
+                        &lt;div class="portfolio-content"&gt;
+                            &lt;h3&gt;Restaurant Website&lt;/h3&gt;
+                            &lt;p&gt;A beautiful, mobile-first website for a local restaurant.&lt;/p&gt;
+                            &lt;a href="#" class="button button-secondary"&gt;View Project&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div class="portfolio-item"&gt;
+                        &lt;img src="project3.jpg" alt="Blog Design"&gt;
+                        &lt;div class="portfolio-content"&gt;
+                            &lt;h3&gt;Personal Blog&lt;/h3&gt;
+                            &lt;p&gt;A clean, readable blog design with responsive typography.&lt;/p&gt;
+                            &lt;a href="#" class="button button-secondary"&gt;View Project&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;!-- Contact Section --&gt;
+        &lt;section id="contact" class="contact"&gt;
+            &lt;div class="container"&gt;
+                &lt;h2&gt;Get In Touch&lt;/h2&gt;
+                &lt;div class="contact-content"&gt;
+                    &lt;div class="contact-info"&gt;
+                        &lt;h3&gt;Let's work together!&lt;/h3&gt;
+                        &lt;p&gt;I'm always interested in new projects and opportunities. Whether you need a new website or want to improve an existing one, I'd love to help.&lt;/p&gt;
+                        &lt;div class="contact-details"&gt;
+                            &lt;p&gt;&lt;strong&gt;Email:&lt;/strong&gt; jane@example.com&lt;/p&gt;
+                            &lt;p&gt;&lt;strong&gt;Phone:&lt;/strong&gt; (555) 123-4567&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;form class="contact-form" action="mailto:jane@example.com" method="post" enctype="text/plain"&gt;
+                        &lt;input type="text" name="name" placeholder="Your Name" required&gt;
+                        &lt;input type="email" name="email" placeholder="Your Email" required&gt;
+                        &lt;textarea name="message" placeholder="Your Message" rows="5" required&gt;&lt;/textarea&gt;
+                        &lt;button type="submit" class="button button-primary"&gt;Send Message&lt;/button&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;!-- Footer --&gt;
+        &lt;footer class="footer"&gt;
+            &lt;div class="container"&gt;
+                &lt;p&gt;&copy; 2024 Jane Smith. All rights reserved.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/footer&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 2: Complete CSS Styles</h3>
+<p>Now let's add all the CSS to make this website look professional and work on all devices:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Navigation */
+.main-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.logo h1 {
+    color: #333;
+    font-size: 1.5rem;
+}
+
+/* Mobile menu */
+.menu-toggle {
+    display: none;
+}
+
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.menu-button span {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+.nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    list-style: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-menu li {
+    width: 100%;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 1rem;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background-color: #f8f9fa;
+}
+
+.menu-toggle:checked + .menu-button + .nav-menu {
+    max-height: 300px;
+}
+
+/* Hero section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: fadeInUp 1s ease;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Sections */
+section {
+    padding: 4rem 0;
+    scroll-margin-top: 80px; /* Offset for fixed navigation */
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+/* About section */
+.about {
+    background-color: #f8f9fa;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.profile-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    display: block;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+/* Portfolio section */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.portfolio-item {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.portfolio-content {
+    padding: 2rem;
+}
+
+.portfolio-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.portfolio-content p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+/* Contact section */
+.contact {
+    background-color: #f8f9fa;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.contact-details p {
+    margin-bottom: 0.5rem;
+}
+
+/* Contact form */
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.button-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.button-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.button-secondary {
+    background-color: transparent;
+    color: #667eea;
+    border: 2px solid #667eea;
+}
+
+.button-secondary:hover {
+    background-color: #667eea;
+    color: white;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+    .main-nav {
+        padding: 1rem 2rem;
+    }
+    
+    .menu-button {
+        display: none;
+    }
+    
+    .nav-menu {
+        position: static;
+        display: flex;
+        width: auto;
+        max-height: none;
+        overflow: visible;
+        background-color: transparent;
+        box-shadow: none;
+    }
+    
+    .nav-menu li {
+        width: auto;
+        margin-left: 2rem;
+    }
+    
+    .nav-menu a {
+        padding: 0.5rem 0;
+        border-bottom: none;
+    }
+    
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.8rem;
+    }
+    
+    .about-content {
+        grid-template-columns: 300px 1fr;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 2rem;
+    }
+    
+    section {
+        padding: 6rem 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 2rem;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 3: Enhanced CSS Features</h3>
+<p>Let's add some CSS enhancements to make the user experience even better:</p>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">Smooth Scrolling</h4>
+<p>Add smooth scrolling to your CSS for a polished navigation experience:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Add this to your CSS for smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Offset scroll position to account for fixed navigation */
+section {
+    scroll-margin-top: 80px; /* Adjust based on your navigation height */
+}</code></pre>
+</div>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">Enhanced Hover Effects</h4>
+<p>Add more sophisticated hover effects using pure CSS:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Enhanced hover effects */
+.portfolio-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Button hover animations */
+.button {
+    position: relative;
+    overflow: hidden;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.button:hover::before {
+    width: 300px;
+    height: 300px;
+}</code></pre>
+</div>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #4caf50; margin: 1rem 0;">
+<h3 style="color: #2e7d32; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Test Your Complete Website</h3>
+<p>Save all your files and test your website:</p>
+<ol style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li>Open index.html in your browser</li>
+<li>Test the mobile menu by making the window narrow</li>
+<li>Click navigation links to test smooth scrolling</li>
+<li>Resize the window to see responsive behavior</li>
+<li>Test all hover effects on desktop</li>
+</ol>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 4: Performance Optimization</h3>
+<p>Make your website load faster and work better:</p>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">Optimize Images</h4>
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>&lt;!-- Use different image sizes for different screens --&gt;
+&lt;picture&gt;
+    &lt;source media="(min-width: 1024px)" srcset="hero-large.jpg"&gt;
+    &lt;source media="(min-width: 768px)" srcset="hero-medium.jpg"&gt;
+    &lt;img src="hero-small.jpg" alt="Hero image" class="hero-bg"&gt;
+&lt;/picture&gt;
+
+&lt;!-- Add lazy loading to images below the fold --&gt;
+&lt;img src="project1.jpg" alt="Project 1" loading="lazy"&gt;</code></pre>
+</div>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">Improve Accessibility</h4>
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Add focus styles for keyboard navigation */
+.nav-menu a:focus,
+.button:focus,
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Ensure sufficient color contrast */
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-color: #667eea; /* Fallback color */
+}
+
+/* Add skip link for screen readers */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #667eea;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 9999;
+}
+
+.skip-link:focus {
+    top: 6px;
+}</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 5: Testing Checklist</h3>
+<p>Use this checklist to make sure your website works perfectly:</p>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #2196f3; margin: 1rem 0;">
+<h4 style="color: #1976d2; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Mobile Testing (375px width)</h4>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li>☐ Navigation menu works (hamburger menu opens/closes)</li>
+<li>☐ All text is readable without zooming</li>
+<li>☐ Images fit properly on screen</li>
+<li>☐ Buttons are large enough to tap easily</li>
+<li>☐ Contact form works on mobile</li>
+</ul>
+</div>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #4caf50; margin: 1rem 0;">
+<h4 style="color: #2e7d32; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Tablet Testing (768px width)</h4>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li>☐ Navigation shows as horizontal menu</li>
+<li>☐ Two-column layouts work properly</li>
+<li>☐ Images scale appropriately</li>
+<li>☐ Content is well-spaced and readable</li>
+</ul>
+</div>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #ff9800; margin: 1rem 0;">
+<h4 style="color: #f57c00; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Desktop Testing (1200px+ width)</h4>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li>☐ Three-column portfolio grid displays correctly</li>
+<li>☐ Maximum width is maintained (doesn't stretch too wide)</li>
+<li>☐ Hover effects work on buttons and portfolio items</li>
+<li>☐ All animations and transitions are smooth</li>
+</ul>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Alternative Project Ideas</h3>
+<p>Try building these other types of websites using the same techniques:</p>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">1. Small Business Website</h4>
+<ul style="margin: 1rem 0; padding-left: 1.5rem;">
+<li>Hero section with business name and services</li>
+<li>About section with company story</li>
+<li>Services grid with descriptions</li>
+<li>Contact form and location map</li>
+</ul>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">2. Photography Portfolio</h4>
+<ul style="margin: 1rem 0; padding-left: 1.5rem;">
+<li>Full-screen image hero</li>
+<li>Gallery with category filters</li>
+<li>About the photographer section</li>
+<li>Booking contact form</li>
+</ul>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">3. Personal Blog</h4>
+<ul style="margin: 1rem 0; padding-left: 1.5rem;">
+<li>Blog post list with previews</li>
+<li>Individual blog post layouts</li>
+<li>Author bio section</li>
+<li>Comments and social sharing</li>
+</ul>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Deployment Tips</h3>
+<p>When you're ready to put your website online:</p>
+
+<ol style="margin: 1rem 0; padding-left: 1.5rem;">
+<li><strong>Choose a hosting service:</strong> GitHub Pages, Netlify, or Vercel are great free options</li>
+<li><strong>Optimize your images:</strong> Use tools like TinyPNG to make files smaller</li>
+<li><strong>Test on real devices:</strong> Check your site on actual phones and tablets</li>
+<li><strong>Use a custom domain:</strong> Makes your site look more professional</li>
+<li><strong>Set up analytics:</strong> Track how visitors use your site</li>
+</ol>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Troubleshooting Common Issues</h3>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #ff9800; margin: 1rem 0;">
+<h4 style="color: #f57c00; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Navigation Problems</h4>
+<p><strong>Menu doesn't close on mobile:</strong> The CSS-only hamburger menu will close when users click a navigation link or click outside the menu area.</p>
+
+<p><strong>Navigation covers content:</strong> We've added <code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">scroll-margin-top: 80px</code> to sections to account for the fixed navigation.</p>
+</div>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #f44336; margin: 1rem 0;">
+<h4 style="color: #d32f2f; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Layout Issues</h4>
+<p><strong>Grid items don't align:</strong> Check that all grid items have the same structure and CSS classes.</p>
+
+<p><strong>Content overflows on mobile:</strong> Make sure you're using <code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">max-width: 100%</code> on images and <code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">overflow-wrap: break-word</code> on text.</p>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Final Project Checklist</h3>
+<p>Before considering your website complete:</p>
+
+<ul style="margin: 1rem 0; padding-left: 1.5rem;">
+<li>☐ All images have appropriate alt text</li>
+<li>☐ Website works properly with CSS-only features</li>
+<li>☐ All links work and go to the right places</li>
+<li>☐ Contact form opens default email client</li>
+<li>☐ Website loads quickly on mobile networks</li>
+<li>☐ Colors have sufficient contrast for accessibility</li>
+<li>☐ Text is readable at all screen sizes</li>
+<li>☐ Navigation is clear and consistent</li>
+</ul>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Key Takeaways</h3>
+<ul style="margin: 1rem 0; padding-left: 1.5rem;">
+<li><strong>Plan your structure first:</strong> Good HTML organization makes everything else easier</li>
+<li><strong>Build mobile-first:</strong> Start with the smallest screen and work up</li>
+<li><strong>Test extensively:</strong> Check your website on different devices and browsers</li>
+<li><strong>Keep it simple:</strong> Clean, simple designs often work better than complex ones</li>
+<li><strong>Think about your users:</strong> Make your website easy to navigate and understand</li>
+</ul>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #4caf50; margin: 1rem 0;">
+<h3 style="color: #2e7d32; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Congratulations!</h3>
+<p>You've successfully learned how to build complete, responsive websites! You now have the skills to create professional-looking sites that work beautifully on any device.</p>
+
+<p><strong>Next steps for continued learning:</strong></p>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li>Learn JavaScript for more interactive features</li>
+<li>Explore advanced CSS animations and transitions</li>
+<li>Study modern CSS features like CSS Grid subgrid</li>
+<li>Learn about web performance optimization</li>
+<li>Practice building more complex layouts</li>
+</ul>
+</div>
+
+<div style="text-align: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #ddd; color: #666; font-size: 0.9em;">
+<p><em>Tutorial 4 of 4: Complete Responsive Websites • Part of MLA 60970 Web Development Series</em></p>
+</div>
+
+</div>
+
+<script>
+function copyCode(button) {
+  const codeContainer = button.parentElement;
+  const codeElement = codeContainer.querySelector('code');
+  const textToCopy = codeElement.textContent;
+  
+  const textarea = document.createElement('textarea');
+  textarea.value = textToCopy;
+  document.body.appendChild(textarea);
+  
+  textarea.select();
+  textarea.setSelectionRange(0, 99999);
+  
+  try {
+    document.execCommand('copy');
+    
+    const originalText = button.textContent;
+    button.textContent = 'Copied!';
+    button.classList.add('copied');
+    
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.classList.remove('copied');
+    }, 2000);
+    
+  } catch (err) {
+    console.error('Failed to copy text: ', err);
+    alert('Copy failed. Please select and copy manually.');
+  }
+  
+  document.body.removeChild(textarea);
+}
+</script>
+
+</body></html>

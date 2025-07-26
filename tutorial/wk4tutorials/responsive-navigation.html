@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html><head> 
+<link rel="stylesheet" href="https://templates.lcs.brightspace.com/lib/assets/css/styles.min.css"> 
+<style>
+/* Copy button styles */
+.code-container {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.copy-button:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+.copy-button.copied {
+  background: #28a745;
+}
+
+.copy-button.copied::after {
+  content: ' ✓';
+}
+
+/* Make sure code blocks have proper positioning */
+pre {
+  position: relative;
+  background-color: #f5f5f5 !important;
+  padding: 1rem !important;
+  border-radius: 3px !important;
+  font-family: monospace !important;
+  font-size: 0.9em !important;
+  overflow-x: auto !important;
+  margin: 1rem 0 !important;
+}
+</style>
+</head><body style="color: rgb(32, 33, 34); font-family: arial, helvetica, sans-serif; font-size: 12px;"><div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 100%; margin: 0; padding: 1rem; background-color: #ffffff;">
+
+<h2 style="color: #4d1979; font-size: 1.3em; margin-top: 1.5rem; margin-bottom: 1rem;">Tutorial 1: Building Responsive Navigation</h2>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Overview</h3>
+<p>Learn to create mobile-friendly navigation that adapts to different screen sizes using CSS-only techniques. This tutorial focuses on building a flexible navigation system that works perfectly on mobile, tablet, and desktop devices.</p>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Learning Objectives</h3>
+<p>By the end of this tutorial, you will be able to:</p>
+<ul style="margin: 1rem 0; padding-left: 1.5rem;">
+<li>Create a mobile-first navigation menu</li>
+<li>Use CSS to hide/show navigation without JavaScript</li>
+<li>Style navigation that looks good on all devices</li>
+<li>Test your navigation on different screen sizes</li>
+</ul>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #2196f3; margin: 1rem 0;">
+<h3 style="color: #1976d2; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">What You Need</h3>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li>A text editor (VS Code, Sublime Text, etc.)</li>
+<li>A web browser with developer tools</li>
+<li>Basic knowledge of HTML and CSS</li>
+</ul>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 1: Navigation HTML Structure</h3>
+<p>Build your navigation using semantic HTML with the checkbox technique for mobile hamburger menus:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>&lt;nav class="main-nav" aria-label="Main navigation"&gt;
+    &lt;div class="logo"&gt;
+        &lt;h1&gt;My Website&lt;/h1&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Hidden checkbox for hamburger menu toggle --&gt;
+    &lt;input type="checkbox" id="menu-toggle" class="menu-toggle"&gt;
+    
+    &lt;!-- Hamburger menu button (visible on mobile) --&gt;
+    &lt;label for="menu-toggle" class="menu-button" aria-label="Toggle navigation menu"&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    
+    &lt;!-- Navigation menu items --&gt;
+    &lt;ul class="nav-menu"&gt;
+        &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#services"&gt;Services&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+</div>
+
+<div style="background-color: #e8f5e8; border-left: 4px solid #4caf50; padding: 1rem; margin: 1rem 0;">
+<h4 style="color: #2e7d32; margin-top: 0;">Key HTML Elements Explained:</h4>
+<ul style="color: #2e7d32;">
+<li><strong>&lt;nav&gt;</strong> - Semantic element for navigation sections</li>
+<li><strong>aria-label</strong> - Accessibility label for screen readers</li>
+<li><strong>checkbox + label</strong> - CSS-only technique for hamburger menu</li>
+<li><strong>class names</strong> - Follow clear naming conventions for styling</li>
+</ul>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 2: Basic Mobile Styles</h3>
+<p>Start with styles for mobile devices (this is called "mobile-first" design):</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Main navigation container */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    position: relative;
+}
+
+/* Logo styles */
+.logo h1 {
+    color: white;
+    font-size: 1.5rem;
+}</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 3: Mobile Menu Button</h3>
+<p>Create the "hamburger" menu button that shows on mobile:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Hide the checkbox (we'll use it for clicking) */
+.menu-toggle {
+    display: none;
+}
+
+/* Style the menu button (hamburger icon) */
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.menu-button span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 4: Mobile Menu Styles</h3>
+<p>Style the navigation menu for mobile devices:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Mobile menu - starts hidden */
+.nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    list-style: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.nav-menu li {
+    width: 100%;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #555;
+}
+
+.nav-menu a:hover {
+    background-color: #555;
+}
+
+/* Show menu when checkbox is checked */
+.menu-toggle:checked + .menu-button + .nav-menu {
+    max-height: 300px;
+}</code></pre>
+</div>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #4caf50; margin: 1rem 0;">
+<h3 style="color: #2e7d32; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Test Your Mobile Menu</h3>
+<p>Save your files and open them in a browser. Try these steps:</p>
+<ol style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li>Open your page in a browser</li>
+<li>Make the browser window narrow (like a phone)</li>
+<li>Click the hamburger menu - does it open and close?</li>
+</ol>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Step 5: Tablet and Desktop Styles</h3>
+<p>Now add styles for larger screens using media queries:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Tablet and larger screens */
+@media (min-width: 768px) {
+    .main-nav {
+        padding: 1rem 2rem;
+    }
+    
+    /* Hide the mobile menu button */
+    .menu-button {
+        display: none;
+    }
+    
+    /* Show menu items horizontally */
+    .nav-menu {
+        position: static;
+        display: flex;
+        width: auto;
+        max-height: none;
+        overflow: visible;
+        background-color: transparent;
+    }
+    
+    .nav-menu li {
+        width: auto;
+        margin-left: 2rem;
+    }
+    
+    .nav-menu a {
+        padding: 0.5rem 0;
+        border-bottom: none;
+    }
+    
+    .nav-menu a:hover {
+        background-color: transparent;
+        color: #ccc;
+    }
+}</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Key Takeaways</h3>
+<ul style="margin: 1rem 0; padding-left: 1.5rem;">
+<li><strong>Mobile-first design:</strong> Start with mobile styles, then enhance for larger screens</li>
+<li><strong>CSS-only interactivity:</strong> Use checkboxes and labels for mobile menus without JavaScript</li>
+<li><strong>Media queries:</strong> Use <code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">@media (min-width: 768px)</code> to target larger screens</li>
+<li><strong>Testing is crucial:</strong> Always test your navigation on different screen sizes</li>
+</ul>
+
+<footer style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #ddd;">
+  <p><a href="code-snippets.html">← Back to Tutorial Hub</a> | <a href="responsive-images-typography.html">Next: Images & Typography →</a></p>
+</footer>
+
+</div>
+
+<script>
+function copyCode(button) {
+  const codeContainer = button.parentElement;
+  const codeElement = codeContainer.querySelector('code');
+  const textToCopy = codeElement.textContent;
+  
+  const textarea = document.createElement('textarea');
+  textarea.value = textToCopy;
+  document.body.appendChild(textarea);
+  
+  textarea.select();
+  textarea.setSelectionRange(0, 99999);
+  
+  try {
+    document.execCommand('copy');
+    
+    const originalText = button.textContent;
+    button.textContent = 'Copied!';
+    button.classList.add('copied');
+    
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.classList.remove('copied');
+    }, 2000);
+    
+  } catch (err) {
+    console.error('Failed to copy text: ', err);
+    alert('Copy failed. Please select and copy manually.');
+  }
+  
+  document.body.removeChild(textarea);
+}
+</script>
+
+<footer style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #ddd;">
+  <p><a href="code-snippets.html">← Back to Tutorial Hub</a> | <a href="responsive-images-typography.html">Next: Images & Typography →</a></p>
+  <p style="margin-top: 1rem; font-size: 0.9em; color: #666;">
+    💡 <strong>Tip:</strong> Return to D2L to continue with the next video, then come back here for more code snippets.
+  </p>
+</footer>
+
+</body></html>

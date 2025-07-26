@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Elements</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <div class="grid-container">
+   
+    <div class="header">
+  <nav class="main-nav">
+    <div class="logo">
+      <h1 class="logo-text">YourSite</h1>
+    </div>
+    
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-toggle-label">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    
+    <ul class="nav-menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
+<div class="hero">
+  <picture class="hero-image">
+    <source media="(min-width: 1024px)" 
+            srcset="hero-desktop.webp 1200w, hero-desktop@2x.webp 2400w" 
+            sizes="100vw">
+    <source media="(min-width: 768px)" 
+            srcset="hero-tablet.webp 768w, hero-tablet@2x.webp 1536w" 
+            sizes="100vw">
+    <source srcset="hero-mobile.webp 480w, hero-mobile@2x.webp 960w" 
+            sizes="100vw">
+    <img src="hero-mobile.jpg" alt="Hero image description" class="responsive-image">
+  </picture>
+  
+  <div class="hero-content">
+    <h1>Responsive Design Excellence</h1>
+    <p class="lead-text">Creating web experiences that work beautifully on every device</p>
+    <button class="cta-button">Get Started</button>
+  </div>
+</div>
+
+<div class="features">
+      <div>Feature 1</div>
+      <div>Feature 2</div>
+      <div>Feature 3</div>
+    </div>
+    <div class="gallery">
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+      <div>Item 4</div>
+    </div>
+  </div>
+</body>
+</html>

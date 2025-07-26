@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html><head> 
+<link rel="stylesheet" href="https://templates.lcs.brightspace.com/lib/assets/css/styles.min.css"> 
+<style>
+/* Copy button styles */
+.code-container {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.copy-button:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+.copy-button.copied {
+  background: #28a745;
+}
+
+.copy-button.copied::after {
+  content: ' ✓';
+}
+
+/* Make sure code blocks have proper positioning */
+pre {
+  position: relative;
+  background-color: #f5f5f5 !important;
+  padding: 1rem !important;
+  border-radius: 3px !important;
+  font-family: monospace !important;
+  font-size: 0.9em !important;
+  overflow-x: auto !important;
+  margin: 1rem 0 !important;
+}
+</style>
+</head><body style="color: rgb(32, 33, 34); font-family: arial, helvetica, sans-serif; font-size: 12px;"><div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 100%; margin: 0; padding: 1rem; background-color: #ffffff;">
+
+<h2 style="color: #4d1979; font-size: 1.3em; margin-top: 1.5rem; margin-bottom: 1rem;">Tutorial 0: Web Development Fundamentals and Environment Setup</h2>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Overview</h3>
+<p>Before diving into responsive design, you need to understand the fundamentals of web development and set up your development environment. This tutorial ensures you have the foundation and tools needed for successful web development.</p>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Learning Objectives</h3>
+<p>By the end of this tutorial, you will be able to:</p>
+<ul style="margin: 1rem 0; padding-left: 1.5rem;">
+<li>Understand how websites work and the role of HTML, CSS, and the browser</li>
+<li>Set up a professional development environment</li>
+<li>Create and organize project files correctly</li>
+<li>Use browser developer tools for testing and debugging</li>
+<li>Understand mobile-first thinking and why it matters</li>
+</ul>
+
+<div style="background-color: #f9f9f9; padding: 1rem; border-left: 4px solid #2196f3; margin: 1rem 0;">
+<h3 style="color: #1976d2; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">What You'll Need</h3>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li>A computer with internet access</li>
+<li>30-45 minutes to complete this tutorial</li>
+<li>Willingness to learn and experiment</li>
+</ul>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Part 1: Understanding How Websites Work</h3>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">The Web Development Trinity</h4>
+<p>Every website you visit is built using three core technologies:</p>
+
+<div style="background-color: #e8f5e8; padding: 1rem; border-left: 4px solid #4caf50; margin: 1rem 0;">
+<h4 style="color: #2e7d32; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">HTML (Structure)</h4>
+<p><strong>What it does:</strong> Creates the content and structure of your webpage</p>
+<p><strong>Think of it as:</strong> The skeleton and organs of a body</p>
+<p><strong>Example:</strong> Headings, paragraphs, images, links</p>
+</div>
+
+<div style="background-color: #e3f2fd; padding: 1rem; border-left: 4px solid #2196f3; margin: 1rem 0;">
+<h4 style="color: #1976d2; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">CSS (Styling)</h4>
+<p><strong>What it does:</strong> Controls how your webpage looks and feels</p>
+<p><strong>Think of it as:</strong> The skin, clothing, and makeup</p>
+<p><strong>Example:</strong> Colors, fonts, spacing, layouts</p>
+</div>
+
+<div style="background-color: #fff3e0; padding: 1rem; border-left: 4px solid #ff9800; margin: 1rem 0;">
+<h4 style="color: #f57c00; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Browser (Interpreter)</h4>
+<p><strong>What it does:</strong> Reads your HTML and CSS, then displays the result</p>
+<p><strong>Think of it as:</strong> A translator that turns code into visual websites</p>
+<p><strong>Example:</strong> Chrome, Firefox, Safari, Edge</p>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Part 2: Setting Up Your Development Environment</h3>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">Step 1: Choose a Text Editor</h4>
+<p>You need a good text editor to write your code. Here are the best free options:</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin: 1rem 0;">
+<div style="background-color: #f5f5f5; padding: 1rem; border-radius: 5px;">
+<h5 style="color: #4d1979; margin-top: 0;">Visual Studio Code (Recommended)</h5>
+<p><strong>Why it's great:</strong></p>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li>Free and very popular</li>
+<li>Built-in preview features</li>
+<li>Excellent for beginners</li>
+<li>Great extensions available</li>
+</ul>
+<p><strong>Download:</strong> <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">code.visualstudio.com</a></p>
+</div>
+
+<div style="background-color: #f5f5f5; padding: 1rem; border-radius: 5px;">
+<h5 style="color: #4d1979; margin-top: 0;">Alternative Options</h5>
+<p><strong>Other good choices:</strong></p>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li><strong>Sublime Text:</strong> Fast and lightweight</li>
+<li><strong>Atom:</strong> Highly customizable</li>
+<li><strong>Notepad++:</strong> Simple and reliable (Windows)</li>
+</ul>
+<p><em>Choose one and stick with it for this course!</em></p>
+</div>
+</div>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">Step 2: Organize Your Project Folder</h4>
+<p>Good organization saves time and prevents errors. Here's the recommended structure:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>my-website/
+├── index.html          (Your main webpage)
+├── style.css           (Your CSS styling)
+├── images/             (Folder for all images)
+│   ├── logo.png
+│   └── banner.jpg
+└── pages/              (Additional pages)
+    ├── about.html
+    └── contact.html</code></pre>
+</div>
+
+<div style="background-color: #fff9c4; padding: 1rem; border-left: 4px solid #ffc107; margin: 1rem 0;">
+<h4 style="color: #f57c00; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">💡 Pro Tips for File Organization</h4>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li><strong>Use lowercase names:</strong> <code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">about.html</code>, not <code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">About.HTML</code></li>
+<li><strong>No spaces in filenames:</strong> Use <code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">my-project.html</code> instead of <code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">my project.html</code></li>
+<li><strong>Keep it simple:</strong> Clear, descriptive names work best</li>
+</ul>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Part 3: Your First Webpage</h3>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">Step 1: Create Your HTML File</h4>
+<p>Create a new file called <code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">index.html</code> and add this basic structure:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My First Website&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    
+    &lt;main&gt;
+        &lt;section id="home"&gt;
+            &lt;h2&gt;Home Section&lt;/h2&gt;
+            &lt;p&gt;This is the main content area of my website.&lt;/p&gt;
+        &lt;/section&gt;
+        
+        &lt;section id="about"&gt;
+            &lt;h2&gt;About Section&lt;/h2&gt;
+            &lt;p&gt;Learn more about me and my projects.&lt;/p&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+    
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2025 My Website. All rights reserved.&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">Understanding the HTML Structure</h4>
+<div style="background-color: #f0f8ff; padding: 1rem; border-left: 4px solid #2196f3; margin: 1rem 0;">
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li><strong>&lt;meta name="viewport"&gt;:</strong> This makes your site mobile-friendly (very important!)</li>
+<li><strong>&lt;link rel="stylesheet"&gt;:</strong> Connects your CSS file to your HTML</li>
+<li><strong>&lt;header&gt;, &lt;main&gt;, &lt;footer&gt;:</strong> Semantic HTML elements that give structure meaning</li>
+<li><strong>&lt;nav&gt;:</strong> Dedicated area for navigation links</li>
+</ul>
+</div>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">Step 2: Create Your CSS File</h4>
+<p>Create a new file called <code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">style.css</code> with these basic styles:</p>
+
+<div class="code-container">
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+<pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; overflow-x: auto;"><code>/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic body styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Header styles */
+header {
+    background-color: #4d1979;
+    color: white;
+    padding: 1rem;
+}
+
+header h1 {
+    margin-bottom: 1rem;
+}
+
+/* Navigation styles */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 3px;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Main content */
+main {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}</code></pre>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Part 4: Understanding Browser Developer Tools</h3>
+
+<p>Browser developer tools are essential for web development. They let you inspect, test, and debug your websites.</p>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">How to Open Developer Tools</h4>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1rem 0;">
+<div style="background-color: #f5f5f5; padding: 1rem; border-radius: 5px;">
+<h5 style="color: #4d1979; margin-top: 0;">Method 1: Right-click</h5>
+<ol style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li>Right-click anywhere on your webpage</li>
+<li>Select "Inspect" or "Inspect Element"</li>
+</ol>
+</div>
+
+<div style="background-color: #f5f5f5; padding: 1rem; border-radius: 5px;">
+<h5 style="color: #4d1979; margin-top: 0;">Method 2: Keyboard shortcut</h5>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li><strong>Windows:</strong> F12 or Ctrl+Shift+I</li>
+<li><strong>Mac:</strong> Cmd+Option+I</li>
+</ul>
+</div>
+</div>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">Key Developer Tools Features</h4>
+
+<div style="background-color: #e8f5e8; padding: 1rem; border-left: 4px solid #4caf50; margin: 1rem 0;">
+<h5 style="color: #2e7d32; margin-top: 0;">Elements Tab</h5>
+<p><strong>What it shows:</strong> Your HTML structure</p>
+<p><strong>What you can do:</strong> Edit HTML live, see which CSS rules apply</p>
+<p><strong>Try this:</strong> Click on any element to highlight it on the page</p>
+</div>
+
+<div style="background-color: #e3f2fd; padding: 1rem; border-left: 4px solid #2196f3; margin: 1rem 0;">
+<h5 style="color: #1976d2; margin-top: 0;">Console Tab</h5>
+<p><strong>What it shows:</strong> Error messages and warnings</p>
+<p><strong>What you can do:</strong> See if anything is broken on your page</p>
+<p><strong>Try this:</strong> Look for red error messages</p>
+</div>
+
+<div style="background-color: #fff3e0; padding: 1rem; border-left: 4px solid #ff9800; margin: 1rem 0;">
+<h5 style="color: #f57c00; margin-top: 0;">Device Toggle (📱 icon)</h5>
+<p><strong>What it shows:</strong> How your site looks on different devices</p>
+<p><strong>What you can do:</strong> Test mobile and tablet views</p>
+<p><strong>Try this:</strong> Click the phone icon and select "iPhone" or "iPad"</p>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Part 5: Introduction to Mobile-First Thinking</h3>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">Why Mobile-First Matters</h4>
+<p>Mobile-first design means starting with the mobile experience and then enhancing for larger screens. Here's why this matters:</p>
+
+<div style="background-color: #fff9c4; padding: 1rem; border-left: 4px solid #ffc107; margin: 1rem 0;">
+<h5 style="color: #f57c00; margin-top: 0;">The Reality of Web Usage</h5>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li><strong>Over 60%</strong> of web traffic comes from mobile devices</li>
+<li><strong>Mobile users</strong> often have slower internet connections</li>
+<li><strong>Touch interfaces</strong> require different design considerations</li>
+<li><strong>Screen space</strong> is limited and precious</li>
+</ul>
+</div>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">Mobile-First Design Principles</h4>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin: 1rem 0;">
+<div style="background-color: #f5f5f5; padding: 1rem; border-radius: 5px;">
+<h5 style="color: #4d1979; margin-top: 0;">Content Priority</h5>
+<p>Put the most important information first. Mobile users want to find what they need quickly.</p>
+</div>
+
+<div style="background-color: #f5f5f5; padding: 1rem; border-radius: 5px;">
+<h5 style="color: #4d1979; margin-top: 0;">Touch-Friendly Design</h5>
+<p>Buttons and links need to be large enough for fingers (minimum 44px).</p>
+</div>
+
+<div style="background-color: #f5f5f5; padding: 1rem; border-radius: 5px;">
+<h5 style="color: #4d1979; margin-top: 0;">Fast Loading</h5>
+<p>Mobile connections can be slow, so optimize images and minimize code.</p>
+</div>
+
+<div style="background-color: #f5f5f5; padding: 1rem; border-radius: 5px;">
+<h5 style="color: #4d1979; margin-top: 0;">Simple Navigation</h5>
+<p>Complex menus don't work well on small screens. Keep it simple.</p>
+</div>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Part 6: Testing Your Setup</h3>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">Quick Test Checklist</h4>
+<p>Follow these steps to make sure everything is working:</p>
+
+<ol style="margin: 1rem 0; padding-left: 1.5rem;">
+<li><strong>Save both files</strong> in the same folder</li>
+<li><strong>Double-click your HTML file</strong> - it should open in your browser</li>
+<li><strong>Check the styling</strong> - you should see a purple header and white background</li>
+<li><strong>Open developer tools</strong> and click the device toggle</li>
+<li><strong>Test mobile view</strong> - try "iPhone 12" or "Galaxy S20"</li>
+<li><strong>Check for errors</strong> in the Console tab</li>
+</ol>
+
+<div style="background-color: #e8f5e8; padding: 1rem; border-left: 4px solid #4caf50; margin: 1rem 0;">
+<h4 style="color: #2e7d32; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">✅ Success Indicators</h4>
+<p>If everything is working correctly, you should see:</p>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li>A webpage with a purple header and navigation</li>
+<li>No error messages in the Console</li>
+<li>The page responds when you switch to mobile view</li>
+<li>Links change color when you hover over them</li>
+</ul>
+</div>
+
+<div style="background-color: #ffebee; padding: 1rem; border-left: 4px solid #f44336; margin: 1rem 0;">
+<h4 style="color: #c62828; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">🚨 Common Problems and Solutions</h4>
+<p><strong>Problem:</strong> "CSS not loading" (page looks plain)</p>
+<p><strong>Solution:</strong> Check that both files are in the same folder and the CSS filename is exactly <code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">style.css</code></p>
+
+<p><strong>Problem:</strong> "File won't open"</p>
+<p><strong>Solution:</strong> Make sure you saved the file with <code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">.html</code> extension, not <code style="background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace;">.txt</code></p>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Part 7: Getting Ready for Tutorial 1</h3>
+
+<p>Now that you have your development environment set up, you're ready to start building responsive websites! Here's what you've accomplished:</p>
+
+<div style="background-color: #f0f8ff; padding: 1rem; border-left: 4px solid #2196f3; margin: 1rem 0;">
+<h4 style="color: #1976d2; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Skills You've Developed</h4>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li>✅ Understanding the relationship between HTML, CSS, and browsers</li>
+<li>✅ Setting up a professional development environment</li>
+<li>✅ Creating and organizing web project files</li>
+<li>✅ Using browser developer tools for testing</li>
+<li>✅ Understanding mobile-first design principles</li>
+<li>✅ Testing your website on different device sizes</li>
+</ul>
+</div>
+
+<h4 style="color: #4d1979; font-size: 1.1em; margin-top: 1rem; margin-bottom: 0.5rem;">What's Next?</h4>
+<p>In <strong>Tutorial 1: Responsive Navigation</strong>, you'll learn to:</p>
+<ul style="margin: 1rem 0; padding-left: 1.5rem;">
+<li>Create mobile-friendly navigation menus</li>
+<li>Use CSS-only techniques for interactive elements</li>
+<li>Apply media queries for different screen sizes</li>
+<li>Build navigation that works on touch devices</li>
+</ul>
+
+<div style="background-color: #fff9c4; padding: 1rem; border-left: 4px solid #ffc107; margin: 1rem 0;">
+<h4 style="color: #f57c00; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">💡 Before Moving to Tutorial 1</h4>
+<p>Practice what you've learned:</p>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li>Try changing colors in your CSS file</li>
+<li>Add more content sections to your HTML</li>
+<li>Experiment with the mobile view in developer tools</li>
+<li>Save your project - you'll build on it in the next tutorials!</li>
+</ul>
+</div>
+
+<h3 style="color: #4d1979; font-size: 1.2em; margin-top: 1.5rem; margin-bottom: 1rem;">Quick Reference Guide</h3>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin: 1rem 0;">
+<div style="background-color: #f5f5f5; padding: 1rem; border-radius: 5px;">
+<h5 style="color: #4d1979; margin-top: 0;">Essential Keyboard Shortcuts</h5>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li><strong>Ctrl+S / Cmd+S:</strong> Save file</li>
+<li><strong>F12:</strong> Open developer tools</li>
+<li><strong>Ctrl+R / Cmd+R:</strong> Refresh page</li>
+<li><strong>Ctrl+Shift+I:</strong> Inspect element</li>
+</ul>
+</div>
+
+<div style="background-color: #f5f5f5; padding: 1rem; border-radius: 5px;">
+<h5 style="color: #4d1979; margin-top: 0;">File Organization Reminders</h5>
+<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+<li>Keep HTML and CSS files in the same folder</li>
+<li>Use lowercase, no spaces in filenames</li>
+<li>Create an 'images' folder for pictures</li>
+<li>Always save with correct file extensions</li>
+</ul>
+</div>
+</div>
+
+<div style="background-color: #e8f5e8; padding: 1rem; border-left: 4px solid #4caf50; margin: 1rem 0;">
+<h3 style="color: #2e7d32; font-size: 1.1em; margin-top: 0; margin-bottom: 0.5rem;">Congratulations!</h3>
+<p>You've successfully completed Tutorial 0! You now have a solid foundation for web development and are ready to tackle responsive design. Remember: every professional web developer started exactly where you are now. The most important thing is to keep practicing and experimenting.</p>
+</div>
+
+<div style="text-align: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #ddd; color: #666; font-size: 0.9em;">
+<p><em>Tutorial 0 of 5: Web Fundamentals • Part of MLA 60970 Web Development Series</em></p>
+<p><strong>Next:</strong> <a href="tutorial-1-responsive-navigation.html" style="color: #4d1979;">Tutorial 1: Responsive Navigation</a></p>
+</div>
+
+</div>
+
+<script>
+function copyCode(button) {
+  const codeContainer = button.parentElement;
+  const codeElement = codeContainer.querySelector('code');
+  const textToCopy = codeElement.textContent;
+  
+  const textarea = document.createElement('textarea');
+  textarea.value = textToCopy;
+  document.body.appendChild(textarea);
+  
+  textarea.select();
+  textarea.setSelectionRange(0, 99999);
+  
+  try {
+    document.execCommand('copy');
+    
+    const originalText = button.textContent;
+    button.textContent = 'Copied!';
+    button.classList.add('copied');
+    
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.classList.remove('copied');
+    }, 2000);
+    
+  } catch (err) {
+    console.error('Failed to copy text: ', err);
+    alert('Copy failed. Please select and copy manually.');
+  }
+  
+  document.body.removeChild(textarea);
+}
+</script>
+
+</body></html>

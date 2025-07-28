@@ -11,6 +11,11 @@
 /* =================================
    1. Reset & Base Styles
    ================================= */
+/* Base HTML behavior */
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --primary-color: #4D1979;
     --secondary-color: #2E86AB;
@@ -37,6 +42,12 @@ body {
 img {
     max-width: 100%;
     height: auto;
+}
+
+/* Accessibility improvements */
+a:focus, button:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 /* =================================
@@ -117,10 +128,17 @@ figcaption {
     line-height: 1.4;
 }
 
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 /* Hero Section */
 .hero { 
     background-color: var(--secondary-color);
     color: var(--white);
+    animation: fadeIn 1s ease-in;
     background-image: 
         linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)),
         url('images/rode_swags_early_studio.jpg');
@@ -168,6 +186,13 @@ figcaption {
 .feature-link:hover div {
     transform: translateY(-2px);
     transition: transform 0.2s ease;
+}
+
+/* Project link hover effect */
+.project-link:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
 }
 
 .features h2 {
